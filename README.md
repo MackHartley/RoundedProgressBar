@@ -1,4 +1,5 @@
-# RoundedProgressBar
+# RoundedProgressBar [![Generic badge](https://img.shields.io/badge/Platform-Android-lightgray.svg)](https://developer.android.com/) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity)
+
 A customizable, animated progress bar that features rounded corners. This Android library is designed to be no-frills and simple to use 🎉
 
 # Gradle Setup
