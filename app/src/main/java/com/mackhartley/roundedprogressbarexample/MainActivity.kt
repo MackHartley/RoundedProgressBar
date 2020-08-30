@@ -9,8 +9,8 @@ import kotlin.random.Random
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        const val MIN_INCREMENT = 5.0
-        const val MAX_INCREMENT = 15.0
+        const val MIN_INCREMENT = 15.0
+        const val MAX_INCREMENT = 25.0
     }
 
     private lateinit var roundedProgressBar1: RoundedProgressBar
