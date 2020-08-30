@@ -5,6 +5,8 @@ Using the `RoundedProgressBar` library you have a wide range of customizable opt
 
 <img src="/demoimgs/roundedProgressBarDemo.gif" width="400"/>
 
+*This demo app is included in this repository under the app directory*
+
 # Gradle Setup ⚙️
 [![](https://jitpack.io/v/MackHartley/RoundedProgressBar.svg)](https://jitpack.io/#MackHartley/RoundedProgressBar)
 
