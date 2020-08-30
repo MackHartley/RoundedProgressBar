@@ -3,7 +3,7 @@
 
 Using the `RoundedProgressBar` library you have a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting just a few examples of different looking progress bars created with this library:
 
-![ProgressBar Demo](demoimgs/roundedProgressBarDemo.gif)
+![ProgressBar Demo](demoimgs/roundedProgressBarDemo.gif | width=100)
 
 # Gradle Setup ⚙️
 [![](https://jitpack.io/v/MackHartley/RoundedProgressBar.svg)](https://jitpack.io/#MackHartley/RoundedProgressBar)
