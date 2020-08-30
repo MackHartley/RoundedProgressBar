@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="rpb_default_progress_bg_color">#BBBBBB</color>
+    <color name="rpb_default_progress_color">#FF9B42</color>
+    <color name="rpb_default_text_color">#000000</color>
+
+</resources>

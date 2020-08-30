@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <!--    For the progress bar modified programmatically-->
+    <color name="progress_color_1">#0D5C63</color>
+    <color name="progress_background_color_1">#44A1A0</color>
+    <color name="text_color_1">#F87575</color>
+    <color name="bg_text_color_1">#222222</color>
+
+    <!--    For the progress bar modified via xml-->
+    <color name="progress_color_2">#546D64</color>
+    <color name="progress_background_color_2">#3C896D</color>
+    <color name="text_color_2">#FAF3DD</color>
+    <color name="bg_text_color_2">#50FFB1</color>
+
+    <!--    For the progress bar modified via xml-->
+    <color name="progress_color_3">#000000</color>
+    <color name="progress_background_color_3">#BBBBBB</color>
+    <color name="text_color_3">#EEEEEE</color>
+    <color name="bg_text_color_3">#000000</color>
+
+    <!--    For the progress bar modified via xml-->
+    <color name="progress_color_4">#0072BB</color>
+    <color name="progress_background_color_4">#1E91D6</color>
+    <color name="text_color_4">#E4CC37</color>
+    <color name="bg_text_color_4">#F08A4B</color>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundedProgressBar">
+        <attr name="rpbProgress" format="integer" />
+        <attr name="rpbProgressColor" format="reference" />
+        <attr name="rpbProgressBgColor" format="reference" />
+        <attr name="rpbTextSize" format="dimension" />
+        <attr name="rpbTextColor" format="reference" />
+        <attr name="rpbBgTextColor" format="reference" />
+        <attr name="rpbShowProgressText" format="boolean" />
+        <attr name="rpbAnimationLength" format="integer" />
+    </declare-styleable>
+</resources>

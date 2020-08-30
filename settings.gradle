@@ -1,0 +1,2 @@
+include ':app', ':roundedprogressbar'
+rootProject.name = "RoundedProgressBarExample"
