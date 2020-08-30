@@ -3,7 +3,7 @@
 
 Using the `RoundedProgressBar` library you have a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting just a few examples of different looking progress bars created with this library:
 
- INSERT GIF HERE
+
 
 # Gradle Setup ⚙️
 [![](https://jitpack.io/v/MackHartley/RoundedProgressBar.svg)](https://jitpack.io/#MackHartley/RoundedProgressBar)
@@ -66,7 +66,7 @@ Each setter is accessible via xml as well. Here I've mapped each setter to its c
 
 # Why I Made This 💭
 
-A while back I was working on an Android app which relied heavily on having a few good looking progress bars. I found THIS library which was the best option in my opinion. However, as my project progressed I encountered the following issues with it:
+A while back I was working on an Android app which relied heavily on having a few good looking progress bars. I found [this](https://github.com/akexorcist/RoundCornerProgressBar) library which was the best option in my opinion. However, as my project progressed I encountered the following issues with it:
 
 - No ability to set text color depending on where it's drawn
 - Issues with saving state on config change when using multiple progress bars
@@ -75,7 +75,7 @@ A while back I was working on an Android app which relied heavily on having a fe
 
 Unfortunately, these issues weren't acceptable for my use case, and that library was the best option I could find online. So not one to settle I decided to make something better suited for what I needed.
 
-This is not to say that library is bad, it is quite good and has many more features than this library. However, my focus with this library was to make something simple that did a good job at just being a standard 0 - 100% style progress bar.
+This is not to say that library is bad, it is quite good and has many more features than my library. However, my focus with this library was to make something simple that did a good job at just being a standard 0 to 100% style progress bar.
 
 # Contributing 🤝
 Feel free to open up issues on this repo to report bugs or request features. Additionally if you'd like to contribute to the library feel free to open up a pull request. 
