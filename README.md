@@ -5,16 +5,16 @@ A customizable, animated progress bar that features rounded corners. This Androi
 If you don't have this already, add it to your *root* build.gradle file:
 ```
 allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
 }
 ```
 
 Then you can add the dependency to your *app* build.gradle file:
 ```
 dependencies {
-	implementation 'com.github.MackHartley:RoundedProgressBar:Tag'
+    implementation 'com.github.MackHartley:RoundedProgressBar:Tag'
 }
 ```
