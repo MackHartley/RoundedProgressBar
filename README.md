@@ -46,12 +46,15 @@ These are the methods which can be called on the RoundedProgressBar class:
 ```
 setProgressPercentage(progressPercentage: Double, shouldAnimate: Boolean = true)
 getProgressPercentage(): Double
+
 setProgressColor(colorRes: Int) // Sets the color of the 'progress' part of the progress bar
 setProgressBgColor(colorRes: Int) // Sets the color of the progress bar background
-setTextSize(sizeInPixels: Float)
+
 setTextColor(colorRes: Int) // Sets text color for when it is drawn over the progress part of progress bar
 setBgTextColor(colorRes: Int) // Sets text color for when it is drawn over the progress bar background
+setTextSize(sizeInPixels: Float)
 showProgressText(shouldShowProgressText: Boolean) // Hide or show the progress text
+
 setAnimationLength(newAnimationLength: Long)
 ```
 
