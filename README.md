@@ -42,34 +42,34 @@ Additionally, the `RoundedProgressBar` handles all state on config changes inclu
 
 # Public Methods and Xml Attributes ⌨️
 These are the methods which can be called on the RoundedProgressBar class:
-```
-// Sets the progress value (between 0 and 100 inclusive)
-setProgressPercentage(progressPercentage: Double, shouldAnimate: Boolean = true)
 
-// Gets the current progress value
-getProgressPercentage(): Double
+Sets the progress value (between 0 and 100 inclusive)
+`setProgressPercentage(progressPercentage: Double, shouldAnimate: Boolean = true)`
 
-// Sets the color of the 'progress' portion of the progress bar
-setProgressColor(colorRes: Int)
+Gets the current progress value
+`getProgressPercentage(): Double`
 
-// Sets the background color of the progress bar
-setProgressBgColor(colorRes: Int)
+Sets the color of the 'progress' portion of the progress bar
+`setProgressColor(colorRes: Int)`
 
-// Sets the text size of the progress text
-setTextSize(sizeInPixels: Float)
+Sets the background color of the progress bar
+`setProgressBgColor(colorRes: Int)`
 
-// Sets the color of the progress text when its dtawn over the progress portion
-setTextColor(colorRes: Int)
+Sets the text size of the progress text
+`setTextSize(sizeInPixels: Float)`
 
-// Sets the color of the progress text when its drawn over the background
-setBgTextColor(colorRes: Int)
+Sets the color of the progress text when its dtawn over the progress portion
+`setTextColor(colorRes: Int)`
 
-// Hide or show the progress text
-showProgressText(shouldShowProgressText: Boolean)  
+Sets the color of the progress text when its drawn over the background
+`setBgTextColor(colorRes: Int)`
 
-// Set the animation length of the progress bar (in milliseconds)
-setAnimationLength(newAnimationLength: Long)
-```
+Hide or show the progress text
+`showProgressText(shouldShowProgressText: Boolean)`
+
+Set the animation length of the progress bar (in milliseconds)
+`setAnimationLength(newAnimationLength: Long)`
+
 
 Each setter is accessible via xml as well. Here I've mapped each setter to its corresponding xml attribute:
 | Method | Xml Attribute |
