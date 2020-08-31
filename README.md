@@ -43,42 +43,17 @@ Additionally, the `RoundedProgressBar` handles all state on config changes inclu
 # Public Methods and Xml Attributes ⌨️
 These are the methods which can be called on the RoundedProgressBar class:
 
-Sets the progress value (between 0 and 100 inclusive)
-
-`setProgressPercentage(progressPercentage: Double, shouldAnimate: Boolean = true)`
-
-Gets the current progress value
-
-`getProgressPercentage(): Double`
-
-Sets the color of the 'progress' portion of the progress bar
-
-`setProgressColor(colorRes: Int)`
-
-Sets the background color of the progress bar
-
-`setProgressBgColor(colorRes: Int)`
-
-Sets the text size of the progress text
-
-`setTextSize(sizeInPixels: Float)`
-
-Sets the color of the progress text when its dtawn over the progress portion
-
-`setTextColor(colorRes: Int)`
-
-Sets the color of the progress text when its drawn over the background
-
-`setBgTextColor(colorRes: Int)`
-
-Hide or show the progress text
-
-`showProgressText(shouldShowProgressText: Boolean)`
-
-Set the animation length of the progress bar (in milliseconds)
-
-`setAnimationLength(newAnimationLength: Long)`
-
+```
+setProgressPercentage(progressPercentage: Double, shouldAnimate: Boolean = true)
+getProgressPercentage(): Double
+setProgressColor(colorRes: Int) // Sets the color of the 'progress' part of the progress bar
+setProgressBgColor(colorRes: Int) // Sets the color of the progress bar background
+setTextSize(sizeInPixels: Float)
+setTextColor(colorRes: Int) // Sets text color for when it is drawn over the progress part of progress bar
+setBgTextColor(colorRes: Int) // Sets text color for when it is drawn over the progress bar background
+showProgressText(shouldShowProgressText: Boolean) // Hide or show the progress text
+setAnimationLength(newAnimationLength: Long)
+```
 
 Each setter is accessible via xml as well. Here I've mapped each setter to its corresponding xml attribute:
 | Method | Xml Attribute |
