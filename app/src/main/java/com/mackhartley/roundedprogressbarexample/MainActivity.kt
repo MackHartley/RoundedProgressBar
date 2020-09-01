@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         roundedProgressBar.setTextColor(R.color.text_color_1)
         roundedProgressBar.setBgTextColor(R.color.bg_text_color_1)
         roundedProgressBar.showProgressText(true)
-        roundedProgressBar.setAnimationLength(400)
+        roundedProgressBar.setAnimationLength(900)
     }
 
     private fun increaseProgress() {

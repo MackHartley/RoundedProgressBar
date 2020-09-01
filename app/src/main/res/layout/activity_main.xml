@@ -65,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@id/extra_bar_1"
         app:rpbAnimationLength="500"
         app:rpbBgTextColor="@color/bg_text_color_4"
+        app:rpbTextSize="@dimen/medlarge_text_size"
         app:rpbProgressBgColor="@color/progress_background_color_4"
         app:rpbProgressColor="@color/progress_color_4"
         app:rpbTextColor="@color/text_color_4" />
