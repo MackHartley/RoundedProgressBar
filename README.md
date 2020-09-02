@@ -30,12 +30,12 @@ dependencies {
 
 # Features 🌟
 
-1) **Percentage complete text** displayed on right hand side of progress bar
-2) **Animaition** of Progress bar and progress text
-3) Can set **foreground and background colors**
-4) Can set **different text colors** for progress text depending on which background it's on top of
-5) The progress bar **looks nice at low values** (an occasional issue with rounded progress bar solutions)
-6) Progress bar can be set to **any height and width**
+1) **Percentage complete text**  displayed on right hand side of progress bar
+2) **Animaition**  of Progress bar and progress text
+3) **Foreground and background colors**  can be set
+4) **Different text colors**  can be set for progress text depending on which background it's on top of
+5) **Looks nice at low values**  (an occasional issue with rounded progress bar solutions)
+6) **Any height and width**  can be used
 
 Additionally, the `RoundedProgressBar` handles all state on config changes including situations where there are multiple progress bars:
 
