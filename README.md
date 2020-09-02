@@ -1,5 +1,5 @@
 # RoundedProgressBar
-[![Generic badge](https://img.shields.io/badge/Platform-Android-lightgray.svg)](https://developer.android.com/) [![API](https://img.shields.io/badge/API-21%2B-lightgrey.svg?style=flat)](https://android-arsenal.com/api?level=21) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity)
+[![Generic badge](https://img.shields.io/badge/Platform-Android-lightgray.svg)](https://developer.android.com/) [![API](https://img.shields.io/badge/API-21%2B-lightgrey.svg?style=flat)](https://android-arsenal.com/api?level=21) [![GitHub issues](https://img.shields.io/github/issues/mackhartley/roundedprogressbar.svg)](https://github.com/MackHartley/RoundedProgressBar/issues) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity)
 
 Using the `RoundedProgressBar` library you have a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting just a few examples of different looking progress bars created with this library:
 
@@ -30,11 +30,12 @@ dependencies {
 
 # Features 🌟
 
-1) Percentage complete text displayed on right hand side of progress bar
-2) Progress bar and progress text animation upon progress change
-3) The progress bar, background view, progress text and background text can all have different colors
-4) The progress bar doesn't look weird at lower values (a common issue with progress bar solutions)
-5) Progress bar can be set to any height and width
+- **Percentage complete text**  displayed on right side of progress bar
+- **Animaition**  of Progress bar and progress text
+- **Foreground and background colors**  can be set
+- **Different text colors**  can be set for progress text depending on which background it's on top of
+- **Looks nice at low values**  (an occasional issue with rounded progress bar solutions)
+- **Any height and width**  can be used
 
 Additionally, the `RoundedProgressBar` handles all state on config changes including situations where there are multiple progress bars:
 
