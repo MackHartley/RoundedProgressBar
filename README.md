@@ -30,7 +30,7 @@ dependencies {
 
 # Features 🌟
 
-- **Percentage complete text**  displayed on right hand side of progress bar
+- **Percentage complete text**  displayed on right side of progress bar
 - **Animaition**  of Progress bar and progress text
 - **Foreground and background colors**  can be set
 - **Different text colors**  can be set for progress text depending on which background it's on top of
