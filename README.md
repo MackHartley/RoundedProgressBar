@@ -30,14 +30,22 @@ dependencies {
 
 # Features 🌟
 
-- **Percentage complete text**  displayed on right side of progress bar
-- **Animaition**  of Progress bar and progress text
-- **Foreground and background colors**  can be set
-- **Different text colors**  can be set for progress text depending on which background it's on top of
-- **Looks nice at low values**  (an occasional issue with rounded progress bar solutions)
-- **Any height and width**  can be used
+1) **Percentage complete text**  displayed on right side of progress bar
+2) **Animaition**  of Progress bar and progress text
 
-Additionally, the `RoundedProgressBar` handles all state on config changes including situations where there are multiple progress bars:
+![Animation Demo](demoimgs/progressTextAndAnimation.gif)
+
+3) **Foreground and background colors**  can be set
+4) **Different text colors**  can be set for progress text depending on which background it's on top of
+5) **Looks nice at low values**  (an occasional issue with rounded progress bar solutions)
+
+![Different Text Colors Demo](demoimgs/differentTextColors.gif)
+
+6) **Any height and width**  can be used
+
+![Sizes Demo](demoimgs/diffSizes.gif)
+
+**Additionally**, the `RoundedProgressBar` handles all state on config changes including situations where there are multiple progress bars:
 
 ![Save State Demo](demoimgs/savesStateOnConfigChange.gif)
 
