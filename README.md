@@ -1,5 +1,5 @@
 # RoundedProgressBar
-[![Generic badge](https://img.shields.io/badge/Platform-Android-lightgray.svg)](https://developer.android.com/) [![API](https://img.shields.io/badge/API-21%2B-lightgrey.svg?style=flat)](https://android-arsenal.com/api?level=21) [![GitHub issues](https://img.shields.io/github/issues/mackhartley/roundedprogressbar.svg)](https://github.com/MackHartley/RoundedProgressBar/issues) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity)
+[![Generic badge](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/) [![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21) [![GitHub issues](https://img.shields.io/github/issues/mackhartley/roundedprogressbar.svg)](https://github.com/MackHartley/RoundedProgressBar/issues) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity)
 
 Using the `RoundedProgressBar` library you have a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting just a few examples of different looking progress bars created with this library:
 
@@ -78,6 +78,9 @@ Each setter is accessible via xml as well. Here I've mapped each setter to its c
 | `setBgTextColor(...)`  | `rpbBgTextColor`  |
 | `showProgressText(...)`  | `rpbShowProgressText`  |
 | `setAnimationLength(...)`  | `rpbAnimationLength`  |
+
+![Progress Bar Diagram](demoimgs/progressBarDiagram.gif)
+*This diagram shows which methods are responsible for setting the different colors of the progress bar*
 
 # Why I Made This 💭
 
