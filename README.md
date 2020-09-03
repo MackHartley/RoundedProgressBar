@@ -79,7 +79,7 @@ Each setter is accessible via xml as well. Here I've mapped each setter to its c
 | `showProgressText(...)`  | `rpbShowProgressText`  |
 | `setAnimationLength(...)`  | `rpbAnimationLength`  |
 
-![Progress Bar Diagram](demoimgs/progressBarDiagram.png)
+<img src="/demoimgs/progressBarDiagram.png" width="600"/>
 *This diagram shows which methods are responsible for setting the different colors of the progress bar*
 
 # Why I Made This 💭
