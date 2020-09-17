@@ -90,6 +90,7 @@ A while back I was working on an Android app which relied heavily on having a fe
 - No ability to set text color depending on where it's drawn
 - Occasional misplacement of text
 - Looks strange at low values (Common issue with rounded progress bars)
+- Doesn't have text animation
 
 Unfortunately, these issues weren't acceptable for my use case, and that library was the best option I could find online. So not one to settle I decided to make something better suited for what I needed.
 
