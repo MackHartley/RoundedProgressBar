@@ -88,7 +88,6 @@ Each setter is accessible via xml as well. Here I've mapped each setter to its c
 A while back I was working on an Android app which relied heavily on having a few good looking progress bars. I found [this](https://github.com/akexorcist/RoundCornerProgressBar) library which was the best option in my opinion. However, as my project progressed I encountered the following issues with it:
 
 - No ability to set text color depending on where it's drawn
-- Issues with saving state on config change when using multiple progress bars
 - Occasional misplacement of text
 - Looks strange at low values (Common issue with rounded progress bars)
 
