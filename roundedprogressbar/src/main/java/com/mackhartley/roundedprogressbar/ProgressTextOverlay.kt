@@ -9,7 +9,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import kotlin.math.max
 
-class ProgressTextOverlay @JvmOverloads constructor(
+internal class ProgressTextOverlay @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
