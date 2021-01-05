@@ -99,7 +99,7 @@ This is not to say that library is bad, it is quite good and has many more featu
 # Contributing 🤝
 Feel free to open up issues on this repo to report bugs or request features. Additionally if you'd like to contribute to the library feel free to open up a pull request. 
 
-Keep in mind that the goal of the library is to make a lightweight and simple rounded progress bar, so features that aren't in line with that goal might not be considered. However everyone is free to make a fork of this repo!
+If you want to make a big change to the repo it's best to contact me first before you start so we can make sure your changes will be appropriate for this library.
 
 # License 📄
 ```
