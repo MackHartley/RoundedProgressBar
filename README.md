@@ -119,9 +119,17 @@ Unfortunately, these issues weren't acceptable for my use case, and that library
 This is not to say that library is bad, it is quite good and has many more features than my library. However, my focus with this library was to make something simple that did a good job at just being a standard '0 - 100% style' progress bar.
 
 # Contributing 🤝
-Feel free to open up issues on this repo to report bugs or request features. Additionally if you'd like to contribute to the library feel free to open up a pull request. 
+Feel free to open up issues on this repo to report bugs or request features. 
 
-If you want to make a big change to the repo it's best to contact me first before you start so we can make sure your changes will be appropriate for this library.
+Additionally if you'd like to contribute to the library feel free to open up a pull request! Just give me a heads up first though (via issues or comments) so we don't overwrite each other.
+
+Special thanks to all those who have supported this repo thus far!
+<p align="center">
+    <br>
+    <a href="https://github.com/MackHartley/RoundedProgressBar/stargazers"><img src="https://reporoster.com/stars/MackHartley/RoundedProgressBar"/></a>
+    <br>
+    <a href="https://github.com/MackHartley/RoundedProgressBar/network/members"><img src="https://reporoster.com/forks/MackHartley/RoundedProgressBar"/></a>
+</p>
 
 # License 📄
 ```
