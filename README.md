@@ -1,11 +1,23 @@
-# RoundedProgressBar
-[![Generic badge](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/) [![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21) [![GitHub issues](https://img.shields.io/github/issues/mackhartley/roundedprogressbar.svg)](https://github.com/MackHartley/RoundedProgressBar/issues) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity)
+<p align="center">
+    <img src="demoimgs/rpbShowcase.gif" alt="animated" />
+</p>
+<h1 align="center">RoundedProgressBar</h1>
+<p align="center">Easy, Beautiful, Customizeable</p>
 
-Using the `RoundedProgressBar` library you have a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting just a few examples of different looking progress bars created with this library:
+<p align="center">
+    <a href="https://developer.android.com/"><img src="https://img.shields.io/badge/Platform-Android-green.svg" height="20"/></a>
+    <a href="https://android-arsenal.com/api?level=21"><img src="https://img.shields.io/badge/API-21%2B-blue.svg?style=flat" height="20"/></a>
+    <a href="https://github.com/MackHartley/RoundedProgressBar/issues"><img src="https://img.shields.io/github/issues/mackhartley/roundedprogressbar.svg" height="20"/></a>
+    <a href="https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg" height="20"/></a>
+</p>
 
-<img src="/demoimgs/roundedProgressBarDemo.gif" width="400"/>
+Using the `RoundedProgressBar` library gives you a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting a few examples of different looking progress bars created with this library:
 
-*This demo app is included in this repository under the app directory*
+<p align="center">
+    <img src="/demoimgs/roundedProgressBarDemo.gif" width="400"/>
+    <br>
+    <i>This demo app is included in this repository under the app directory</i>
+</p>
 
 # Gradle Setup ⚙️
 [![](https://jitpack.io/v/MackHartley/RoundedProgressBar.svg)](https://jitpack.io/#MackHartley/RoundedProgressBar)
@@ -30,24 +42,32 @@ dependencies {
 
 # Features 🌟
 
-1) **Percentage complete text**  displayed on right side of progress bar
-2) **Animaition**  of Progress bar and progress text
+1) **Percentage complete text displayed**
+2) **Animaition**
 
-![Animation Demo](demoimgs/progressTextAndAnimation.gif)
+<p align="center">
+    <img src="demoimgs/progressTextAndAnimation.gif" width="600"/>
+</p>
 
-3) **Foreground and background colors**  can be set
-4) **Different text colors**  can be set for progress text depending on which background it's on top of
-5) **Looks nice at low values**  (an occasional issue with rounded progress bar solutions)
+3) **Set foreground and background colors**
+4) **Separate text colors** (depending on which background the text is drawn over)
+5) **Bar Looks nice at low values** (an occasional issue with rounded progress bar solutions)
 
-![Different Text Colors Demo](demoimgs/differentTextColors.gif)
+<p align="center">
+    <img src="demoimgs/differentTextColors.gif" width="600"/>
+</p>
 
-6) **Any height and width**  can be used
+6) **Any height or width can be set**
 
-![Sizes Demo](demoimgs/diffSizes.gif)
+<p align="center">
+    <img src="demoimgs/diffSizes.gif" width="600"/>
+</p>
 
 **Additionally**, the `RoundedProgressBar` handles all state on config changes including situations where there are multiple progress bars:
 
-![Save State Demo](demoimgs/savesStateOnConfigChange.gif)
+<p align="center">
+    <img src="demoimgs/savesStateOnConfigChange.gif" width="600"/>
+</p>
 
 # Public Methods and Xml Attributes ⌨️
 These are the methods which can be called on the RoundedProgressBar class:
@@ -78,10 +98,12 @@ Each setter is accessible via xml as well. Here I've mapped each setter to its c
 | `setBgTextColor(...)`  | `rpbBgTextColor`  |
 | `showProgressText(...)`  | `rpbShowProgressText`  |
 | `setAnimationLength(...)`  | `rpbAnimationLength`  |
-
-<img src="/demoimgs/progressBarDiagram.png" width="600"/>
-
-*This diagram shows which methods are responsible for setting the different colors of the progress bar*
+<p align="center">
+    <br>
+    <img src="/demoimgs/progressBarDiagram.png" width="600"/>
+    <br>
+    <i>This diagram shows which methods are responsible for setting the different colors of the progress bar</i>
+</p>
 
 # Why I Made This 💭
 
@@ -97,9 +119,17 @@ Unfortunately, these issues weren't acceptable for my use case, and that library
 This is not to say that library is bad, it is quite good and has many more features than my library. However, my focus with this library was to make something simple that did a good job at just being a standard '0 - 100% style' progress bar.
 
 # Contributing 🤝
-Feel free to open up issues on this repo to report bugs or request features. Additionally if you'd like to contribute to the library feel free to open up a pull request. 
+Feel free to open up issues on this repo to report bugs or request features. 
 
-If you want to make a big change to the repo it's best to contact me first before you start so we can make sure your changes will be appropriate for this library.
+Additionally if you'd like to contribute to the library feel free to open up a pull request! Just give me a heads up first though (via issues or comments) so we don't overwrite each other.
+
+Special thanks to all those who have supported this repo thus far!
+<p align="center">
+    <br>
+    <a href="https://github.com/MackHartley/RoundedProgressBar/stargazers"><img src="https://reporoster.com/stars/MackHartley/RoundedProgressBar"/></a>
+    <br>
+    <a href="https://github.com/MackHartley/RoundedProgressBar/network/members"><img src="https://reporoster.com/forks/MackHartley/RoundedProgressBar"/></a>
+</p>
 
 # License 📄
 ```
