@@ -83,20 +83,20 @@ Each setter is accessible via xml as well. Here I've mapped each setter to its c
 
 <p align="center">
 
-| Method | Xml Attribute |
-|---|---|
-| `setProgressPercentage(...)`  | `rpbProgress`  |
-| `setProgressColor(...)`  | `rpbProgressColor`  |
-| `setProgressBgColor(...)`  | `rpbProgressBgColor`  |
-| `setTextSize(...)`  | `rpbTextSize`  |
-| `setTextColor(...)`  | `rpbTextColor`  |
-| `setBgTextColor(...)`  | `rpbBgTextColor`  |
-| `showProgressText(...)`  | `rpbShowProgressText`  |
-| `setAnimationLength(...)`  | `rpbAnimationLength`  |
+    | Method | Xml Attribute |
+    |---|---|
+    | `setProgressPercentage(...)`  | `rpbProgress`  |
+    | `setProgressColor(...)`  | `rpbProgressColor`  |
+    | `setProgressBgColor(...)`  | `rpbProgressBgColor`  |
+    | `setTextSize(...)`  | `rpbTextSize`  |
+    | `setTextColor(...)`  | `rpbTextColor`  |
+    | `setBgTextColor(...)`  | `rpbBgTextColor`  |
+    | `showProgressText(...)`  | `rpbShowProgressText`  |
+    | `setAnimationLength(...)`  | `rpbAnimationLength`  |
 
-<img src="/demoimgs/progressBarDiagram.png" width="600"/>
+    <img src="/demoimgs/progressBarDiagram.png" width="600"/>
 
-*This diagram shows which methods are responsible for setting the different colors of the progress bar*
+    *This diagram shows which methods are responsible for setting the different colors of the progress bar*
 
 </p>
 
