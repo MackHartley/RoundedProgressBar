@@ -1,4 +1,9 @@
-# RoundedProgressBar
+<p align="center">
+    <img src="demoimgs/rpbShowcase.gif" alt="animated" />
+</p>
+<h1 align="center">RoundedProgressBar</h1>
+<p align="center">Easy, Beautiful, Customizeable</p>
+
 [![Generic badge](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/) [![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21) [![GitHub issues](https://img.shields.io/github/issues/mackhartley/roundedprogressbar.svg)](https://github.com/MackHartley/RoundedProgressBar/issues) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity)
 
 Using the `RoundedProgressBar` library you have a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting just a few examples of different looking progress bars created with this library:
