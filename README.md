@@ -16,7 +16,7 @@ Using the `RoundedProgressBar` library you have a wide range of customizable opt
 <p align="center">
     <img src="/demoimgs/roundedProgressBarDemo.gif" width="400"/>
     <br>
-    *This demo app is included in this repository under the app directory*
+    <i>This demo app is included in this repository under the app directory</i>
 </p>
 
 # Gradle Setup ⚙️
@@ -45,21 +45,29 @@ dependencies {
 1) **Percentage complete text**  displayed on right side of progress bar
 2) **Animaition**  of Progress bar and progress text
 
-![Animation Demo](demoimgs/progressTextAndAnimation.gif)
+<p align="center">
+    <img src="demoimgs/progressTextAndAnimation.gif" width="600"/>
+</p>
 
 3) **Foreground and background colors**  can be set
 4) **Different text colors**  can be set for progress text depending on which background it's on top of
 5) **Looks nice at low values**  (an occasional issue with rounded progress bar solutions)
 
-![Different Text Colors Demo](demoimgs/differentTextColors.gif)
+<p align="center">
+    <img src="demoimgs/differentTextColors.gif" width="600"/>
+</p>
 
 6) **Any height and width**  can be used
 
-![Sizes Demo](demoimgs/diffSizes.gif)
+<p align="center">
+    <img src="demoimgs/diffSizes.gif" width="600"/>
+</p>
 
 **Additionally**, the `RoundedProgressBar` handles all state on config changes including situations where there are multiple progress bars:
 
-![Save State Demo](demoimgs/savesStateOnConfigChange.gif)
+<p align="center">
+    <img src="demoimgs/savesStateOnConfigChange.gif" width="600"/>
+</p>
 
 # Public Methods and Xml Attributes ⌨️
 These are the methods which can be called on the RoundedProgressBar class:
@@ -80,24 +88,21 @@ setAnimationLength(newAnimationLength: Long)
 ```
 
 Each setter is accessible via xml as well. Here I've mapped each setter to its corresponding xml attribute:
-
+| Method | Xml Attribute |
+|---|---|
+| `setProgressPercentage(...)`  | `rpbProgress`  |
+| `setProgressColor(...)`  | `rpbProgressColor`  |
+| `setProgressBgColor(...)`  | `rpbProgressBgColor`  |
+| `setTextSize(...)`  | `rpbTextSize`  |
+| `setTextColor(...)`  | `rpbTextColor`  |
+| `setBgTextColor(...)`  | `rpbBgTextColor`  |
+| `showProgressText(...)`  | `rpbShowProgressText`  |
+| `setAnimationLength(...)`  | `rpbAnimationLength`  |
 <p align="center">
-
-    | Method | Xml Attribute |
-    |---|---|
-    | `setProgressPercentage(...)`  | `rpbProgress`  |
-    | `setProgressColor(...)`  | `rpbProgressColor`  |
-    | `setProgressBgColor(...)`  | `rpbProgressBgColor`  |
-    | `setTextSize(...)`  | `rpbTextSize`  |
-    | `setTextColor(...)`  | `rpbTextColor`  |
-    | `setBgTextColor(...)`  | `rpbBgTextColor`  |
-    | `showProgressText(...)`  | `rpbShowProgressText`  |
-    | `setAnimationLength(...)`  | `rpbAnimationLength`  |
-
+    <br>
     <img src="/demoimgs/progressBarDiagram.png" width="600"/>
-
-    *This diagram shows which methods are responsible for setting the different colors of the progress bar*
-
+    <br>
+    <i>This diagram shows which methods are responsible for setting the different colors of the progress bar</i>
 </p>
 
 # Why I Made This 💭
