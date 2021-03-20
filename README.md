@@ -11,7 +11,7 @@
     <a href="https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg" height="20"/></a>
 </p>
 
-Using the `RoundedProgressBar` library gives you a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting a few examples of different looking progress bars created with this library:
+The `RoundedProgressBar` library gives you a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting a few examples of different looking progress bars created with this library:
 
 <p align="center">
     <img src="/demoimgs/roundedProgressBarDemo.gif" width="400"/>
