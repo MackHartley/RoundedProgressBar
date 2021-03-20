@@ -57,7 +57,7 @@ dependencies {
     <img src="demoimgs/differentTextColors.gif" width="600"/>
 </p>
 
-6) **Any height or width**
+6) **Any height or width can be set**
 
 <p align="center">
     <img src="demoimgs/diffSizes.gif" width="600"/>
