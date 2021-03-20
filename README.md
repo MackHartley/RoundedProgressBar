@@ -13,9 +13,11 @@
 
 Using the `RoundedProgressBar` library you have a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting just a few examples of different looking progress bars created with this library:
 
-<img src="/demoimgs/roundedProgressBarDemo.gif" width="400"/>
-
-*This demo app is included in this repository under the app directory*
+<p align="center">
+    <img src="/demoimgs/roundedProgressBarDemo.gif" width="400"/>
+    <br>
+    *This demo app is included in this repository under the app directory*
+</p>
 
 # Gradle Setup ⚙️
 [![](https://jitpack.io/v/MackHartley/RoundedProgressBar.svg)](https://jitpack.io/#MackHartley/RoundedProgressBar)
@@ -78,6 +80,9 @@ setAnimationLength(newAnimationLength: Long)
 ```
 
 Each setter is accessible via xml as well. Here I've mapped each setter to its corresponding xml attribute:
+
+<p align="center">
+
 | Method | Xml Attribute |
 |---|---|
 | `setProgressPercentage(...)`  | `rpbProgress`  |
@@ -92,6 +97,8 @@ Each setter is accessible via xml as well. Here I've mapped each setter to its c
 <img src="/demoimgs/progressBarDiagram.png" width="600"/>
 
 *This diagram shows which methods are responsible for setting the different colors of the progress bar*
+
+</p>
 
 # Why I Made This 💭
 
