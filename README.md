@@ -42,22 +42,22 @@ dependencies {
 
 # Features 🌟
 
-1) **Percentage complete text**  displayed on right side of progress bar
-2) **Animaition**  of Progress bar and progress text
+1) **Percentage complete text displayed**
+2) **Animaition**
 
 <p align="center">
     <img src="demoimgs/progressTextAndAnimation.gif" width="600"/>
 </p>
 
-3) **Foreground and background colors**  can be set
-4) **Different text colors**  can be set for progress text depending on which background it's on top of
-5) **Looks nice at low values**  (an occasional issue with rounded progress bar solutions)
+3) **Set foreground and background colors**
+4) **Separate text colors** (depending on which background the text is drawn over)
+5) **Bar Looks nice at low values** (an occasional issue with rounded progress bar solutions)
 
 <p align="center">
     <img src="demoimgs/differentTextColors.gif" width="600"/>
 </p>
 
-6) **Any height and width**  can be used
+6) **Any height or width**
 
 <p align="center">
     <img src="demoimgs/diffSizes.gif" width="600"/>
