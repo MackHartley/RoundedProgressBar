@@ -17,14 +17,14 @@
     <color name="bg_text_color_2">#50FFB1</color>
 
     <!--    For the progress bar modified via xml-->
-    <color name="progress_color_3">#001B2E</color>
-    <color name="progress_background_color_3">#FFC49B</color>
-    <color name="text_color_3">#FFC49B</color>
-    <color name="bg_text_color_3">#001B2E</color>
+    <color name="progress_color_3">#000000</color>
+    <color name="progress_background_color_3">#BBBBBB</color>
+    <color name="text_color_3">#EEEEEE</color>
+    <color name="bg_text_color_3">#000000</color>
 
     <!--    For the progress bar modified via xml-->
-    <color name="progress_color_4">#001B2E</color>
-    <color name="progress_background_color_4">#FFC49B</color>
-    <color name="text_color_4">#FFC49B</color>
-    <color name="bg_text_color_4">#001B2E</color>
+    <color name="progress_color_4">#E68992</color>
+    <color name="progress_background_color_4">#1C3144</color>
+    <color name="text_color_4">#1C3144</color>
+    <color name="bg_text_color_4">#E68992</color>
 </resources>
