@@ -9,5 +9,6 @@
         <attr name="rpbBgTextColor" format="reference" />
         <attr name="rpbShowProgressText" format="boolean" />
         <attr name="rpbAnimationLength" format="integer" />
+        <attr name="rpbCornerRadius" format="dimension" />
     </declare-styleable>
 </resources>

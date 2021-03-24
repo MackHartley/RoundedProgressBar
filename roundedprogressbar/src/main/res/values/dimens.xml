@@ -3,12 +3,10 @@
 
     <dimen name="rpb_text_padding">8dp</dimen>
     <dimen name="rpb_default_text_size">16sp</dimen>
-    <dimen name="rpb_default_progress_bar_height">20dp</dimen>
 
-<!--    I couldn't find a way to modify the xml background programmatically. However, I've-->
-<!--    found that corner radius will not go further than 90 degrees, so by putting a very-->
-<!--    large number here you can create very large progress bars. No one should need more-->
-<!--    than 1000dp corner radius.-->
-    <dimen name="rpb_progress_radius">1000dp</dimen>
+<!--    Default is to make all progress bars completely rounded. Setting the corner radius to 1000dp will-->
+<!--      mean all progress bars that can fit on the screen will be rounded as much as possible, to a -->
+<!--      maximum of 90 degrees per corner.-->
+    <dimen name="rpb_default_corner_radius">1000dp</dimen>
 
 </resources>

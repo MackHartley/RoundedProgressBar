@@ -4,4 +4,8 @@
     <dimen name="normal_text_size">16sp</dimen>
     <dimen name="medlarge_text_size">20sp</dimen>
     <dimen name="large_text_size">24sp</dimen>
+
+    <dimen name="random_corner_radius_4">8dp</dimen>
+    <dimen name="random_corner_radius_8">16dp</dimen>
+    <dimen name="random_corner_radius_52">40dp</dimen>
 </resources>

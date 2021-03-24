@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@android:id/background">
         <shape>
-            <corners android:radius="@dimen/rpb_progress_radius" />
+            <corners android:radius="@dimen/rpb_default_corner_radius" />
             <solid android:color="@color/rpb_default_progress_bg_color" />
         </shape>
     </item>
@@ -10,7 +10,7 @@
     <item android:id="@android:id/progress">
         <scale android:scaleWidth="100%">
             <shape>
-                <corners android:radius="@dimen/rpb_progress_radius" />
+                <corners android:radius="@dimen/rpb_default_corner_radius" />
                 <solid android:color="@color/rpb_default_progress_color" />
             </shape>
         </scale>

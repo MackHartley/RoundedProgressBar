@@ -11,8 +11,8 @@
     <color name="bg_text_color_1">#222222</color>
 
     <!--    For the progress bar modified via xml-->
-    <color name="progress_color_2">#546D64</color>
-    <color name="progress_background_color_2">#3C896D</color>
+    <color name="progress_color_2">#FF5E5B</color>
+    <color name="progress_background_color_2">#FCDEBE</color>
     <color name="text_color_2">#FAF3DD</color>
     <color name="bg_text_color_2">#50FFB1</color>
 

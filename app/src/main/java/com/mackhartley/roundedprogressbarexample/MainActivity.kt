@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         button_increase.setOnClickListener { increaseProgress() }
         button_decrease.setOnClickListener { decreaseProgress() }
+        button_corner_radius.setOnClickListener { setRandomCornerRadius() }
     }
 
     private fun collectProgressBars() {
@@ -58,6 +59,18 @@ class MainActivity : AppCompatActivity() {
         changeProgress(roundedProgressBar2, false)
         changeProgress(roundedProgressBar3, false)
         changeProgress(roundedProgressBar4, false)
+    }
+
+    private fun setRandomCornerRadius() {
+        val newDimen = when (Random.nextInt(0, 3)) {
+            0 -> resources.getDimension(R.dimen.random_corner_radius_4)
+            1 -> resources.getDimension(R.dimen.random_corner_radius_8)
+            else -> resources.getDimension(R.dimen.random_corner_radius_52)
+        }
+        roundedProgressBar1.setCornerRadius(newDimen)
+        roundedProgressBar2.setCornerRadius(newDimen)
+        roundedProgressBar3.setCornerRadius(newDimen)
+        roundedProgressBar4.setCornerRadius(newDimen)
     }
 
     private fun getRandomIncrement(): Double {
