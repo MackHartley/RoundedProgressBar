@@ -14,7 +14,7 @@
 The `RoundedProgressBar` library gives you a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting a few examples of different looking progress bars created with this library:
 
 <p align="center">
-    <img src="/demoimgs/roundedProgressBarDemo.gif" width="400"/>
+    <img src="/demoimgs/demoApp.gif" width="400"/>
     <br>
     <i>This demo app is included in this repository under the app directory</i>
 </p>
@@ -42,29 +42,21 @@ dependencies {
 
 # Features 🌟
 
-1) **Percentage complete text displayed**
-2) **Animaition**
-
-<p align="center">
-    <img src="demoimgs/progressTextAndAnimation.gif" width="600"/>
-</p>
-
-3) **Set foreground and background colors**
-4) **Separate text colors** (depending on which background the text is drawn over)
-5) **Bar Looks nice at low values** (an occasional issue with rounded progress bar solutions)
-
+1) **Completion Text** - Displays `00%` percentage completion of the progress bar
+2) **Animaition** - Both the progress bar and progress text animate
+3) **Foreground / Background** - Both the foreground (aka progress) and background colors can be set
+4) **Separate Text Colors** - You can specify the text color based on whether it's shown over the foreground or background
+5) **Low Value Support** - The progress bar looks nice even at low values! (This is a common issue when dealing with rounded progress bars)
 <p align="center">
     <img src="demoimgs/differentTextColors.gif" width="600"/>
 </p>
 
-6) **Any height or width can be set**
-
+6) **Corner Radius** - Any corner radius value can be set (You can even remove it if you just wanted the animated progress bar)
 <p align="center">
-    <img src="demoimgs/diffSizes.gif" width="600"/>
+    <img src="demoimgs/anyCornerRadius.gif" width="600"/>
 </p>
 
 **Additionally**, the `RoundedProgressBar` handles all state on config changes including situations where there are multiple progress bars:
-
 <p align="center">
     <img src="demoimgs/savesStateOnConfigChange.gif" width="600"/>
 </p>
@@ -85,6 +77,7 @@ setTextSize(sizeInPixels: Float)
 showProgressText(shouldShowProgressText: Boolean) // Hide or show the progress text
 
 setAnimationLength(newAnimationLength: Long)
+setCornerRadius(radiusInDp: Float)
 ```
 
 Each setter is accessible via xml as well. Here I've mapped each setter to its corresponding xml attribute:
@@ -98,6 +91,7 @@ Each setter is accessible via xml as well. Here I've mapped each setter to its c
 | `setBgTextColor(...)`  | `rpbBgTextColor`  |
 | `showProgressText(...)`  | `rpbShowProgressText`  |
 | `setAnimationLength(...)`  | `rpbAnimationLength`  |
+| `setCornerRadius(...)` | `rpbCornerRadius` |
 <p align="center">
     <br>
     <img src="/demoimgs/progressBarDiagram.png" width="600"/>
@@ -133,7 +127,7 @@ Special thanks to all those who have supported this repo thus far!
 
 # License 📄
 ```
-Copyright 2020 Mack Hartley
+Copyright 2021 Mack Hartley
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
