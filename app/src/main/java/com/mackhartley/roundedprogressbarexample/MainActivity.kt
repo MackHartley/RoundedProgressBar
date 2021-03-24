@@ -8,11 +8,6 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
-        const val MIN_INCREMENT = 15.0
-        const val MAX_INCREMENT = 25.0
-    }
-
     private lateinit var roundedProgressBar1: RoundedProgressBar
     private lateinit var roundedProgressBar2: RoundedProgressBar
     private lateinit var roundedProgressBar3: RoundedProgressBar
@@ -62,10 +57,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setRandomCornerRadius() {
-        val newDimen = when (Random.nextInt(0, 3)) {
-            0 -> resources.getDimension(R.dimen.random_corner_radius_4)
-            1 -> resources.getDimension(R.dimen.random_corner_radius_8)
-            else -> resources.getDimension(R.dimen.random_corner_radius_52)
+        val newDimen = when (Random.nextInt(0, 7)) {
+            0 -> resources.getDimension(R.dimen.random_corner_radius_0)
+            1 -> resources.getDimension(R.dimen.random_corner_radius_4)
+            2 -> resources.getDimension(R.dimen.random_corner_radius_8)
+            3 -> resources.getDimension(R.dimen.random_corner_radius_12)
+            4 -> resources.getDimension(R.dimen.random_corner_radius_16)
+            5 -> resources.getDimension(R.dimen.random_corner_radius_32)
+            else -> resources.getDimension(R.dimen.random_corner_radius_40)
         }
         roundedProgressBar1.setCornerRadius(newDimen)
         roundedProgressBar2.setCornerRadius(newDimen)
@@ -73,13 +72,13 @@ class MainActivity : AppCompatActivity() {
         roundedProgressBar4.setCornerRadius(newDimen)
     }
 
-    private fun getRandomIncrement(): Double {
-        return Random.nextDouble(MIN_INCREMENT, MAX_INCREMENT)
+    private fun getIncrement(): Double {
+        return 25.0
     }
 
     private fun changeProgress(roundedProgressBar: RoundedProgressBar, isAddition: Boolean = true) {
         val curValue = roundedProgressBar.getProgressPercentage()
-        var adjustment = getRandomIncrement()
+        var adjustment = getIncrement()
         if (!isAddition) adjustment *= -1
         roundedProgressBar.setProgressPercentage(curValue + adjustment)
     }

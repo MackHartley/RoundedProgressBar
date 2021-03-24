@@ -5,7 +5,11 @@
     <dimen name="medlarge_text_size">20sp</dimen>
     <dimen name="large_text_size">24sp</dimen>
 
-    <dimen name="random_corner_radius_4">8dp</dimen>
-    <dimen name="random_corner_radius_8">16dp</dimen>
-    <dimen name="random_corner_radius_52">40dp</dimen>
+    <dimen name="random_corner_radius_0">0dp</dimen>
+    <dimen name="random_corner_radius_4">4dp</dimen>
+    <dimen name="random_corner_radius_8">8dp</dimen>
+    <dimen name="random_corner_radius_12">12dp</dimen>
+    <dimen name="random_corner_radius_16">16dp</dimen>
+    <dimen name="random_corner_radius_32">32dp</dimen>
+    <dimen name="random_corner_radius_40">40dp</dimen>
 </resources>
