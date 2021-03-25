@@ -7,7 +7,7 @@ import org.junit.Assert.*
 
 /**
  * Tests the functionality of helper functions for the RoundedProgressBar
- * @see RoundedProgressBar
+ * @see MiscUtils.kt
  */
 class RoundedProgressBarHelpersTest {
     @Test
