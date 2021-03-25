@@ -19,7 +19,7 @@ class RoundedProgressBarHelpersTest {
         val requested3 = 100f // Invalid radius: Greater than 1/2 view height
 
         val expected1 = 10f
-        val expected2 = 0f
+        val expected2 = 1f
         val expected3 = (viewHeight / 2f)
 
         assertEquals(expected1, calculateAppropriateCornerRadius(requested1, viewHeight))
