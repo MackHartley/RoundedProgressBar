@@ -15,7 +15,6 @@ jobs:
     strategy:
       matrix:
         api-level: [21, 29]
-        target: [default, google_apis]
         
     # Workflow steps
     steps:
