@@ -10,5 +10,9 @@
         <attr name="rpbShowProgressText" format="boolean" />
         <attr name="rpbAnimationLength" format="integer" />
         <attr name="rpbCornerRadius" format="dimension" />
+        <attr name="rpbCornerRadiusTopLeft" format="dimension" />
+        <attr name="rpbCornerRadiusTopRight" format="dimension" />
+        <attr name="rpbCornerRadiusBottomRight" format="dimension" />
+        <attr name="rpbCornerRadiusBottomLeft" format="dimension" />
     </declare-styleable>
 </resources>

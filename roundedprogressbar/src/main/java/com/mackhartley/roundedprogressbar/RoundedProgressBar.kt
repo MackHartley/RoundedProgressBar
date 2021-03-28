@@ -3,7 +3,8 @@ package com.mackhartley.roundedprogressbar
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context
-import android.graphics.Outline
+import android.content.res.TypedArray
+import android.graphics.*
 import android.graphics.drawable.*
 import android.graphics.drawable.shapes.RectShape
 import android.graphics.drawable.shapes.RoundRectShape
@@ -13,8 +14,6 @@ import android.util.AttributeSet
 import android.util.SparseArray
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewOutlineProvider
 import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_SHOW_TEXT
@@ -35,9 +34,10 @@ class RoundedProgressBar @JvmOverloads constructor(
         private const val PROGRESS_BAR_MAX = 100
         private const val PROGRESS_SCALAR = 10 // This is done to make the progress bar animation more fine grain and thus smoother
         private const val INITIAL_PROGRESS_VALUE = 0
+        private const val SCALE_DRAWABLE_MULTIPLIER = 100.0
         private const val PROG_BACKGROUND_LAYER_INDEX = 0
         private const val PROG_DRAWABLE_LAYER_INDEX = 1
-        private const val SCALE_DRAWABLE_MULTIPLIER = 100.0
+        private const val NO_CORNER_RADIUS_ATTR_SET = -1f
     }
 
     // Default values (ProgressBar related)
@@ -46,6 +46,7 @@ class RoundedProgressBar @JvmOverloads constructor(
     private val defaultProgressBgColor = R.color.rpb_default_progress_bg_color
     private val defaultAnimationLength = context.resources.getInteger(R.integer.rpb_default_animation_duration)
     private val defaultCornerRadius = context.resources.getDimension(R.dimen.rpb_default_corner_radius)
+    private val defaultIsMaxRadiusRestricted = true
     // Default values (ProgressTextOverlay related)
     private val defaultTextSize: Float = context.resources.getDimension(R.dimen.rpb_default_text_size)
     private val defaultTextColorRes: Int = R.color.rpb_default_text_color
@@ -58,7 +59,13 @@ class RoundedProgressBar @JvmOverloads constructor(
     private var progressColorRes: Int = defaultProgressColor
     private var progressBgColorRes: Int = defaultProgressBgColor
     private var animationLength: Long = defaultAnimationLength.toLong()
-    private var cornerRadius: Float = defaultCornerRadius
+    private var cornerRadiusTL: Float = defaultCornerRadius // Top Left
+    private var cornerRadiusTR: Float = defaultCornerRadius // Top Right
+    private var cornerRadiusBR: Float = defaultCornerRadius // Bottom Right
+    private var cornerRadiusBL: Float = defaultCornerRadius // Bottom Left
+    private var isMaxRadiusRestricted: Boolean = defaultIsMaxRadiusRestricted // todo add this to saved inst. Add helper funcs
+    private var lastReportedHeight: Int = 0
+    private var lastReportedWidth: Int = 0
     // Instance state (ProgressTextOverlay related)
     private var textSize: Float = defaultTextSize
     private var textColorRes: Int = defaultTextColorRes
@@ -68,13 +75,14 @@ class RoundedProgressBar @JvmOverloads constructor(
     // Progress bar objects
     private val progressBar: ProgressBar
     private val progressTextOverlay: ProgressTextOverlay
+    private var roundedCornersClipPath: Path = Path() // This path is used to clip the progress background and drawable to the desired corner radius
 
     init {
+        this.setWillNotDraw(false) // Allows this custom view to override onDraw()
         val view = LayoutInflater.from(context).inflate(R.layout.layout_rounded_progress_bar, this, false)
         progressBar = view.rounded_progress_bar
         progressTextOverlay = view.progress_text_overlay
         progressBar.max = PROGRESS_BAR_MAX * PROGRESS_SCALAR // This is done so animations look smoother
-        clipProgressBarOutline(cornerRadius)
         initAttributes(attrs)
         addView(view)
     }
@@ -109,17 +117,62 @@ class RoundedProgressBar @JvmOverloads constructor(
 
         // Show or hide progress text via xml (If exists and isn't the default value)
         val newShowProgressText = rpbAttributes.getBoolean(R.styleable.RoundedProgressBar_rpbShowProgressText, defaultShowProgressText)
-        if (newShowProgressText != defaultShowProgressText) progressTextOverlay.showProgressText(newShowProgressText)
+        if (newShowProgressText != defaultShowProgressText) showProgressText(newShowProgressText)
 
         // Set animation length via xml (If exists and isn't the default value)
         val newAnimationLength = rpbAttributes.getInteger(R.styleable.RoundedProgressBar_rpbAnimationLength, defaultAnimationLength)
         if (newAnimationLength != defaultAnimationLength) setAnimationLength(newAnimationLength.toLong())
 
-        // Set corner radius via xml (If exists and isn't the default value) (Note: Value retrieved is in pixels)
-        val newCornerRadius = rpbAttributes.getDimension(R.styleable.RoundedProgressBar_rpbCornerRadius, defaultCornerRadius)
-        if (newCornerRadius != defaultCornerRadius) setCornerRadius(newCornerRadius)
+        // Set corner radius via xml (If exists and isn't the default value)
+        getCornerRadiusFromAttrs(rpbAttributes)
 
         rpbAttributes.recycle()
+    }
+
+    /**
+     * This function gets all the requested corner radius info and ensures the view is updated only
+     * once for efficiency sake.
+     */
+    private fun getCornerRadiusFromAttrs(rpbAttributes: TypedArray) {
+        var resultingCornerRadiusTL = defaultCornerRadius
+        var resultingCornerRadiusTR = defaultCornerRadius
+        var resultingCornerRadiusBR = defaultCornerRadius
+        var resultingCornerRadiusBL = defaultCornerRadius
+
+        val newBlanketCornerRadius = rpbAttributes.getDimension(R.styleable.RoundedProgressBar_rpbCornerRadius, NO_CORNER_RADIUS_ATTR_SET)
+        if (newBlanketCornerRadius != NO_CORNER_RADIUS_ATTR_SET) {
+            resultingCornerRadiusTL = newBlanketCornerRadius
+            resultingCornerRadiusTR = newBlanketCornerRadius
+            resultingCornerRadiusBR = newBlanketCornerRadius
+            resultingCornerRadiusBL = newBlanketCornerRadius
+        }
+
+        val newCornerRadiusTL = rpbAttributes.getDimension(R.styleable.RoundedProgressBar_rpbCornerRadiusTopLeft, NO_CORNER_RADIUS_ATTR_SET)
+        if (newCornerRadiusTL != NO_CORNER_RADIUS_ATTR_SET) resultingCornerRadiusTL = newCornerRadiusTL
+        val newCornerRadiusTR = rpbAttributes.getDimension(R.styleable.RoundedProgressBar_rpbCornerRadiusTopRight, NO_CORNER_RADIUS_ATTR_SET)
+        if (newCornerRadiusTR != NO_CORNER_RADIUS_ATTR_SET) resultingCornerRadiusTR = newCornerRadiusTR
+        val newCornerRadiusBR = rpbAttributes.getDimension(R.styleable.RoundedProgressBar_rpbCornerRadiusBottomRight, NO_CORNER_RADIUS_ATTR_SET)
+        if (newCornerRadiusBR != NO_CORNER_RADIUS_ATTR_SET) resultingCornerRadiusBR = newCornerRadiusBR
+        val newCornerRadiusBL = rpbAttributes.getDimension(R.styleable.RoundedProgressBar_rpbCornerRadiusBottomLeft, NO_CORNER_RADIUS_ATTR_SET)
+        if (newCornerRadiusBL != NO_CORNER_RADIUS_ATTR_SET) resultingCornerRadiusBL = newCornerRadiusBL
+
+        setCornerRadius(
+            resultingCornerRadiusTL,
+            resultingCornerRadiusTR,
+            resultingCornerRadiusBR,
+            resultingCornerRadiusBL
+        )
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        lastReportedHeight = h
+        lastReportedWidth = w
+        redrawCorners()
+    }
+
+    private fun redrawCorners() {
+        setCornerRadius(cornerRadiusTL, cornerRadiusTR, cornerRadiusBR, cornerRadiusBL)
     }
 
     /**
@@ -127,30 +180,46 @@ class RoundedProgressBar @JvmOverloads constructor(
      * a rounded corner and ensures the progress drawable doesn't exceed the outline of the
      * progressbar view when at low values
      */
-    private fun clipProgressBarOutline(radiusInPixels: Float) {
-        progressBar.apply {
-            val provider = object : ViewOutlineProvider() {
-                override fun getOutline(view: View, outline: Outline) {
-                    outline.setRoundRect(
-                        0,
-                        0,
-                        view.width,
-                        view.height,
-                        calculateAppropriateCornerRadius(radiusInPixels, view.height)
-                    )
-                }
-            }
-            outlineProvider = provider
-            clipToOutline = true
-        }
+    override fun onDraw(canvas: Canvas) {
+        canvas.clipPath(roundedCornersClipPath)
+    }
+
+    /**
+     * Recalculates the clip path for the background of this view. When onDraw() is called it will
+     * then draw the view with the newly modified clip path.
+     */
+    private fun updateCanvasClipBounds() {
+        val height = lastReportedHeight
+        val width = lastReportedWidth
+
+        val radiusTL = calculateAppropriateCornerRadius(cornerRadiusTL, height)
+        val radiusTR = calculateAppropriateCornerRadius(cornerRadiusTR, height)
+        val radiusBR = calculateAppropriateCornerRadius(cornerRadiusBR, height)
+        val radiusBL = calculateAppropriateCornerRadius(cornerRadiusBL, height)
+
+        roundedCornersClipPath.reset()
+        val cornerRadiusList = floatArrayOf(
+            radiusTL, radiusTL,
+            radiusTR, radiusTR,
+            radiusBR, radiusBR,
+            radiusBL, radiusBL
+        )
+        roundedCornersClipPath.addRoundRect(
+            0f,
+            0f,
+            width.toFloat(),
+            height.toFloat(),
+            cornerRadiusList,
+            Path.Direction.CW
+        )
+        invalidate() // Invalidate the layout to draw the new roundedCornersClipPath
     }
 
     /**
      * Creates the drawable that represents the "background" portion of the progress bar (The thing
      * that shows up behind the progress portion)
      */
-    private fun createRoundedBackgroundDrawable(radiusInDp: Float): Drawable {
-        clipProgressBarOutline(radiusInDp) // Gives progressBar new desired corner radius
+    private fun createRoundedBackgroundDrawable(): Drawable {
         val newBgDrawable = ShapeDrawable(RectShape())
         newBgDrawable.setColorFilterCompat(context, progressBgColorRes)
         return newBgDrawable
@@ -159,8 +228,19 @@ class RoundedProgressBar @JvmOverloads constructor(
     /**
      * Creates the drawable that represents the "completed" portion of the progress bar
      */
-    private fun createRoundedProgressDrawable(radiusInDp: Float): Drawable {
-        val cornerRadiusValues = FloatArray(8) { radiusInDp }
+    private fun createRoundedProgressDrawable(): Drawable {
+        val topLeftRadius = calculateAppropriateCornerRadius(cornerRadiusTL, lastReportedHeight)
+        val topRightRadius = calculateAppropriateCornerRadius(cornerRadiusTR, lastReportedHeight)
+        val bottomRightRadius = calculateAppropriateCornerRadius(cornerRadiusBR, lastReportedHeight)
+        val bottomLeftRadius = calculateAppropriateCornerRadius(cornerRadiusBL, lastReportedHeight)
+
+        val cornerRadiusValues = floatArrayOf(
+            topLeftRadius, topLeftRadius,
+            topRightRadius, topRightRadius,
+            bottomRightRadius, bottomRightRadius,
+            bottomLeftRadius, bottomLeftRadius
+        )
+
         val roundedDrawable = ShapeDrawable(RoundRectShape(cornerRadiusValues, null, null))
         roundedDrawable.setColorFilterCompat(context, progressColorRes)
         return ScaleDrawable(roundedDrawable, Gravity.START, 1f, -1f)
@@ -203,9 +283,11 @@ class RoundedProgressBar @JvmOverloads constructor(
         return (progressPercentage / PROGRESS_BAR_MAX).toFloat()
     }
 
+
     // ################################## //
     // ######### PUBLIC METHODS ######### //
     // ################################## //
+
     /**
      * @param[progressPercentage] is a value between 0 and 100 inclusive representing the percent
      * completion of the progress bar. Any values outside this range will be normalized to be inside
@@ -286,6 +368,7 @@ class RoundedProgressBar @JvmOverloads constructor(
      * Can be used to hide or show the @see[ProgressTextOverlay] view
      */
     fun showProgressText(shouldShowProgressText: Boolean) {
+        showProgressText = shouldShowProgressText
         progressTextOverlay.showProgressText(shouldShowProgressText)
     }
 
@@ -294,17 +377,35 @@ class RoundedProgressBar @JvmOverloads constructor(
     }
 
     /**
-     * Sets the corner radius for the progress bar (includes progress background and
+     * Sets the corner radius for all corners the progress bar (includes progress background and
      * progress drawable)
      * @param radiusInDp must be in units of dp
      */
     fun setCornerRadius(radiusInDp: Float) {
-        cornerRadius = radiusInDp
+        setCornerRadius(radiusInDp, radiusInDp, radiusInDp, radiusInDp)
+    }
+
+    /**
+     * Sets the corner radius for each corner of the progress bar (includes progress background and
+     * progress drawable)
+     * @param radiusInDp must be in units of dp
+     */
+    fun setCornerRadius(
+        topLeftRadius: Float,
+        topRightRadius: Float,
+        bottomRightRadius: Float,
+        bottomLeftRadius: Float
+    ) {
+        cornerRadiusTL = topLeftRadius
+        cornerRadiusTR = topRightRadius
+        cornerRadiusBR = bottomRightRadius
+        cornerRadiusBL = bottomLeftRadius
+        updateCanvasClipBounds()
 
         val newProgressDrawable = LayerDrawable(
             arrayOf(
-                createRoundedBackgroundDrawable(radiusInDp),
-                createRoundedProgressDrawable(radiusInDp)
+                createRoundedBackgroundDrawable(),
+                createRoundedProgressDrawable()
             )
         )
         progressBar.progressDrawable = newProgressDrawable
@@ -315,6 +416,7 @@ class RoundedProgressBar @JvmOverloads constructor(
             .getDrawable(PROG_DRAWABLE_LAYER_INDEX)
         currentProgressDrawable.level = calculateScaleDrawableLevel(getProgressPercentage())
     }
+
 
     // ################################### //
     // ### SAVE STATE BOILERPLATE CODE ### //
@@ -327,7 +429,10 @@ class RoundedProgressBar @JvmOverloads constructor(
         savedState.savedProgressColorRes = progressColorRes
         savedState.savedProgressBgColorRes = progressBgColorRes
         savedState.savedAnimationLength = animationLength
-        savedState.savedCornerRadius = cornerRadius
+        savedState.savedCornerRadiusTL = cornerRadiusTL
+        savedState.savedCornerRadiusTR = cornerRadiusTR
+        savedState.savedCornerRadiusBR = cornerRadiusBR
+        savedState.savedCornerRadiusBL = cornerRadiusBL
 
         savedState.savedTextSize = textSize
         savedState.savedTextColorRes = textColorRes
@@ -345,8 +450,11 @@ class RoundedProgressBar @JvmOverloads constructor(
             progressColorRes = state.savedProgressColorRes
             progressBgColorRes = state.savedProgressBgColorRes
             animationLength = state.savedAnimationLength
-            cornerRadius = state.savedCornerRadius
-            setCornerRadius(cornerRadius)
+            cornerRadiusTL = state.savedCornerRadiusTL
+            cornerRadiusTR = state.savedCornerRadiusTR
+            cornerRadiusBR = state.savedCornerRadiusBR
+            cornerRadiusBL = state.savedCornerRadiusBL
+            setCornerRadius(cornerRadiusTL, cornerRadiusTR, cornerRadiusBR, cornerRadiusBL)
             setProgressBgColor(progressBgColorRes)
             setProgressColor(progressColorRes)
             setProgressPercentage(curProgress, false)
@@ -374,14 +482,17 @@ class RoundedProgressBar @JvmOverloads constructor(
         dispatchThawSelfOnly(container)
     }
 
-    internal class SavedState : View.BaseSavedState {
+    internal class SavedState : BaseSavedState {
         // RoundedProgressBar related
         var savedCurProgress: Double = 0.0
         var savedPrevTextPositionRatio: Float = 0f
         var savedProgressColorRes: Int = 0
         var savedProgressBgColorRes: Int = 0
         var savedAnimationLength: Long = 0L
-        var savedCornerRadius: Float = 0f
+        var savedCornerRadiusTL: Float = 0f
+        var savedCornerRadiusTR: Float = 0f
+        var savedCornerRadiusBR: Float = 0f
+        var savedCornerRadiusBL: Float = 0f
 
         // ProgressTextOverlay related
         var savedTextColorRes: Int = 0
@@ -397,7 +508,10 @@ class RoundedProgressBar @JvmOverloads constructor(
             savedProgressColorRes = source.readInt()
             savedProgressBgColorRes = source.readInt()
             savedAnimationLength = source.readLong()
-            savedCornerRadius = source.readFloat()
+            savedCornerRadiusTL = source.readFloat()
+            savedCornerRadiusTR = source.readFloat()
+            savedCornerRadiusBR = source.readFloat()
+            savedCornerRadiusBL = source.readFloat()
 
             savedTextSize = source.readFloat()
             savedTextColorRes = source.readInt()
@@ -412,7 +526,10 @@ class RoundedProgressBar @JvmOverloads constructor(
             out.writeInt(savedProgressColorRes)
             out.writeInt(savedProgressBgColorRes)
             out.writeLong(savedAnimationLength)
-            out.writeFloat(savedCornerRadius)
+            out.writeFloat(savedCornerRadiusTL)
+            out.writeFloat(savedCornerRadiusTR)
+            out.writeFloat(savedCornerRadiusBR)
+            out.writeFloat(savedCornerRadiusBL)
 
             out.writeFloat(savedTextSize)
             out.writeInt(savedTextColorRes)
