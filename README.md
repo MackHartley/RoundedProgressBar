@@ -7,9 +7,7 @@
 <p align="center">
     <a href="https://developer.android.com/"><img src="https://img.shields.io/badge/Platform-Android-green.svg" height="20"/></a>
     <a href="https://android-arsenal.com/api?level=21"><img src="https://img.shields.io/badge/API-21%2B-blue.svg?style=flat" height="20"/></a>
-    <a href="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml">
-        <img src="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml/badge.svg" />
-    </a>
+    <a href="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml"><img src="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml/badge.svg" /></a>
     <a href="https://github.com/MackHartley/RoundedProgressBar/issues"><img src="https://img.shields.io/github/issues/mackhartley/roundedprogressbar.svg" height="20"/></a>
     <a href="https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg" height="20"/></a>
 </p>
