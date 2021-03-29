@@ -14,5 +14,6 @@
         <attr name="rpbCornerRadiusTopRight" format="dimension" />
         <attr name="rpbCornerRadiusBottomRight" format="dimension" />
         <attr name="rpbCornerRadiusBottomLeft" format="dimension" />
+        <attr name="rpbIsRadiusRestricted" format="boolean" />
     </declare-styleable>
 </resources>
