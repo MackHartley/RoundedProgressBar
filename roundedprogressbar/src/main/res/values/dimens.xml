@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="rpb_text_padding">8dp</dimen>
+    <dimen name="rpb_default_text_padding">8dp</dimen>
     <dimen name="rpb_default_text_size">16sp</dimen>
 
 <!--    Default is to make all progress bars completely rounded. Setting the corner radius to 1000dp will-->

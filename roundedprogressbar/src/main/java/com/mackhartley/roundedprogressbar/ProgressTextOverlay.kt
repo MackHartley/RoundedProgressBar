@@ -37,9 +37,9 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
     private var showProgressText: Boolean = defaultShowProgressText
     private var textContainerHeight: Float = 0f
     private var textContainerWidth: Float = 0f
+    private var textSidePadding: Float = context.resources.getDimension(R.dimen.rpb_default_text_padding)
 
     // Misc member vars
-    private val textPadding = context.resources.getDimension(R.dimen.rpb_text_padding)
     private val progressTextOverlayPaint: Paint
     private val backgroundTextOverlayPaint: Paint
     private val boundingRect = Rect() // Used for calculating measurements of progress text
@@ -65,15 +65,15 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
             val yPosition = (height) / 2 + (textContainerHeight / 2)
 
             val progressBarWidth = width * progressValue
-            val requiredTextContainerWidth = textContainerWidth + (2 * textPadding)
+            val requiredTextContainerWidth = textContainerWidth + (2 * textSidePadding)
             val xPosition: Float
             if (requiredTextContainerWidth < progressBarWidth) { // should use inside position
                 // Inside position = (Position to draw) - (Width of text) - (Padding of text)
-                xPosition = (width * progressValue) - textContainerWidth - textPadding
+                xPosition = (width * progressValue) - textContainerWidth - textSidePadding
                 canvas?.drawText(getPercentageString(progressValue), xPosition, yPosition, progressTextOverlayPaint)
             } else { // should use outside position
                 // Outside position = (Position to draw) + (Padding of text)
-                xPosition = (width * progressValue) + textPadding
+                xPosition = (width * progressValue) + textSidePadding
                 canvas?.drawText(getPercentageString(progressValue), xPosition, yPosition, backgroundTextOverlayPaint)
             }
         }
@@ -153,6 +153,12 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
 
     fun showProgressText(newShowProgressText: Boolean) {
         this.showProgressText = newShowProgressText
+        invalidate()
+    }
+
+    fun setTextPadding(newTextPadding: Float) {
+        this.textSidePadding = newTextPadding
+        reCalculateTextWidth()
         invalidate()
     }
 }
