@@ -78,6 +78,7 @@
         app:rpbAnimationLength="500"
         app:rpbBgTextColor="@color/bg_text_color_4"
         app:rpbCornerRadius="8dp"
+        app:rpbTextPadding="24dp"
         app:rpbProgressBgColor="@color/progress_background_color_4"
         app:rpbProgressColor="@color/progress_color_4"
         app:rpbTextColor="@color/text_color_4"

@@ -15,5 +15,6 @@
         <attr name="rpbCornerRadiusBottomRight" format="dimension" />
         <attr name="rpbCornerRadiusBottomLeft" format="dimension" />
         <attr name="rpbIsRadiusRestricted" format="boolean" />
+        <attr name="rpbTextPadding" format="dimension" />
     </declare-styleable>
 </resources>
