@@ -12,4 +12,5 @@
     <dimen name="random_corner_radius_16">16dp</dimen>
     <dimen name="random_corner_radius_32">32dp</dimen>
     <dimen name="random_corner_radius_40">40dp</dimen>
+    <dimen name="space_between_bars">12dp</dimen>
 </resources>

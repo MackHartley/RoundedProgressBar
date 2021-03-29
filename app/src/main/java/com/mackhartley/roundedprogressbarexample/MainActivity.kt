@@ -8,28 +8,34 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var roundedProgressBar1: RoundedProgressBar
-    private lateinit var roundedProgressBar2: RoundedProgressBar
-    private lateinit var roundedProgressBar3: RoundedProgressBar
-    private lateinit var roundedProgressBar4: RoundedProgressBar
+    private lateinit var allProgressBars: List<RoundedProgressBar>
+    private lateinit var progBarsModifyCorners: List<RoundedProgressBar>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        allProgressBars = listOf(
+            bar_modified_programmatically,
+            bar_modified_via_xml,
+            extra_bar_1,
+            extra_bar_2,
+            bar_5,
+            multi_bar_1,
+            multi_bar_2,
+            multi_bar_3
+        )
+        progBarsModifyCorners = listOf(
+            bar_modified_programmatically,
+            bar_modified_via_xml,
+            extra_bar_1,
+            extra_bar_2
+        )
 
-        collectProgressBars()
-        setProgressBarAttributesProgrammatically(roundedProgressBar1)
+        setProgressBarAttributesProgrammatically(bar_modified_programmatically)
 
         button_increase.setOnClickListener { increaseProgress() }
         button_decrease.setOnClickListener { decreaseProgress() }
         button_corner_radius.setOnClickListener { setRandomCornerRadius() }
-    }
-
-    private fun collectProgressBars() {
-        roundedProgressBar1 = bar_modified_programmatically
-        roundedProgressBar2 = bar_modified_via_xml
-        roundedProgressBar3 = extra_bar_1
-        roundedProgressBar4 = extra_bar_2
     }
 
     private fun setProgressBarAttributesProgrammatically(roundedProgressBar: RoundedProgressBar) {
@@ -43,17 +49,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun increaseProgress() {
-        changeProgress(roundedProgressBar1)
-        changeProgress(roundedProgressBar2)
-        changeProgress(roundedProgressBar3)
-        changeProgress(roundedProgressBar4)
+        allProgressBars.forEach { changeProgress(it) }
     }
 
     private fun decreaseProgress() {
-        changeProgress(roundedProgressBar1, false)
-        changeProgress(roundedProgressBar2, false)
-        changeProgress(roundedProgressBar3, false)
-        changeProgress(roundedProgressBar4, false)
+        allProgressBars.forEach { changeProgress(it, false) }
     }
 
     private fun setRandomCornerRadius() {
@@ -66,10 +66,7 @@ class MainActivity : AppCompatActivity() {
             5 -> resources.getDimension(R.dimen.random_corner_radius_32)
             else -> resources.getDimension(R.dimen.random_corner_radius_40)
         }
-        roundedProgressBar1.setCornerRadius(newDimen)
-        roundedProgressBar2.setCornerRadius(newDimen)
-        roundedProgressBar3.setCornerRadius(newDimen)
-        roundedProgressBar4.setCornerRadius(newDimen)
+        progBarsModifyCorners.forEach { it.setCornerRadius(newDimen) }
     }
 
     private fun getIncrement(): Double {

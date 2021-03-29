@@ -27,4 +27,13 @@
     <color name="progress_background_color_4">#1C3144</color>
     <color name="text_color_4">#1C3144</color>
     <color name="bg_text_color_4">#E68992</color>
+
+    <color name="progress_color_5">#254441</color>
+    <color name="progress_background_color_5">#43AA8B</color>
+    <color name="text_color_5">#F4F3EE</color>
+    <color name="bg_text_color_5">#F4F3EE</color>
+
+    <color name="bar_6_top_color">#000000</color>
+    <color name="bar_6_middle_color">#ff0000</color>
+    <color name="bar_6_bottom_color">#ffcc00</color>
 </resources>
