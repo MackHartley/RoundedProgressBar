@@ -105,7 +105,7 @@ class RoundedProgressBar @JvmOverloads constructor(
         if (newProgressBarColor != defaultProgressColor) setProgressColor(newProgressBarColor)
 
         // Set progress bar background via xml (If exists and isn't the default value)
-        val newProgressBgColor = rpbAttributes.getResourceId(R.styleable.RoundedProgressBar_rpbProgressBgColor, defaultProgressBgColor)
+        val newProgressBgColor = rpbAttributes.getResourceId(R.styleable.RoundedProgressBar_rpbBackgroundColor, defaultProgressBgColor)
         if (newProgressBgColor != defaultProgressBgColor) setProgressBgColor(newProgressBgColor)
 
         // Set text size from xml attributes (If exists and isn't the default value)
@@ -113,11 +113,11 @@ class RoundedProgressBar @JvmOverloads constructor(
         if (newTextSize != defaultTextSize) setTextSize(newTextSize)
 
         // Set progress bar text color via xml (If exists and isn't the default value)
-        val newTextColor = rpbAttributes.getResourceId(R.styleable.RoundedProgressBar_rpbTextColor, defaultTextColorRes)
+        val newTextColor = rpbAttributes.getResourceId(R.styleable.RoundedProgressBar_rpbProgressTextColor, defaultTextColorRes)
         if (newTextColor != defaultTextColorRes) setTextColor(newTextColor)
 
         // Set background text color via xml (If exists and isn't the default value)
-        val newBgTextColor = rpbAttributes.getResourceId(R.styleable.RoundedProgressBar_rpbBgTextColor, defaultBgTextColorRes)
+        val newBgTextColor = rpbAttributes.getResourceId(R.styleable.RoundedProgressBar_rpbBackgroundTextColor, defaultBgTextColorRes)
         if (newBgTextColor != defaultBgTextColorRes) setBgTextColor(newBgTextColor)
 
         // Show or hide progress text via xml (If exists and isn't the default value)

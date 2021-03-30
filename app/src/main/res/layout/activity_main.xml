@@ -57,11 +57,12 @@
         android:layout_marginTop="@dimen/space_between_bars"
         app:layout_constraintTop_toBottomOf="@id/simple_bar_1"
         app:rpbAnimationLength="2000"
-        app:rpbBgTextColor="@color/bg_text_color_s2"
-        app:rpbProgressBgColor="@color/progress_background_color_s2"
+        app:rpbBackgroundColor="@color/progress_background_color_s2"
+        app:rpbBackgroundTextColor="@color/bg_text_color_s2"
         app:rpbProgressColor="@color/progress_color_s2"
-        app:rpbTextColor="@color/text_color_s2"
-        app:rpbTextSize="@dimen/large_text_size" />
+        app:rpbProgressTextColor="@color/text_color_s2"
+        app:rpbTextSize="@dimen/large_text_size"
+        tools:layout_editor_absoluteX="16dp" />
 
     <com.mackhartley.roundedprogressbar.RoundedProgressBar
         android:id="@+id/simple_bar_3"
@@ -70,11 +71,11 @@
         android:layout_marginTop="@dimen/space_between_bars"
         app:layout_constraintTop_toBottomOf="@id/simple_bar_2"
         app:rpbAnimationLength="500"
-        app:rpbBgTextColor="@color/bg_text_color_s3"
+        app:rpbBackgroundColor="@color/progress_background_color_4"
+        app:rpbBackgroundTextColor="@color/bg_text_color_s3"
         app:rpbCornerRadius="8dp"
-        app:rpbProgressBgColor="@color/progress_background_color_4"
         app:rpbProgressColor="@color/progress_color_s3"
-        app:rpbTextColor="@color/text_color_s3"
+        app:rpbProgressTextColor="@color/text_color_s3"
         app:rpbTextPadding="24dp"
         app:rpbTextSize="@dimen/medlarge_text_size" />
 
@@ -96,13 +97,13 @@
         android:layout_marginTop="@dimen/space_between_bars"
         app:layout_constraintTop_toBottomOf="@id/header_advanced_bars"
         app:rpbAnimationLength="200"
+        app:rpbBackgroundColor="@color/progress_background_color_a1"
         app:rpbCornerRadius="0dp"
         app:rpbCornerRadiusBottomLeft="4dp"
         app:rpbCornerRadiusBottomRight="20dp"
         app:rpbCornerRadiusTopLeft="20dp"
         app:rpbCornerRadiusTopRight="4dp"
         app:rpbIsRadiusRestricted="false"
-        app:rpbProgressBgColor="@color/progress_background_color_a1"
         app:rpbProgressColor="@color/progress_color_a1"
         app:rpbShowProgressText="false" />
 
@@ -119,10 +120,10 @@
             android:id="@+id/advanced_bar_2"
             android:layout_width="match_parent"
             android:layout_height="24dp"
-            app:rpbBgTextColor="@color/bg_text_color_a2"
-            app:rpbProgressBgColor="@color/progress_background_color_a2"
+            app:rpbBackgroundColor="@color/progress_background_color_a2"
+            app:rpbBackgroundTextColor="@color/bg_text_color_a2"
             app:rpbProgressColor="@color/progress_color_a2"
-            app:rpbTextColor="@color/text_color_a2" />
+            app:rpbProgressTextColor="@color/text_color_a2" />
 
     </FrameLayout>
 
@@ -149,13 +150,13 @@
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/icon_advanced_bar_3"
-            app:rpbBgTextColor="@color/bg_text_color_a3"
+            app:rpbBackgroundColor="@color/progress_background_color_a3"
+            app:rpbBackgroundTextColor="@color/bg_text_color_a3"
             app:rpbCornerRadius="18dp"
             app:rpbCornerRadiusBottomLeft="0dp"
             app:rpbCornerRadiusTopLeft="0dp"
-            app:rpbProgressBgColor="@color/progress_background_color_a3"
             app:rpbProgressColor="@color/progress_color_a3"
-            app:rpbTextColor="@color/text_color_a3" />
+            app:rpbProgressTextColor="@color/text_color_a3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -209,12 +210,12 @@
             android:layout_width="match_parent"
             android:layout_height="18dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:rpbBgTextColor="@color/bg_text_color_a5"
+            app:rpbBackgroundColor="@color/progress_background_color_a5"
+            app:rpbBackgroundTextColor="@color/bg_text_color_a5"
             app:rpbCornerRadiusBottomLeft="0dp"
             app:rpbCornerRadiusBottomRight="0dp"
-            app:rpbProgressBgColor="@color/progress_background_color_a5"
             app:rpbProgressColor="@color/progress_color_a5"
-            app:rpbTextColor="@color/text_color_a5" />
+            app:rpbProgressTextColor="@color/text_color_a5" />
 
         <TextView
             android:layout_width="match_parent"
