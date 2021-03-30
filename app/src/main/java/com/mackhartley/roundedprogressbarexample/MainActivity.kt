@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
             simple_bar_2,
             simple_bar_3
         )
-
         setProgressBarAttributesProgrammatically(simple_bar_1)
 
         button_increase.setOnClickListener { increaseProgress() }
@@ -44,10 +43,10 @@ class MainActivity : AppCompatActivity() {
      */
     private fun setProgressBarAttributesProgrammatically(roundedProgressBar: RoundedProgressBar) {
         roundedProgressBar.setProgressColor(R.color.progress_color_s1)
-        roundedProgressBar.setProgressBgColor(R.color.progress_background_color_s1)
+        roundedProgressBar.setProgressBackgroundColor(R.color.progress_background_color_s1)
         roundedProgressBar.setTextSize(resources.getDimension(R.dimen.small_text_size))
-        roundedProgressBar.setTextColor(R.color.text_color_s1)
-        roundedProgressBar.setBgTextColor(R.color.bg_text_color_s1)
+        roundedProgressBar.setProgressTextColor(R.color.text_color_s1)
+        roundedProgressBar.setBackgroundTextColor(R.color.bg_text_color_s1)
         roundedProgressBar.showProgressText(true)
         roundedProgressBar.setAnimationLength(900)
     }
