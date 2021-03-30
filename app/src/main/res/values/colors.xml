@@ -1,39 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
-    <!--    For the progress bar modified programmatically-->
-    <color name="progress_color_1">#533A71</color>
-    <color name="progress_background_color_1">#C0AED5</color>
-    <color name="text_color_1">#FFFFFF</color>
-    <color name="bg_text_color_1">#222222</color>
+    <!--Colors for simple bars-->
+    <color name="progress_color_s1">#3A0CA3</color>
+    <color name="progress_background_color_s1">#D59DFB</color>
+    <color name="text_color_s1">#FFFFFF</color>
+    <color name="bg_text_color_s1">#000000</color>
 
-    <!--    For the progress bar modified via xml-->
-    <color name="progress_color_2">#FF5E5B</color>
-    <color name="progress_background_color_2">#FCDEBE</color>
-    <color name="text_color_2">#FAF3DD</color>
-    <color name="bg_text_color_2">#50FFB1</color>
+    <color name="progress_color_s2">#0A2472</color>
+    <color name="progress_background_color_s2">#BBBBBB</color>
+    <color name="text_color_s2">#FFFFFF</color>
+    <color name="bg_text_color_s2">#000000</color>
 
-    <!--    For the progress bar modified via xml-->
-    <color name="progress_color_3">#000000</color>
-    <color name="progress_background_color_3">#BBBBBB</color>
-    <color name="text_color_3">#EEEEEE</color>
-    <color name="bg_text_color_3">#000000</color>
-
-    <!--    For the progress bar modified via xml-->
-    <color name="progress_color_4">#E68992</color>
+    <color name="progress_color_s3">#E68992</color>
     <color name="progress_background_color_4">#1C3144</color>
-    <color name="text_color_4">#1C3144</color>
-    <color name="bg_text_color_4">#E68992</color>
+    <color name="text_color_s3">#1C3144</color>
+    <color name="bg_text_color_s3">#E68992</color>
 
-    <color name="progress_color_5">#254441</color>
-    <color name="progress_background_color_5">#43AA8B</color>
-    <color name="text_color_5">#F4F3EE</color>
-    <color name="bg_text_color_5">#F4F3EE</color>
+    <!--Colors for advanced bars-->
+    <color name="progress_color_a1">#FF5E5B</color>
+    <color name="progress_background_color_a1">#FCDEBE</color>
+    <color name="text_color_2">#FAF3DD</color>
+    <color name="bg_text_color_a1">#50FFB1</color>
 
-    <color name="bar_6_top_color">#000000</color>
-    <color name="bar_6_middle_color">#ff0000</color>
-    <color name="bar_6_bottom_color">#ffcc00</color>
+    <color name="progress_color_a2">#000000</color>
+    <color name="progress_background_color_a2">#FFFFFF</color>
+    <color name="text_color_a2">#FFFFFF</color>
+    <color name="bg_text_color_a2">#000000</color>
+
+    <color name="progress_color_a3">#254441</color>
+    <color name="progress_background_color_a3">#43AA8B</color>
+    <color name="text_color_a3">#F4F3EE</color>
+    <color name="bg_text_color_a3">#F4F3EE</color>
+
+    <color name="progress_top_color_a4">#000000</color>
+    <color name="progress_mid_color_a4">#ff0000</color>
+    <color name="progress_bot_color_a4">#ffcc00</color>
+
+    <color name="progress_color_a5">#023E8A</color>
+    <color name="progress_background_color_a5">#48CAE4</color>
+    <color name="text_color_a5">#FFFFFF</color>
+    <color name="bg_text_color_a5">#000000</color>
+
 </resources>
