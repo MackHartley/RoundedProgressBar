@@ -5,231 +5,518 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button_decrease"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Decrease"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_increase"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Increase"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_corner_radius"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rand Corner Radius"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_decrease" />
-
-    <TextView
-        android:id="@+id/header_simple_bars"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Simple"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_corner_radius" />
-
-    <com.mackhartley.roundedprogressbar.RoundedProgressBar
-        android:id="@+id/simple_bar_1"
-        android:layout_width="match_parent"
-        android:layout_height="16dp"
-        android:layout_marginTop="@dimen/space_between_bars"
-        app:layout_constraintTop_toBottomOf="@id/header_simple_bars" />
-
-    <com.mackhartley.roundedprogressbar.RoundedProgressBar
-        android:id="@+id/simple_bar_2"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="@dimen/space_between_bars"
-        app:layout_constraintTop_toBottomOf="@id/simple_bar_1"
-        app:rpbAnimationLength="2000"
-        app:rpbBackgroundColor="@color/progress_background_color_s2"
-        app:rpbBackgroundTextColor="@color/bg_text_color_s2"
-        app:rpbProgressColor="@color/progress_color_s2"
-        app:rpbProgressTextColor="@color/text_color_s2"
-        app:rpbTextSize="@dimen/large_text_size"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <com.mackhartley.roundedprogressbar.RoundedProgressBar
-        android:id="@+id/simple_bar_3"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="@dimen/space_between_bars"
-        app:layout_constraintTop_toBottomOf="@id/simple_bar_2"
-        app:rpbAnimationLength="500"
-        app:rpbBackgroundColor="@color/progress_background_color_4"
-        app:rpbBackgroundTextColor="@color/bg_text_color_s3"
-        app:rpbCornerRadius="8dp"
-        app:rpbProgressColor="@color/progress_color_s3"
-        app:rpbProgressTextColor="@color/text_color_s3"
-        app:rpbTextPadding="24dp"
-        app:rpbTextSize="@dimen/medlarge_text_size" />
-
-    <TextView
-        android:id="@+id/header_advanced_bars"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Advanced"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/simple_bar_3" />
-
-    <com.mackhartley.roundedprogressbar.RoundedProgressBar
-        android:id="@+id/advanced_bar_1"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginTop="@dimen/space_between_bars"
-        app:layout_constraintTop_toBottomOf="@id/header_advanced_bars"
-        app:rpbAnimationLength="200"
-        app:rpbBackgroundColor="@color/progress_background_color_a1"
-        app:rpbCornerRadius="0dp"
-        app:rpbCornerRadiusBottomLeft="4dp"
-        app:rpbCornerRadiusBottomRight="20dp"
-        app:rpbCornerRadiusTopLeft="20dp"
-        app:rpbCornerRadiusTopRight="4dp"
-        app:rpbIsRadiusRestricted="false"
-        app:rpbProgressColor="@color/progress_color_a1"
-        app:rpbShowProgressText="false" />
-
-    <FrameLayout
-        android:id="@+id/advanced_bar_2_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_between_bars"
-        android:background="@drawable/bg_advanced_bar_2"
-        android:padding="1dp"
-        app:layout_constraintTop_toBottomOf="@id/advanced_bar_1">
-
-        <com.mackhartley.roundedprogressbar.RoundedProgressBar
-            android:id="@+id/advanced_bar_2"
-            android:layout_width="match_parent"
-            android:layout_height="24dp"
-            app:rpbBackgroundColor="@color/progress_background_color_a2"
-            app:rpbBackgroundTextColor="@color/bg_text_color_a2"
-            app:rpbProgressColor="@color/progress_color_a2"
-            app:rpbProgressTextColor="@color/text_color_a2" />
-
-    </FrameLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/advanced_bar_3_layout"
+        android:id="@+id/inc_dec_layout"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_marginTop="@dimen/space_between_bars"
-        app:layout_constraintTop_toBottomOf="@id/advanced_bar_2_layout">
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:paddingStart="16dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="4dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/icon_advanced_bar_3"
+        <Button
+            android:id="@+id/button_decrease"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_advanced_bar_3"
-            android:padding="6dp"
-            android:src="@drawable/ic_baseline_downloading_24"
+            android:layout_height="wrap_content"
+            android:text="Decrease"
             app:layout_constraintStart_toStartOf="parent"
-            app:tint="@color/progress_background_color_a3" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.mackhartley.roundedprogressbar.RoundedProgressBar
-            android:id="@+id/advanced_bar_3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+        <Button
+            android:id="@+id/button_increase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Increase"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/icon_advanced_bar_3"
-            app:rpbBackgroundColor="@color/progress_background_color_a3"
-            app:rpbBackgroundTextColor="@color/bg_text_color_a3"
-            app:rpbCornerRadius="18dp"
-            app:rpbCornerRadiusBottomLeft="0dp"
-            app:rpbCornerRadiusTopLeft="0dp"
-            app:rpbProgressColor="@color/progress_color_a3"
-            app:rpbProgressTextColor="@color/text_color_a3" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/advanced_bar_4_layout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_between_bars"
-        app:layout_constraintTop_toBottomOf="@id/advanced_bar_3_layout">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inc_dec_layout">
 
-        <com.mackhartley.roundedprogressbar.RoundedProgressBar
-            android:id="@+id/advanced_bar_4_top"
-            android:layout_width="match_parent"
-            android:layout_height="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:rpbCornerRadiusBottomLeft="0dp"
-            app:rpbCornerRadiusBottomRight="0dp"
-            app:rpbProgressColor="@color/progress_top_color_a4"
-            app:rpbShowProgressText="false" />
-
-        <com.mackhartley.roundedprogressbar.RoundedProgressBar
-            android:id="@+id/advanced_bar_4_mid"
-            android:layout_width="match_parent"
-            android:layout_height="16dp"
-            app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_top"
-            app:rpbCornerRadius="0dp"
-            app:rpbProgressColor="@color/progress_mid_color_a4"
-            app:rpbShowProgressText="false" />
-
-        <com.mackhartley.roundedprogressbar.RoundedProgressBar
-            android:id="@+id/advanced_bar_4_bot"
-            android:layout_width="match_parent"
-            android:layout_height="16dp"
-            app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_mid"
-            app:rpbCornerRadiusTopLeft="0dp"
-            app:rpbCornerRadiusTopRight="0dp"
-            app:rpbProgressColor="@color/progress_bot_color_a4"
-            app:rpbShowProgressText="false" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/advanced_bar_5_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_between_bars"
-        app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_layout">
-
-        <com.mackhartley.roundedprogressbar.RoundedProgressBar
-            android:id="@+id/advanced_bar_5"
-            android:layout_width="match_parent"
-            android:layout_height="18dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:rpbBackgroundColor="@color/progress_background_color_a5"
-            app:rpbBackgroundTextColor="@color/bg_text_color_a5"
-            app:rpbCornerRadiusBottomLeft="0dp"
-            app:rpbCornerRadiusBottomRight="0dp"
-            app:rpbProgressColor="@color/progress_color_a5"
-            app:rpbProgressTextColor="@color/text_color_a5" />
-
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_advanced_bar_5"
-            android:paddingTop="4dp"
-            android:paddingBottom="12dp"
-            android:text="Overshield Strength"
-            android:textAlignment="center"
-            android:textColor="#000"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/advanced_bar_5" />
+            android:layout_marginTop="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/prog_color_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Progress Color"
+                    app:layout_constraintEnd_toEndOf="@id/background_color_label"
+                    app:layout_constraintStart_toStartOf="@id/background_color_label"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/prog_color"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#FFFFFF"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/prog_color_label"
+                    app:layout_constraintStart_toStartOf="@id/prog_color_label"
+                    app:layout_constraintTop_toBottomOf="@id/prog_color_label" />
+
+                <TextView
+                    android:id="@+id/prog_text_color_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Progress Text Color"
+                    app:layout_constraintEnd_toEndOf="@id/background_text_color_label"
+                    app:layout_constraintStart_toStartOf="@id/background_text_color_label"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/prog_text_color"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#FFFFFF"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/prog_text_color_label"
+                    app:layout_constraintStart_toStartOf="@id/prog_text_color_label"
+                    app:layout_constraintTop_toBottomOf="@id/prog_text_color_label" />
+
+                <TextView
+                    android:id="@+id/background_color_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_between_settings"
+                    android:text="Background Color"
+                    app:layout_constraintEnd_toEndOf="@id/botleft_tv"
+                    app:layout_constraintStart_toStartOf="@id/botleft_tv"
+                    app:layout_constraintTop_toBottomOf="@id/prog_text_color" />
+
+                <Button
+                    android:id="@+id/background_color"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#FFFFFF"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/background_color_label"
+                    app:layout_constraintStart_toStartOf="@id/background_color_label"
+                    app:layout_constraintTop_toBottomOf="@id/background_color_label" />
+
+                <TextView
+                    android:id="@+id/background_text_color_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_between_settings"
+                    android:text="Background Text Color"
+                    app:layout_constraintEnd_toEndOf="@id/topright_tv"
+                    app:layout_constraintStart_toStartOf="@id/topright_tv"
+                    app:layout_constraintTop_toBottomOf="@id/prog_text_color" />
+
+                <Button
+                    android:id="@+id/background_text_color"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#FFFFFF"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/background_text_color_label"
+                    app:layout_constraintStart_toStartOf="@id/background_text_color_label"
+                    app:layout_constraintTop_toBottomOf="@id/background_text_color_label" />
+
+                <TextView
+                    android:id="@+id/topleft_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_between_settings"
+                    android:text="Top Left Corner Radius"
+                    app:layout_constraintEnd_toEndOf="@id/botleft_tv"
+                    app:layout_constraintStart_toStartOf="@id/botleft_tv"
+                    app:layout_constraintTop_toBottomOf="@id/background_text_color" />
+
+                <it.sephiroth.android.library.numberpicker.NumberPicker
+                    android:id="@+id/tl_radius_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/topleft_tv"
+                    app:layout_constraintStart_toStartOf="@id/topleft_tv"
+                    app:layout_constraintTop_toBottomOf="@id/topleft_tv"
+                    app:picker_disableGestures="true"
+                    app:picker_max="250"
+                    app:picker_min="0" />
+
+                <TextView
+                    android:id="@+id/topright_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Top Right Corner Radius"
+                    app:layout_constraintEnd_toEndOf="@id/botright_tv"
+                    app:layout_constraintStart_toStartOf="@id/botright_tv"
+                    app:layout_constraintTop_toTopOf="@id/topleft_tv" />
+
+                <it.sephiroth.android.library.numberpicker.NumberPicker
+                    android:id="@+id/tr_radius_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/topright_tv"
+                    app:layout_constraintStart_toStartOf="@id/topright_tv"
+                    app:layout_constraintTop_toBottomOf="@id/topright_tv" />
+
+                <TextView
+                    android:id="@+id/botleft_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_between_settings"
+                    android:text="Bottom Left Corner Radius"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tl_radius_field" />
+
+                <it.sephiroth.android.library.numberpicker.NumberPicker
+                    android:id="@+id/bl_radius_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/botleft_tv"
+                    app:layout_constraintStart_toStartOf="@id/botleft_tv"
+                    app:layout_constraintTop_toBottomOf="@id/botleft_tv" />
+
+                <TextView
+                    android:id="@+id/botright_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bottom Right Corner Radius"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/botleft_tv" />
+
+                <it.sephiroth.android.library.numberpicker.NumberPicker
+                    android:id="@+id/br_radius_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/botright_tv"
+                    app:layout_constraintStart_toStartOf="@id/botright_tv"
+                    app:layout_constraintTop_toBottomOf="@id/botright_tv" />
+
+                <TextView
+                    android:id="@+id/text_size_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_between_settings"
+                    android:text="Text Size"
+                    app:layout_constraintEnd_toEndOf="@id/botleft_tv"
+                    app:layout_constraintStart_toStartOf="@id/botleft_tv"
+                    app:layout_constraintTop_toBottomOf="@id/bl_radius_field" />
+
+                <it.sephiroth.android.library.numberpicker.NumberPicker
+                    android:id="@+id/text_size_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/text_size_label"
+                    app:layout_constraintStart_toStartOf="@id/text_size_label"
+                    app:layout_constraintTop_toBottomOf="@id/text_size_label" />
+
+                <TextView
+                    android:id="@+id/text_padding_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_between_settings"
+                    android:text="Text Padding"
+                    app:layout_constraintEnd_toEndOf="@id/botright_tv"
+                    app:layout_constraintStart_toStartOf="@id/botright_tv"
+                    app:layout_constraintTop_toBottomOf="@id/br_radius_field" />
+
+                <it.sephiroth.android.library.numberpicker.NumberPicker
+                    android:id="@+id/text_padding_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/text_padding_label"
+                    app:layout_constraintStart_toStartOf="@id/text_padding_label"
+                    app:layout_constraintTop_toBottomOf="@id/text_padding_label" />
+
+                <TextView
+                    android:id="@+id/animation_length_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_between_settings"
+                    android:text="Animation Length"
+                    app:layout_constraintEnd_toEndOf="@id/text_size_label"
+                    app:layout_constraintStart_toStartOf="@id/text_size_label"
+                    app:layout_constraintTop_toBottomOf="@id/text_size_field" />
+
+                <it.sephiroth.android.library.numberpicker.NumberPicker
+                    android:id="@+id/animation_length_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/animation_length_label"
+                    app:layout_constraintStart_toStartOf="@id/animation_length_label"
+                    app:layout_constraintTop_toBottomOf="@id/animation_length_label"
+                    app:picker_max="9999" />
+
+                <TextView
+                    android:id="@+id/show_text_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_between_settings"
+                    android:text="Show Progress Text"
+                    app:layout_constraintEnd_toEndOf="@id/text_padding_field"
+                    app:layout_constraintStart_toStartOf="@id/text_padding_field"
+                    app:layout_constraintTop_toBottomOf="@id/text_padding_field" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/show_text_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/show_text_label"
+                    app:layout_constraintStart_toStartOf="@id/show_text_label"
+                    app:layout_constraintTop_toBottomOf="@id/show_text_label" />
+
+                <TextView
+                    android:id="@+id/restrict_radius_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_between_settings"
+                    android:text="Restrict Corner Radius"
+                    app:layout_constraintEnd_toEndOf="@id/show_text_switch"
+                    app:layout_constraintStart_toStartOf="@id/show_text_switch"
+                    app:layout_constraintTop_toBottomOf="@id/show_text_switch" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/restrict_radius_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/restrict_radius_label"
+                    app:layout_constraintStart_toStartOf="@id/restrict_radius_label"
+                    app:layout_constraintTop_toBottomOf="@id/restrict_radius_label" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                android:id="@+id/custom_bar"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="@dimen/space_between_settings"
+                app:layout_constraintTop_toBottomOf="@id/options" />
+
+            <TextView
+                android:id="@+id/header_simple_bars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Simple"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/custom_bar" />
+
+            <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                android:id="@+id/simple_bar_1"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginTop="@dimen/space_between_bars"
+                app:layout_constraintTop_toBottomOf="@id/header_simple_bars" />
+
+            <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                android:id="@+id/simple_bar_2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/space_between_bars"
+                app:layout_constraintTop_toBottomOf="@id/simple_bar_1"
+                app:rpbAnimationLength="2000"
+                app:rpbBackgroundColor="@color/progress_background_color_s2"
+                app:rpbBackgroundTextColor="@color/bg_text_color_s2"
+                app:rpbProgressColor="@color/progress_color_s2"
+                app:rpbProgressTextColor="@color/text_color_s2"
+                app:rpbTextSize="@dimen/large_text_size"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                android:id="@+id/simple_bar_3"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="@dimen/space_between_bars"
+                app:layout_constraintTop_toBottomOf="@id/simple_bar_2"
+                app:rpbAnimationLength="500"
+                app:rpbBackgroundColor="@color/progress_background_color_4"
+                app:rpbBackgroundTextColor="@color/bg_text_color_s3"
+                app:rpbCornerRadius="8dp"
+                app:rpbProgressColor="@color/progress_color_s3"
+                app:rpbProgressTextColor="@color/text_color_s3"
+                app:rpbTextPadding="24dp"
+                app:rpbTextSize="@dimen/medlarge_text_size" />
+
+            <TextView
+                android:id="@+id/header_advanced_bars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Advanced"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/simple_bar_3" />
+
+            <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                android:id="@+id/advanced_bar_1"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="@dimen/space_between_bars"
+                app:layout_constraintTop_toBottomOf="@id/header_advanced_bars"
+                app:rpbAnimationLength="200"
+                app:rpbBackgroundColor="@color/progress_background_color_a1"
+                app:rpbCornerRadius="0dp"
+                app:rpbCornerRadiusBottomLeft="4dp"
+                app:rpbCornerRadiusBottomRight="20dp"
+                app:rpbCornerRadiusTopLeft="20dp"
+                app:rpbCornerRadiusTopRight="4dp"
+                app:rpbIsRadiusRestricted="false"
+                app:rpbProgressColor="@color/progress_color_a1"
+                app:rpbShowProgressText="false" />
+
+            <FrameLayout
+                android:id="@+id/advanced_bar_2_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_between_bars"
+                android:background="@drawable/bg_advanced_bar_2"
+                android:padding="1dp"
+                app:layout_constraintTop_toBottomOf="@id/advanced_bar_1">
+
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/advanced_bar_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    app:rpbBackgroundColor="@color/progress_background_color_a2"
+                    app:rpbBackgroundTextColor="@color/bg_text_color_a2"
+                    app:rpbProgressColor="@color/progress_color_a2"
+                    app:rpbProgressTextColor="@color/text_color_a2" />
+
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/advanced_bar_3_layout"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="@dimen/space_between_bars"
+                app:layout_constraintTop_toBottomOf="@id/advanced_bar_2_layout">
+
+                <ImageView
+                    android:id="@+id/icon_advanced_bar_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_advanced_bar_3"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_baseline_downloading_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:tint="@color/progress_background_color_a3" />
+
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/advanced_bar_3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/icon_advanced_bar_3"
+                    app:rpbBackgroundColor="@color/progress_background_color_a3"
+                    app:rpbBackgroundTextColor="@color/bg_text_color_a3"
+                    app:rpbCornerRadius="18dp"
+                    app:rpbCornerRadiusBottomLeft="0dp"
+                    app:rpbCornerRadiusTopLeft="0dp"
+                    app:rpbProgressColor="@color/progress_color_a3"
+                    app:rpbProgressTextColor="@color/text_color_a3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/advanced_bar_4_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_between_bars"
+                app:layout_constraintTop_toBottomOf="@id/advanced_bar_3_layout">
+
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/advanced_bar_4_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:rpbCornerRadiusBottomLeft="0dp"
+                    app:rpbCornerRadiusBottomRight="0dp"
+                    app:rpbProgressColor="@color/progress_top_color_a4"
+                    app:rpbShowProgressText="false" />
+
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/advanced_bar_4_mid"
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_top"
+                    app:rpbCornerRadius="0dp"
+                    app:rpbProgressColor="@color/progress_mid_color_a4"
+                    app:rpbShowProgressText="false" />
+
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/advanced_bar_4_bot"
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_mid"
+                    app:rpbCornerRadiusTopLeft="0dp"
+                    app:rpbCornerRadiusTopRight="0dp"
+                    app:rpbProgressColor="@color/progress_bot_color_a4"
+                    app:rpbShowProgressText="false" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/advanced_bar_5_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_between_bars"
+                app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_layout">
+
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/advanced_bar_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:rpbBackgroundColor="@color/progress_background_color_a5"
+                    app:rpbBackgroundTextColor="@color/bg_text_color_a5"
+                    app:rpbCornerRadiusBottomLeft="0dp"
+                    app:rpbCornerRadiusBottomRight="0dp"
+                    app:rpbProgressColor="@color/progress_color_a5"
+                    app:rpbProgressTextColor="@color/text_color_a5" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_advanced_bar_5"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="12dp"
+                    android:text="Overshield Strength"
+                    android:textAlignment="center"
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/advanced_bar_5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/extra_space"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_constraintTop_toBottomOf="@id/advanced_bar_5_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

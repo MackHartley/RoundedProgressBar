@@ -132,7 +132,7 @@ class RoundedProgressBar @JvmOverloads constructor(
 
         // Set whether the rounded corner radius can spill into other rounded corner areas
         val newIsRadiusRestricted = rpbAttributes.getBoolean(R.styleable.RoundedProgressBar_rpbIsRadiusRestricted, defaultIsRadiusRestricted)
-        if (newIsRadiusRestricted != defaultIsRadiusRestricted) setIsRadiusRestricted(newIsRadiusRestricted)
+        if (newIsRadiusRestricted != defaultIsRadiusRestricted) setRadiusRestricted(newIsRadiusRestricted)
 
         // Set the side padding for the progress indicator text
         val newTextPadding = rpbAttributes.getDimension(R.styleable.RoundedProgressBar_rpbTextPadding, defaultTextPadding)
@@ -392,9 +392,23 @@ class RoundedProgressBar @JvmOverloads constructor(
     }
 
     /**
+     * Sets the corner radius for one corner of the progress bar (includes progress background and
+     * progress drawable)
+     * @param radiusInDp must be in units of pixels, not dp
+     */
+    fun setCornerRadius(radiusInDp: Float, cornerToModify: CornerRadius) {
+        when (cornerToModify) {
+            CornerRadius.TOP_LEFT -> setCornerRadius(radiusInDp, cornerRadiusTR, cornerRadiusBR, cornerRadiusBL)
+            CornerRadius.TOP_RIGHT -> setCornerRadius(cornerRadiusTL, radiusInDp, cornerRadiusBR, cornerRadiusBL)
+            CornerRadius.BOTTOM_RIGHT -> setCornerRadius(cornerRadiusTL, cornerRadiusTR, radiusInDp, cornerRadiusBL)
+            CornerRadius.BOTTOM_LEFT -> setCornerRadius(cornerRadiusTL, cornerRadiusTR, cornerRadiusBR, radiusInDp)
+        }
+    }
+
+    /**
      * Sets the corner radius for all corners the progress bar (includes progress background and
      * progress drawable)
-     * @param radiusInDp must be in units of dp
+     * @param radiusInDp must be in units of pixels, not dp
      */
     fun setCornerRadius(radiusInDp: Float) {
         setCornerRadius(radiusInDp, radiusInDp, radiusInDp, radiusInDp)
@@ -403,7 +417,7 @@ class RoundedProgressBar @JvmOverloads constructor(
     /**
      * Sets the corner radius for each corner of the progress bar (includes progress background and
      * progress drawable)
-     * @param radiusInDp must be in units of dp
+     * @param radiusInDp must be in units of pixels, not dp
      */
     fun setCornerRadius(
         topLeftRadius: Float,
@@ -438,7 +452,7 @@ class RoundedProgressBar @JvmOverloads constructor(
      * By default corners can only be curved 90 degrees and won't curve into the "area" of
      * a different corner.
      */
-    fun setIsRadiusRestricted(isRestricted: Boolean) {
+    fun setRadiusRestricted(isRestricted: Boolean) {
         isRadiusRestricted = isRestricted
         redrawCorners()
     }
