@@ -2,6 +2,7 @@ package com.mackhartley.roundedprogressbarexample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.mackhartley.roundedprogressbar.RoundedProgressBar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.random.Random
@@ -42,11 +43,11 @@ class MainActivity : AppCompatActivity() {
      * Example of how to set progress bar attributes programatically
      */
     private fun setProgressBarAttributesProgrammatically(roundedProgressBar: RoundedProgressBar) {
-        roundedProgressBar.setProgressColor(R.color.progress_color_s1)
-        roundedProgressBar.setProgressBackgroundColor(R.color.progress_background_color_s1)
+        roundedProgressBar.setProgressColor(ContextCompat.getColor(this, R.color.progress_color_s1))
+        roundedProgressBar.setProgressBackgroundColor(ContextCompat.getColor(this, R.color.progress_background_color_s1))
         roundedProgressBar.setTextSize(resources.getDimension(R.dimen.small_text_size))
-        roundedProgressBar.setProgressTextColor(R.color.text_color_s1)
-        roundedProgressBar.setBackgroundTextColor(R.color.bg_text_color_s1)
+        roundedProgressBar.setProgressTextColor(ContextCompat.getColor(this, R.color.text_color_s1))
+        roundedProgressBar.setBackgroundTextColor(ContextCompat.getColor(this, R.color.bg_text_color_s1))
         roundedProgressBar.showProgressText(true)
         roundedProgressBar.setAnimationLength(900)
     }

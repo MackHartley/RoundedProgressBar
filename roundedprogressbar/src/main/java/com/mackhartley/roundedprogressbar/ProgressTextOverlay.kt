@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import kotlin.math.max
 
@@ -135,8 +136,7 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
     /**
      * This sets the text color for when the Text Overlay is drawn over the progress bar
      */
-    fun setTextColor(newColorRes: Int) {
-        val newColor = ContextCompat.getColor(context, newColorRes)
+    fun setProgressTextColor(@ColorInt newColor: Int) {
         progressTextOverlayPaint.color = newColor
         invalidate()
     }
@@ -145,8 +145,7 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
      * This sets the text color for when the Text Overlay is drawn over the background. i.e. the
      * Text Overlay isn't drawn inside the progress bar
      */
-    fun setBgTextColor(newColorRes: Int) {
-        val newColor = ContextCompat.getColor(context, newColorRes)
+    fun setBackgroundTextColor(@ColorInt newColor: Int) {
         backgroundTextOverlayPaint.color = newColor
         invalidate()
     }
