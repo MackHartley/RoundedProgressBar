@@ -11,8 +11,8 @@
     <color name="text_color_s1">#FFFFFF</color>
     <color name="bg_text_color_s1">#000000</color>
 
-    <color name="progress_color_s2">#D34E24</color>
-    <color name="progress_background_color_s2">#BBBBBB</color>
+    <color name="progress_color_s2">#5BC8AF</color>
+    <color name="progress_background_color_s2">#DDDDDD</color>
     <color name="text_color_s2">#FFFFFF</color>
     <color name="bg_text_color_s2">#000000</color>
 
@@ -22,10 +22,10 @@
     <color name="bg_text_color_s3">#E68992</color>
 
     <!--Colors for advanced bars-->
-    <color name="progress_color_a1">#FF5E5B</color>
-    <color name="progress_background_color_a1">#FCDEBE</color>
-    <color name="text_color_2">#FAF3DD</color>
-    <color name="bg_text_color_a1">#50FFB1</color>
+    <color name="progress_color_s4">#FF5E5B</color>
+    <color name="progress_background_color_s4">#FCDEBE</color>
+    <color name="text_color_s4">#FAF3DD</color>
+    <color name="bg_text_color_s4">#50FFB1</color>
 
     <color name="progress_color_a2">#000000</color>
     <color name="progress_background_color_a2">#FFFFFF</color>

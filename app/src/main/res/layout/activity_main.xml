@@ -292,7 +292,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
                 android:layout_marginTop="@dimen/space_between_bars"
-                app:layout_constraintTop_toBottomOf="@id/header_simple_bars" />
+                app:layout_constraintTop_toBottomOf="@id/header_simple_bars"
+                app:rpbCornerRadius="8dp" />
 
             <com.mackhartley.roundedprogressbar.RoundedProgressBar
                 android:id="@+id/simple_bar_2"
@@ -303,6 +304,8 @@
                 app:rpbAnimationLength="2000"
                 app:rpbBackgroundColor="@color/progress_background_color_s2"
                 app:rpbBackgroundTextColor="@color/bg_text_color_s2"
+                app:rpbCornerRadiusBottomRight="12dp"
+                app:rpbCornerRadiusTopLeft="12dp"
                 app:rpbProgressColor="@color/progress_color_s2"
                 app:rpbProgressTextColor="@color/text_color_s2"
                 app:rpbTextSize="@dimen/large_text_size"
@@ -324,20 +327,20 @@
                 app:rpbTextSize="@dimen/medlarge_text_size" />
 
             <com.mackhartley.roundedprogressbar.RoundedProgressBar
-                android:id="@+id/advanced_bar_1"
+                android:id="@+id/simple_bar_4"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_marginTop="@dimen/space_between_bars"
                 app:layout_constraintTop_toBottomOf="@id/simple_bar_3"
                 app:rpbAnimationLength="200"
-                app:rpbBackgroundColor="@color/progress_background_color_a1"
+                app:rpbBackgroundColor="@color/progress_background_color_s4"
                 app:rpbCornerRadius="0dp"
                 app:rpbCornerRadiusBottomLeft="4dp"
                 app:rpbCornerRadiusBottomRight="20dp"
                 app:rpbCornerRadiusTopLeft="20dp"
                 app:rpbCornerRadiusTopRight="4dp"
                 app:rpbIsRadiusRestricted="false"
-                app:rpbProgressColor="@color/progress_color_a1"
+                app:rpbProgressColor="@color/progress_color_s4"
                 app:rpbShowProgressText="false" />
 
             <TextView
@@ -345,7 +348,7 @@
                 style="@style/HeaderText"
                 android:text="Advanced Examples (Require customized layouts)"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/advanced_bar_1" />
+                app:layout_constraintTop_toBottomOf="@id/simple_bar_4" />
 
             <FrameLayout
                 android:id="@+id/advanced_bar_2_layout"
@@ -362,6 +365,7 @@
                     android:layout_height="24dp"
                     app:rpbBackgroundColor="@color/progress_background_color_a2"
                     app:rpbBackgroundTextColor="@color/bg_text_color_a2"
+                    app:rpbCornerRadius="12dp"
                     app:rpbProgressColor="@color/progress_color_a2"
                     app:rpbProgressTextColor="@color/text_color_a2" />
 
@@ -414,6 +418,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:rpbCornerRadiusBottomLeft="0dp"
                     app:rpbCornerRadiusBottomRight="0dp"
+                    app:rpbCornerRadiusTopLeft="8dp"
+                    app:rpbCornerRadiusTopRight="8dp"
                     app:rpbProgressColor="@color/progress_top_color_a4"
                     app:rpbShowProgressText="false" />
 
@@ -431,6 +437,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="16dp"
                     app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_mid"
+                    app:rpbCornerRadiusBottomLeft="8dp"
+                    app:rpbCornerRadiusBottomRight="8dp"
                     app:rpbCornerRadiusTopLeft="0dp"
                     app:rpbCornerRadiusTopRight="0dp"
                     app:rpbProgressColor="@color/progress_bot_color_a4"
@@ -454,6 +462,8 @@
                     app:rpbBackgroundTextColor="@color/bg_text_color_a5"
                     app:rpbCornerRadiusBottomLeft="0dp"
                     app:rpbCornerRadiusBottomRight="0dp"
+                    app:rpbCornerRadiusTopLeft="9dp"
+                    app:rpbCornerRadiusTopRight="9dp"
                     app:rpbProgressColor="@color/progress_color_a5"
                     app:rpbProgressTextColor="@color/text_color_a5" />
 

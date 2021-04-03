@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
             simple_bar_1,
             simple_bar_2,
             simple_bar_3,
-            advanced_bar_1,
+            simple_bar_4,
             advanced_bar_2,
             advanced_bar_3,
             advanced_bar_4_top,

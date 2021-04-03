@@ -417,6 +417,11 @@ class RoundedProgressBar @JvmOverloads constructor(
     /**
      * Sets the corner radius for each corner of the progress bar (includes progress background and
      * progress drawable)
+     *
+     * Note: If you want the progress bar to be FULLY rounded, then just set the corner radius to
+     *  progressBarHeight / 2. Alternatively you can just put a huge value (like 1000dp) and
+     *  the bar will be rounded to the maximum amount, which is height / 2 (if radiusRestricted == true)
+     *
      * @param radiusInDp must be in units of pixels, not dp
      */
     fun setCornerRadius(
