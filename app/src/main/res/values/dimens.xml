@@ -4,6 +4,7 @@
     <dimen name="normal_text_size">16sp</dimen>
     <dimen name="medlarge_text_size">20sp</dimen>
     <dimen name="large_text_size">24sp</dimen>
+    <dimen name="largest_text_size">32sp</dimen>
 
     <dimen name="space_between_bars">12dp</dimen>
     <dimen name="space_between_settings">8dp</dimen>

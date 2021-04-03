@@ -272,7 +272,7 @@
             <com.mackhartley.roundedprogressbar.RoundedProgressBar
                 android:id="@+id/custom_bar"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="@dimen/space_between_settings"
                 app:layout_constraintTop_toBottomOf="@id/header_created"
                 app:rpbAnimationLength="500"
@@ -308,7 +308,7 @@
                 app:rpbCornerRadiusTopLeft="12dp"
                 app:rpbProgressColor="@color/progress_color_s2"
                 app:rpbProgressTextColor="@color/text_color_s2"
-                app:rpbTextSize="@dimen/large_text_size"
+                app:rpbTextSize="@dimen/largest_text_size"
                 tools:layout_editor_absoluteX="16dp" />
 
             <com.mackhartley.roundedprogressbar.RoundedProgressBar
@@ -351,56 +351,98 @@
                 app:layout_constraintTop_toBottomOf="@id/simple_bar_4" />
 
             <FrameLayout
-                android:id="@+id/advanced_bar_2_layout"
+                android:id="@+id/advanced_bar_1_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_between_bars"
-                android:background="@drawable/bg_advanced_bar_2"
+                android:background="@drawable/bg_advanced_bar_1"
                 android:padding="1dp"
                 app:layout_constraintTop_toBottomOf="@id/header_advanced_bars">
 
                 <com.mackhartley.roundedprogressbar.RoundedProgressBar
-                    android:id="@+id/advanced_bar_2"
+                    android:id="@+id/advanced_bar_1"
                     android:layout_width="match_parent"
                     android:layout_height="24dp"
-                    app:rpbBackgroundColor="@color/progress_background_color_a2"
-                    app:rpbBackgroundTextColor="@color/bg_text_color_a2"
+                    app:rpbBackgroundColor="@color/progress_background_color_a1"
+                    app:rpbBackgroundTextColor="@color/bg_text_color_a1"
                     app:rpbCornerRadius="12dp"
-                    app:rpbProgressColor="@color/progress_color_a2"
-                    app:rpbProgressTextColor="@color/text_color_a2" />
+                    app:rpbProgressColor="@color/progress_color_a1"
+                    app:rpbProgressTextColor="@color/text_color_a1" />
 
             </FrameLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/advanced_bar_3_layout"
+                android:id="@+id/advanced_bar_2_layout"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginTop="@dimen/space_between_bars"
-                app:layout_constraintTop_toBottomOf="@id/advanced_bar_2_layout">
+                app:layout_constraintTop_toBottomOf="@id/advanced_bar_1_layout">
 
                 <ImageView
-                    android:id="@+id/icon_advanced_bar_3"
+                    android:id="@+id/icon_advanced_bar_2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_advanced_bar_3"
+                    android:background="@drawable/bg_advanced_bar_2"
                     android:padding="6dp"
                     android:src="@drawable/ic_baseline_downloading_24"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:tint="@color/progress_background_color_a3" />
+                    app:tint="@color/progress_background_color_a2" />
 
                 <com.mackhartley.roundedprogressbar.RoundedProgressBar
-                    android:id="@+id/advanced_bar_3"
+                    android:id="@+id/advanced_bar_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/icon_advanced_bar_3"
-                    app:rpbBackgroundColor="@color/progress_background_color_a3"
-                    app:rpbBackgroundTextColor="@color/bg_text_color_a3"
+                    app:layout_constraintStart_toEndOf="@id/icon_advanced_bar_2"
+                    app:rpbBackgroundColor="@color/progress_background_color_a2"
+                    app:rpbBackgroundTextColor="@color/bg_text_color_a2"
                     app:rpbCornerRadius="18dp"
                     app:rpbCornerRadiusBottomLeft="0dp"
                     app:rpbCornerRadiusTopLeft="0dp"
-                    app:rpbProgressColor="@color/progress_color_a3"
-                    app:rpbProgressTextColor="@color/text_color_a3" />
+                    app:rpbProgressColor="@color/progress_color_a2"
+                    app:rpbProgressTextColor="@color/text_color_a2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/advanced_bar_3_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_between_bars"
+                app:layout_constraintTop_toBottomOf="@id/advanced_bar_2_layout">
+
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/advanced_bar_3_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:rpbCornerRadiusBottomLeft="0dp"
+                    app:rpbCornerRadiusBottomRight="0dp"
+                    app:rpbCornerRadiusTopLeft="8dp"
+                    app:rpbCornerRadiusTopRight="8dp"
+                    app:rpbProgressColor="@color/progress_top_color_a3"
+                    app:rpbShowProgressText="false" />
+
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/advanced_bar_3_mid"
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/advanced_bar_3_top"
+                    app:rpbCornerRadius="0dp"
+                    app:rpbProgressColor="@color/progress_mid_color_a3"
+                    app:rpbShowProgressText="false" />
+
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/advanced_bar_3_bot"
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/advanced_bar_3_mid"
+                    app:rpbCornerRadiusBottomLeft="8dp"
+                    app:rpbCornerRadiusBottomRight="8dp"
+                    app:rpbCornerRadiusTopLeft="0dp"
+                    app:rpbCornerRadiusTopRight="0dp"
+                    app:rpbProgressColor="@color/progress_bot_color_a3"
+                    app:rpbShowProgressText="false" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -412,65 +454,23 @@
                 app:layout_constraintTop_toBottomOf="@id/advanced_bar_3_layout">
 
                 <com.mackhartley.roundedprogressbar.RoundedProgressBar
-                    android:id="@+id/advanced_bar_4_top"
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:rpbCornerRadiusBottomLeft="0dp"
-                    app:rpbCornerRadiusBottomRight="0dp"
-                    app:rpbCornerRadiusTopLeft="8dp"
-                    app:rpbCornerRadiusTopRight="8dp"
-                    app:rpbProgressColor="@color/progress_top_color_a4"
-                    app:rpbShowProgressText="false" />
-
-                <com.mackhartley.roundedprogressbar.RoundedProgressBar
-                    android:id="@+id/advanced_bar_4_mid"
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp"
-                    app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_top"
-                    app:rpbCornerRadius="0dp"
-                    app:rpbProgressColor="@color/progress_mid_color_a4"
-                    app:rpbShowProgressText="false" />
-
-                <com.mackhartley.roundedprogressbar.RoundedProgressBar
-                    android:id="@+id/advanced_bar_4_bot"
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp"
-                    app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_mid"
-                    app:rpbCornerRadiusBottomLeft="8dp"
-                    app:rpbCornerRadiusBottomRight="8dp"
-                    app:rpbCornerRadiusTopLeft="0dp"
-                    app:rpbCornerRadiusTopRight="0dp"
-                    app:rpbProgressColor="@color/progress_bot_color_a4"
-                    app:rpbShowProgressText="false" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/advanced_bar_5_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_between_bars"
-                app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_layout">
-
-                <com.mackhartley.roundedprogressbar.RoundedProgressBar
-                    android:id="@+id/advanced_bar_5"
+                    android:id="@+id/advanced_bar_4"
                     android:layout_width="match_parent"
                     android:layout_height="18dp"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:rpbBackgroundColor="@color/progress_background_color_a5"
-                    app:rpbBackgroundTextColor="@color/bg_text_color_a5"
+                    app:rpbBackgroundColor="@color/progress_background_color_a4"
+                    app:rpbBackgroundTextColor="@color/bg_text_color_a4"
                     app:rpbCornerRadiusBottomLeft="0dp"
                     app:rpbCornerRadiusBottomRight="0dp"
                     app:rpbCornerRadiusTopLeft="9dp"
                     app:rpbCornerRadiusTopRight="9dp"
-                    app:rpbProgressColor="@color/progress_color_a5"
-                    app:rpbProgressTextColor="@color/text_color_a5" />
+                    app:rpbProgressColor="@color/progress_color_a4"
+                    app:rpbProgressTextColor="@color/text_color_a4" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_advanced_bar_5"
+                    android:background="@drawable/bg_advanced_bar_4"
                     android:paddingTop="4dp"
                     android:paddingBottom="12dp"
                     android:text="Overshield Strength"
@@ -478,7 +478,7 @@
                     android:textColor="#000"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@id/advanced_bar_5" />
+                    app:layout_constraintTop_toBottomOf="@id/advanced_bar_4" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -486,7 +486,7 @@
                 android:id="@+id/extra_space"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                app:layout_constraintTop_toBottomOf="@id/advanced_bar_5_layout" />
+                app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_layout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

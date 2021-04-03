@@ -27,23 +27,23 @@
     <color name="text_color_s4">#FAF3DD</color>
     <color name="bg_text_color_s4">#50FFB1</color>
 
-    <color name="progress_color_a2">#000000</color>
-    <color name="progress_background_color_a2">#FFFFFF</color>
-    <color name="text_color_a2">#FFFFFF</color>
-    <color name="bg_text_color_a2">#000000</color>
+    <color name="progress_color_a1">#000000</color>
+    <color name="progress_background_color_a1">#FFFFFF</color>
+    <color name="text_color_a1">#FFFFFF</color>
+    <color name="bg_text_color_a1">#000000</color>
 
-    <color name="progress_color_a3">#254441</color>
-    <color name="progress_background_color_a3">#43AA8B</color>
-    <color name="text_color_a3">#F4F3EE</color>
-    <color name="bg_text_color_a3">#F4F3EE</color>
+    <color name="progress_color_a2">#254441</color>
+    <color name="progress_background_color_a2">#43AA8B</color>
+    <color name="text_color_a2">#F4F3EE</color>
+    <color name="bg_text_color_a2">#F4F3EE</color>
 
-    <color name="progress_top_color_a4">#000000</color>
-    <color name="progress_mid_color_a4">#ff0000</color>
-    <color name="progress_bot_color_a4">#ffcc00</color>
+    <color name="progress_top_color_a3">#000000</color>
+    <color name="progress_mid_color_a3">#ff0000</color>
+    <color name="progress_bot_color_a3">#ffcc00</color>
 
-    <color name="progress_color_a5">#023E8A</color>
-    <color name="progress_background_color_a5">#48CAE4</color>
-    <color name="text_color_a5">#FFFFFF</color>
-    <color name="bg_text_color_a5">#000000</color>
+    <color name="progress_color_a4">#023E8A</color>
+    <color name="progress_background_color_a4">#48CAE4</color>
+    <color name="text_color_a4">#FFFFFF</color>
+    <color name="bg_text_color_a4">#000000</color>
 
 </resources>
