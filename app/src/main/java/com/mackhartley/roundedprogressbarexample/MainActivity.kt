@@ -1,20 +1,33 @@
 package com.mackhartley.roundedprogressbarexample
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.jaredrummler.android.colorpicker.ColorPickerDialog
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
 import com.mackhartley.roundedprogressbar.CornerRadius
 import com.mackhartley.roundedprogressbar.RoundedProgressBar
 import it.sephiroth.android.library.numberpicker.doOnProgressChanged
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.random.Random
 
+/**
+ * Note: This app was quickly built and is intended for demo purposes only. It may not follow best
+ * design practices in all areas. Please do not use it as a judge of good design/architecture.
+ */
 class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
 
+
+
+    // TODO Add ability to change inc/dec amount
+    // Todo change simple/advanced headers
+    // todo remove toolbar
+
+
+    private val viewModel by lazy { ViewModelProvider(this).get(MainActivityViewModel::class.java) }
+
     private lateinit var allProgressBars: List<RoundedProgressBar>
-    private lateinit var progBarsModifyCorners: List<RoundedProgressBar>
 
     private companion object {
         private const val ID_PROG_COLOR = 1
@@ -26,6 +39,9 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        button_decrease.setOnClickListener { decreaseProgress() }
+        button_increase.setOnClickListener { increaseProgress() }
+
         allProgressBars = listOf(
             custom_bar,
             simple_bar_1,
@@ -39,77 +55,105 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
             advanced_bar_4_bot,
             advanced_bar_5
         )
-        progBarsModifyCorners = listOf(
-            simple_bar_1,
-            simple_bar_2,
-            simple_bar_3
-        )
         setProgressBarAttributesProgrammatically(simple_bar_1)
 
-        button_increase.setOnClickListener { increaseProgress() }
-        button_decrease.setOnClickListener { decreaseProgress() }
+        populateSettings()
+        initSettingsListeners()
+    }
 
+    private fun populateSettings() {
+        prog_color.text = viewModel.progressColor
+        prog_text_color.text = viewModel.progressTextColor
+        background_color.text = viewModel.backgroundColor
+        background_text_color.text = viewModel.backgroundTextColor
 
-        // TODO Add ability to change inc/dec amount
-        // TOdo initalize correct start vars
-        // Todo get viewmodel
-        // Todo change simple/advanced headers
-        // todo remove toolbar
+        tl_radius_field.setProgress(viewModel.tlRadius)
+        tr_radius_field.setProgress(viewModel.trRadius)
+        br_radius_field.setProgress(viewModel.brRadius)
+        bl_radius_field.setProgress(viewModel.blRadius)
 
+        text_size_field.setProgress(viewModel.textSize)
+        text_padding_field.setProgress(viewModel.textPadding)
+        animation_length_field.setProgress(viewModel.animLength)
+
+        show_text_switch.isChecked = viewModel.showProgText
+        restrict_radius_switch.isChecked = viewModel.restrictRadius
+    }
+
+    private fun initSettingsListeners() {
+        // Colors
         prog_color.setOnClickListener {
-            ColorPickerDialog.newBuilder().setDialogId(ID_PROG_COLOR).show(this)
+            ColorPickerDialog.newBuilder()
+                .setColor(Color.parseColor(viewModel.progressColor))
+                .setDialogId(ID_PROG_COLOR).show(this)
         }
         prog_text_color.setOnClickListener {
-            ColorPickerDialog.newBuilder().setDialogId(ID_PROG_TEXT_COLOR).show(this)
+            ColorPickerDialog.newBuilder()
+                .setColor(Color.parseColor(viewModel.progressTextColor))
+                .setDialogId(ID_PROG_TEXT_COLOR).show(this)
         }
         background_color.setOnClickListener {
-            ColorPickerDialog.newBuilder().setDialogId(ID_BACKGROUND_COLOR).show(this)
+            ColorPickerDialog.newBuilder()
+                .setColor(Color.parseColor(viewModel.backgroundColor))
+                .setDialogId(ID_BACKGROUND_COLOR).show(this)
         }
         background_text_color.setOnClickListener {
-            ColorPickerDialog.newBuilder().setDialogId(ID_BACKGROUND_TEXT_COLOR).show(this)
+            ColorPickerDialog.newBuilder()
+                .setColor(Color.parseColor(viewModel.backgroundTextColor))
+                .setDialogId(ID_BACKGROUND_TEXT_COLOR).show(this)
         }
 
+        // Radius
         tl_radius_field.doOnProgressChanged { _, progress, _ ->
+            viewModel.tlRadius = progress
             val radius = convertDpToPix(progress.toFloat(), resources)
             custom_bar.setCornerRadius(radius, CornerRadius.TOP_LEFT)
         }
         tr_radius_field.doOnProgressChanged { _, progress, _ ->
+            viewModel.trRadius = progress
             val radius = convertDpToPix(progress.toFloat(), resources)
             custom_bar.setCornerRadius(radius, CornerRadius.TOP_RIGHT)
         }
         br_radius_field.doOnProgressChanged { _, progress, _ ->
+            viewModel.brRadius = progress
             val radius = convertDpToPix(progress.toFloat(), resources)
             custom_bar.setCornerRadius(radius, CornerRadius.BOTTOM_RIGHT)
         }
         bl_radius_field.doOnProgressChanged { _, progress, _ ->
+            viewModel.blRadius = progress
             val radius = convertDpToPix(progress.toFloat(), resources)
             custom_bar.setCornerRadius(radius, CornerRadius.BOTTOM_LEFT)
         }
 
+        // Text and Anim
         text_size_field.doOnProgressChanged { _, progress, _ ->
+            viewModel.textSize = progress
             val textSize = convertSpToPix(progress.toFloat(), resources)
             custom_bar.setTextSize(textSize)
         }
         text_padding_field.doOnProgressChanged { _, progress, _ ->
+            viewModel.textPadding = progress
             val paddingSize = convertDpToPix(progress.toFloat(), resources)
             custom_bar.setTextPadding(paddingSize)
         }
         animation_length_field.doOnProgressChanged { _, progress, _ ->
+            viewModel.animLength = progress
             custom_bar.setAnimationLength(progress.toLong())
         }
 
+        // Show Text and Restrict Radius
         show_text_switch.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.showProgText = isChecked
             custom_bar.showProgressText(isChecked)
         }
         restrict_radius_switch.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.restrictRadius = isChecked
             custom_bar.setRadiusRestricted(isChecked)
         }
     }
 
-
-
     /**
-     * Example of how to set progress bar attributes programatically
+     * Example of how to set progress bar attributes programmatically
      */
     private fun setProgressBarAttributesProgrammatically(roundedProgressBar: RoundedProgressBar) {
         roundedProgressBar.setProgressColor(ContextCompat.getColor(this, R.color.progress_color_s1))
@@ -143,19 +187,27 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
     override fun onColorSelected(dialogId: Int, color: Int) {
         when (dialogId) {
             ID_PROG_COLOR -> {
-                prog_color.text = colorIntToHexString(color)
+                val colorStr = colorIntToHexString(color)
+                prog_color.text = colorStr
+                viewModel.progressColor = colorStr
                 custom_bar.setProgressColor(color)
             }
             ID_PROG_TEXT_COLOR -> {
-                prog_text_color.text = colorIntToHexString(color)
+                val colorStr = colorIntToHexString(color)
+                prog_text_color.text = colorStr
+                viewModel.progressTextColor = colorStr
                 custom_bar.setProgressTextColor(color)
             }
             ID_BACKGROUND_COLOR -> {
-                background_color.text = colorIntToHexString(color)
+                val colorStr = colorIntToHexString(color)
+                background_color.text = colorStr
+                viewModel.backgroundColor = colorStr
                 custom_bar.setProgressBackgroundColor(color)
             }
             else -> {
-                background_text_color.text = colorIntToHexString(color)
+                val colorStr = colorIntToHexString(color)
+                background_text_color.text = colorStr
+                viewModel.backgroundTextColor = colorStr
                 custom_bar.setBackgroundTextColor(color)
             }
         }

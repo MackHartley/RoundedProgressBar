@@ -46,7 +46,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
@@ -58,8 +57,7 @@
 
                 <TextView
                     android:id="@+id/prog_color_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/SettingLabel"
                     android:text="Progress Color"
                     app:layout_constraintEnd_toEndOf="@id/background_color_label"
                     app:layout_constraintStart_toStartOf="@id/background_color_label"
@@ -67,19 +65,14 @@
 
                 <Button
                     android:id="@+id/prog_color"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="#FFFFFF"
-                    android:textSize="12sp"
+                    style="@style/ColorButton"
                     app:layout_constraintEnd_toEndOf="@id/prog_color_label"
                     app:layout_constraintStart_toStartOf="@id/prog_color_label"
                     app:layout_constraintTop_toBottomOf="@id/prog_color_label" />
 
                 <TextView
                     android:id="@+id/prog_text_color_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/SettingLabel"
                     android:text="Progress Text Color"
                     app:layout_constraintEnd_toEndOf="@id/background_text_color_label"
                     app:layout_constraintStart_toStartOf="@id/background_text_color_label"
@@ -87,41 +80,29 @@
 
                 <Button
                     android:id="@+id/prog_text_color"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="#FFFFFF"
-                    android:textSize="12sp"
+                    style="@style/ColorButton"
                     app:layout_constraintEnd_toEndOf="@id/prog_text_color_label"
                     app:layout_constraintStart_toStartOf="@id/prog_text_color_label"
                     app:layout_constraintTop_toBottomOf="@id/prog_text_color_label" />
 
                 <TextView
                     android:id="@+id/background_color_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_between_settings"
+                    style="@style/SettingLabel"
                     android:text="Background Color"
                     app:layout_constraintEnd_toEndOf="@id/botleft_tv"
                     app:layout_constraintStart_toStartOf="@id/botleft_tv"
-                    app:layout_constraintTop_toBottomOf="@id/prog_text_color" />
+                    app:layout_constraintTop_toBottomOf="@id/prog_color" />
 
                 <Button
                     android:id="@+id/background_color"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="#FFFFFF"
-                    android:textSize="12sp"
+                    style="@style/ColorButton"
                     app:layout_constraintEnd_toEndOf="@id/background_color_label"
                     app:layout_constraintStart_toStartOf="@id/background_color_label"
                     app:layout_constraintTop_toBottomOf="@id/background_color_label" />
 
                 <TextView
                     android:id="@+id/background_text_color_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_between_settings"
+                    style="@style/SettingLabel"
                     android:text="Background Text Color"
                     app:layout_constraintEnd_toEndOf="@id/topright_tv"
                     app:layout_constraintStart_toStartOf="@id/topright_tv"
@@ -129,91 +110,72 @@
 
                 <Button
                     android:id="@+id/background_text_color"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="#FFFFFF"
-                    android:textSize="12sp"
+                    style="@style/ColorButton"
                     app:layout_constraintEnd_toEndOf="@id/background_text_color_label"
                     app:layout_constraintStart_toStartOf="@id/background_text_color_label"
                     app:layout_constraintTop_toBottomOf="@id/background_text_color_label" />
 
                 <TextView
                     android:id="@+id/topleft_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_between_settings"
+                    style="@style/SettingLabel"
                     android:text="Top Left Corner Radius"
                     app:layout_constraintEnd_toEndOf="@id/botleft_tv"
                     app:layout_constraintStart_toStartOf="@id/botleft_tv"
-                    app:layout_constraintTop_toBottomOf="@id/background_text_color" />
+                    app:layout_constraintTop_toBottomOf="@id/background_color" />
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
                     android:id="@+id/tl_radius_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/NumPicker.Radius"
                     app:layout_constraintEnd_toEndOf="@id/topleft_tv"
                     app:layout_constraintStart_toStartOf="@id/topleft_tv"
-                    app:layout_constraintTop_toBottomOf="@id/topleft_tv"
-                    app:picker_disableGestures="true"
-                    app:picker_max="250"
-                    app:picker_min="0" />
+                    app:layout_constraintTop_toBottomOf="@id/topleft_tv" />
 
                 <TextView
                     android:id="@+id/topright_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/SettingLabel"
                     android:text="Top Right Corner Radius"
                     app:layout_constraintEnd_toEndOf="@id/botright_tv"
                     app:layout_constraintStart_toStartOf="@id/botright_tv"
-                    app:layout_constraintTop_toTopOf="@id/topleft_tv" />
+                    app:layout_constraintTop_toBottomOf="@id/background_text_color" />
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
                     android:id="@+id/tr_radius_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/NumPicker.Radius"
                     app:layout_constraintEnd_toEndOf="@id/topright_tv"
                     app:layout_constraintStart_toStartOf="@id/topright_tv"
                     app:layout_constraintTop_toBottomOf="@id/topright_tv" />
 
                 <TextView
                     android:id="@+id/botleft_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_between_settings"
+                    style="@style/SettingLabel"
                     android:text="Bottom Left Corner Radius"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tl_radius_field" />
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
                     android:id="@+id/bl_radius_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/NumPicker.Radius"
                     app:layout_constraintEnd_toEndOf="@id/botleft_tv"
                     app:layout_constraintStart_toStartOf="@id/botleft_tv"
                     app:layout_constraintTop_toBottomOf="@id/botleft_tv" />
 
                 <TextView
                     android:id="@+id/botright_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/SettingLabel"
                     android:text="Bottom Right Corner Radius"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/botleft_tv" />
+                    app:layout_constraintTop_toBottomOf="@id/tr_radius_field" />
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
                     android:id="@+id/br_radius_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/NumPicker.Radius"
                     app:layout_constraintEnd_toEndOf="@id/botright_tv"
                     app:layout_constraintStart_toStartOf="@id/botright_tv"
                     app:layout_constraintTop_toBottomOf="@id/botright_tv" />
 
                 <TextView
                     android:id="@+id/text_size_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_between_settings"
+                    style="@style/SettingLabel"
                     android:text="Text Size"
                     app:layout_constraintEnd_toEndOf="@id/botleft_tv"
                     app:layout_constraintStart_toStartOf="@id/botleft_tv"
@@ -221,17 +183,14 @@
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
                     android:id="@+id/text_size_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/NumPicker.TextSize"
                     app:layout_constraintEnd_toEndOf="@id/text_size_label"
                     app:layout_constraintStart_toStartOf="@id/text_size_label"
                     app:layout_constraintTop_toBottomOf="@id/text_size_label" />
 
                 <TextView
                     android:id="@+id/text_padding_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_between_settings"
+                    style="@style/SettingLabel"
                     android:text="Text Padding"
                     app:layout_constraintEnd_toEndOf="@id/botright_tv"
                     app:layout_constraintStart_toStartOf="@id/botright_tv"
@@ -239,17 +198,14 @@
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
                     android:id="@+id/text_padding_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/NumPicker.TextPadding"
                     app:layout_constraintEnd_toEndOf="@id/text_padding_label"
                     app:layout_constraintStart_toStartOf="@id/text_padding_label"
                     app:layout_constraintTop_toBottomOf="@id/text_padding_label" />
 
                 <TextView
                     android:id="@+id/animation_length_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_between_settings"
+                    style="@style/SettingLabel"
                     android:text="Animation Length"
                     app:layout_constraintEnd_toEndOf="@id/text_size_label"
                     app:layout_constraintStart_toStartOf="@id/text_size_label"
@@ -257,18 +213,14 @@
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
                     android:id="@+id/animation_length_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/NumPicker.Anim"
                     app:layout_constraintEnd_toEndOf="@id/animation_length_label"
                     app:layout_constraintStart_toStartOf="@id/animation_length_label"
-                    app:layout_constraintTop_toBottomOf="@id/animation_length_label"
-                    app:picker_max="9999" />
+                    app:layout_constraintTop_toBottomOf="@id/animation_length_label" />
 
                 <TextView
                     android:id="@+id/show_text_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_between_settings"
+                    style="@style/SettingLabel"
                     android:text="Show Progress Text"
                     app:layout_constraintEnd_toEndOf="@id/text_padding_field"
                     app:layout_constraintStart_toStartOf="@id/text_padding_field"
@@ -284,9 +236,7 @@
 
                 <TextView
                     android:id="@+id/restrict_radius_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_between_settings"
+                    style="@style/SettingLabel"
                     android:text="Restrict Corner Radius"
                     app:layout_constraintEnd_toEndOf="@id/show_text_switch"
                     app:layout_constraintStart_toStartOf="@id/show_text_switch"
@@ -305,9 +255,13 @@
             <com.mackhartley.roundedprogressbar.RoundedProgressBar
                 android:id="@+id/custom_bar"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="36dp"
                 android:layout_marginTop="@dimen/space_between_settings"
-                app:layout_constraintTop_toBottomOf="@id/options" />
+                app:layout_constraintTop_toBottomOf="@id/options"
+                app:rpbAnimationLength="500"
+                app:rpbCornerRadius="12dp"
+                app:rpbTextPadding="8dp"
+                app:rpbTextSize="14sp" />
 
             <TextView
                 android:id="@+id/header_simple_bars"

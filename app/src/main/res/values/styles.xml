@@ -7,4 +7,40 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SettingLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space_between_settings</item>
+    </style>
+
+    <style name="ColorButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:text">#FFFFFF</item>
+    </style>
+
+    <style name="NumPicker">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="picker_disableGestures">true</item>
+        <item name="picker_min">0</item>
+    </style>
+
+    <style name="NumPicker.Radius">
+        <item name="picker_max">100</item>
+    </style>
+
+    <style name="NumPicker.TextSize">
+        <item name="picker_max">100</item>
+    </style>
+
+    <style name="NumPicker.TextPadding">
+        <item name="picker_max">100</item>
+    </style>
+
+    <style name="NumPicker.Anim">
+        <item name="picker_max">9999</item>
+    </style>
+
 </resources>
