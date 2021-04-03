@@ -20,9 +20,7 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
 
 
 
-    // TODO Add ability to change inc/dec amount
     // Todo change simple/advanced headers
-    // todo remove toolbar
 
 
     private val viewModel by lazy { ViewModelProvider(this).get(MainActivityViewModel::class.java) }
@@ -41,6 +39,10 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         setContentView(R.layout.activity_main)
         button_decrease.setOnClickListener { decreaseProgress() }
         button_increase.setOnClickListener { increaseProgress() }
+        button_change_amount.setOnClickListener {
+            viewModel.nextAmount()
+            button_change_amount.text = "+${viewModel.getCurAmount()}"
+        }
 
         allProgressBars = listOf(
             custom_bar,
@@ -173,13 +175,9 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         allProgressBars.forEach { changeProgress(it, false) }
     }
 
-    private fun getIncrement(): Double {
-        return 25.0
-    }
-
     private fun changeProgress(roundedProgressBar: RoundedProgressBar, isAddition: Boolean = true) {
         val curValue = roundedProgressBar.getProgressPercentage()
-        var adjustment = getIncrement()
+        var adjustment = viewModel.getCurAmount()
         if (!isAddition) adjustment *= -1
         roundedProgressBar.setProgressPercentage(curValue + adjustment)
     }
