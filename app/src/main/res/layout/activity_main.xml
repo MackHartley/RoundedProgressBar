@@ -262,12 +262,19 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <TextView
+                android:id="@+id/header_created"
+                style="@style/HeaderText"
+                android:text="Your Creation:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/options" />
+
             <com.mackhartley.roundedprogressbar.RoundedProgressBar
                 android:id="@+id/custom_bar"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginTop="@dimen/space_between_settings"
-                app:layout_constraintTop_toBottomOf="@id/options"
+                app:layout_constraintTop_toBottomOf="@id/header_created"
                 app:rpbAnimationLength="500"
                 app:rpbCornerRadius="8dp"
                 app:rpbTextPadding="8dp"
@@ -275,12 +282,8 @@
 
             <TextView
                 android:id="@+id/header_simple_bars"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Simple"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                style="@style/HeaderText"
+                android:text="Examples - Can be created above! (Except height)"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/custom_bar" />
 
@@ -320,23 +323,12 @@
                 app:rpbTextPadding="24dp"
                 app:rpbTextSize="@dimen/medlarge_text_size" />
 
-            <TextView
-                android:id="@+id/header_advanced_bars"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Advanced"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/simple_bar_3" />
-
             <com.mackhartley.roundedprogressbar.RoundedProgressBar
                 android:id="@+id/advanced_bar_1"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_marginTop="@dimen/space_between_bars"
-                app:layout_constraintTop_toBottomOf="@id/header_advanced_bars"
+                app:layout_constraintTop_toBottomOf="@id/simple_bar_3"
                 app:rpbAnimationLength="200"
                 app:rpbBackgroundColor="@color/progress_background_color_a1"
                 app:rpbCornerRadius="0dp"
@@ -348,6 +340,13 @@
                 app:rpbProgressColor="@color/progress_color_a1"
                 app:rpbShowProgressText="false" />
 
+            <TextView
+                android:id="@+id/header_advanced_bars"
+                style="@style/HeaderText"
+                android:text="Advanced Examples (Require customized layouts)"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/advanced_bar_1" />
+
             <FrameLayout
                 android:id="@+id/advanced_bar_2_layout"
                 android:layout_width="match_parent"
@@ -355,7 +354,7 @@
                 android:layout_marginTop="@dimen/space_between_bars"
                 android:background="@drawable/bg_advanced_bar_2"
                 android:padding="1dp"
-                app:layout_constraintTop_toBottomOf="@id/advanced_bar_1">
+                app:layout_constraintTop_toBottomOf="@id/header_advanced_bars">
 
                 <com.mackhartley.roundedprogressbar.RoundedProgressBar
                     android:id="@+id/advanced_bar_2"

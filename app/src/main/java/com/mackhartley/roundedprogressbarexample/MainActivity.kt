@@ -18,11 +18,6 @@ import kotlinx.android.synthetic.main.activity_main.*
  */
 class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
 
-
-
-    // Todo change simple/advanced headers
-
-
     private val viewModel by lazy { ViewModelProvider(this).get(MainActivityViewModel::class.java) }
 
     private lateinit var allProgressBars: List<RoundedProgressBar>
