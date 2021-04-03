@@ -44,8 +44,8 @@ class RoundedProgressBar @JvmOverloads constructor(
 
     // Default values (ProgressBar related)
     private val defaultProgressValue = INITIAL_PROGRESS_VALUE
-    @ColorInt private val defaultProgressColor = ContextCompat.getColor(context, R.color.rpb_default_progress_color)
-    @ColorInt private val defaultProgressBackgroundColor = ContextCompat.getColor(context, R.color.rpb_default_progress_bg_color)
+    @ColorInt private val defaultProgressDrawableColor = ContextCompat.getColor(context, R.color.rpb_default_progress_color)
+    @ColorInt private val defaultBackgroundDrawableColor = ContextCompat.getColor(context, R.color.rpb_default_progress_bg_color)
     private val defaultAnimationLength = context.resources.getInteger(R.integer.rpb_default_animation_duration)
     private val defaultCornerRadius = context.resources.getDimension(R.dimen.rpb_default_corner_radius)
     private val defaultIsRadiusRestricted = true
@@ -59,8 +59,8 @@ class RoundedProgressBar @JvmOverloads constructor(
     // Instance state (ProgressBar related)
     private var curProgress: Double = INITIAL_PROGRESS_VALUE.toDouble()
     private var prevTextPositionRatio: Float = INITIAL_PROGRESS_VALUE.toFloat() // Used to keep track of the ProgressTextOverlay position during an animation. Allows for smooth transitions between a current and interrupting animation
-    @ColorInt private var progressColor: Int = defaultProgressColor
-    @ColorInt private var progressBackgroundColor: Int = defaultProgressBackgroundColor
+    @ColorInt private var progressDrawableColor: Int = defaultProgressDrawableColor
+    @ColorInt private var backgroundDrawableColor: Int = defaultBackgroundDrawableColor
     private var animationLength: Long = defaultAnimationLength.toLong()
     private var cornerRadiusTL: Float = defaultCornerRadius // Top Left
     private var cornerRadiusTR: Float = defaultCornerRadius // Top Right
@@ -103,12 +103,12 @@ class RoundedProgressBar @JvmOverloads constructor(
         if (newProgressValue != defaultProgressValue) setProgressPercentage(newProgressValue.toDouble())
 
         // Set progress bar color via xml (If exists and isn't the default value)
-        @ColorInt val newProgressColor = rpbAttributes.getColor(R.styleable.RoundedProgressBar_rpbProgressColor, defaultProgressColor)
-        if (newProgressColor != defaultProgressColor) setProgressColor(newProgressColor)
+        @ColorInt val newProgressDrawableColor = rpbAttributes.getColor(R.styleable.RoundedProgressBar_rpbProgressColor, defaultProgressDrawableColor)
+        if (newProgressDrawableColor != defaultProgressDrawableColor) setProgressDrawableColor(newProgressDrawableColor)
 
         // Set progress bar background via xml (If exists and isn't the default value)
-        @ColorInt val newProgressBackgroundColor = rpbAttributes.getColor(R.styleable.RoundedProgressBar_rpbBackgroundColor, defaultProgressBackgroundColor)
-        if (newProgressBackgroundColor != defaultProgressBackgroundColor) setProgressBackgroundColor(newProgressBackgroundColor)
+        @ColorInt val newBackgroundDrawableColor = rpbAttributes.getColor(R.styleable.RoundedProgressBar_rpbBackgroundColor, defaultBackgroundDrawableColor)
+        if (newBackgroundDrawableColor != defaultBackgroundDrawableColor) setBackgroundDrawableColor(newBackgroundDrawableColor)
 
         // Set text size from xml attributes (If exists and isn't the default value)
         val newTextSize = rpbAttributes.getDimension(R.styleable.RoundedProgressBar_rpbTextSize, defaultTextSize)
@@ -236,7 +236,7 @@ class RoundedProgressBar @JvmOverloads constructor(
      */
     private fun createRoundedBackgroundDrawable(): Drawable {
         val newBgDrawable = ShapeDrawable(RectShape())
-        newBgDrawable.setColorFilterCompat(progressBackgroundColor)
+        newBgDrawable.setColorFilterCompat(backgroundDrawableColor)
         return newBgDrawable
     }
 
@@ -257,7 +257,7 @@ class RoundedProgressBar @JvmOverloads constructor(
         )
 
         val roundedDrawable = ShapeDrawable(RoundRectShape(cornerRadiusValues, null, null))
-        roundedDrawable.setColorFilterCompat(progressColor)
+        roundedDrawable.setColorFilterCompat(progressDrawableColor)
         return ScaleDrawable(roundedDrawable, Gravity.START, 1f, -1f)
     }
 
@@ -344,15 +344,21 @@ class RoundedProgressBar @JvmOverloads constructor(
         return curProgress
     }
 
-    fun setProgressColor(@ColorInt newColor: Int) {
-        progressColor = newColor
+    /**
+     * Sets the color of the progress drawable for this progress bar.
+     */
+    fun setProgressDrawableColor(@ColorInt newColor: Int) {
+        progressDrawableColor = newColor
         val layerToModify = (progressBar.progressDrawable as LayerDrawable)
             .getDrawable(PROG_DRAWABLE_LAYER_INDEX)
         layerToModify.setColorFilterCompat(newColor)
     }
 
-    fun setProgressBackgroundColor(@ColorInt newColor: Int) {
-        progressBackgroundColor = newColor
+    /**
+     * Sets the color of the background drawable for this progress bar.
+     */
+    fun setBackgroundDrawableColor(@ColorInt newColor: Int) {
+        backgroundDrawableColor = newColor
         val layerToModify = (progressBar.progressDrawable as LayerDrawable)
             .getDrawable(PROG_BACKGROUND_LAYER_INDEX)
         layerToModify.setColorFilterCompat(newColor)
@@ -489,8 +495,8 @@ class RoundedProgressBar @JvmOverloads constructor(
         val savedState = SavedState(super.onSaveInstanceState())
         savedState.savedCurProgress = curProgress
         savedState.savedPrevTextPositionRatio = prevTextPositionRatio
-        savedState.savedProgressColor = progressColor
-        savedState.savedProgressBackgroundColor = progressBackgroundColor
+        savedState.savedProgressDrawableColor = progressDrawableColor
+        savedState.savedBackgroundDrawableColor = backgroundDrawableColor
         savedState.savedAnimationLength = animationLength
         savedState.savedCornerRadiusTL = cornerRadiusTL
         savedState.savedCornerRadiusTR = cornerRadiusTR
@@ -512,8 +518,8 @@ class RoundedProgressBar @JvmOverloads constructor(
             // RoundedProgressBar related
             curProgress = state.savedCurProgress
             prevTextPositionRatio = state.savedPrevTextPositionRatio
-            progressColor = state.savedProgressColor
-            progressBackgroundColor = state.savedProgressBackgroundColor
+            progressDrawableColor = state.savedProgressDrawableColor
+            backgroundDrawableColor = state.savedBackgroundDrawableColor
             animationLength = state.savedAnimationLength
             cornerRadiusTL = state.savedCornerRadiusTL
             cornerRadiusTR = state.savedCornerRadiusTR
@@ -521,8 +527,8 @@ class RoundedProgressBar @JvmOverloads constructor(
             cornerRadiusBL = state.savedCornerRadiusBL
             isRadiusRestricted = state.savedIsRadiusRestricted
             setCornerRadius(cornerRadiusTL, cornerRadiusTR, cornerRadiusBR, cornerRadiusBL)
-            setProgressBackgroundColor(progressBackgroundColor)
-            setProgressColor(progressColor)
+            setBackgroundDrawableColor(backgroundDrawableColor)
+            setProgressDrawableColor(progressDrawableColor)
             setProgressPercentage(curProgress, false)
             // ProgressTextOverlay related
             textSize = state.savedTextSize
@@ -554,8 +560,8 @@ class RoundedProgressBar @JvmOverloads constructor(
         // RoundedProgressBar related
         var savedCurProgress: Double = 0.0
         var savedPrevTextPositionRatio: Float = 0f
-        @ColorInt var savedProgressColor: Int = 0
-        @ColorInt var savedProgressBackgroundColor: Int = 0
+        @ColorInt var savedProgressDrawableColor: Int = 0
+        @ColorInt var savedBackgroundDrawableColor: Int = 0
         var savedAnimationLength: Long = 0L
         var savedCornerRadiusTL: Float = 0f
         var savedCornerRadiusTR: Float = 0f
@@ -575,8 +581,8 @@ class RoundedProgressBar @JvmOverloads constructor(
         constructor(source: Parcel) : super(source) {
             savedCurProgress = source.readDouble()
             savedPrevTextPositionRatio = source.readFloat()
-            savedProgressColor = source.readInt()
-            savedProgressBackgroundColor = source.readInt()
+            savedProgressDrawableColor = source.readInt()
+            savedBackgroundDrawableColor = source.readInt()
             savedAnimationLength = source.readLong()
             savedCornerRadiusTL = source.readFloat()
             savedCornerRadiusTR = source.readFloat()
@@ -595,8 +601,8 @@ class RoundedProgressBar @JvmOverloads constructor(
             super.writeToParcel(out, flags)
             out.writeDouble(savedCurProgress)
             out.writeFloat(savedPrevTextPositionRatio)
-            out.writeInt(savedProgressColor)
-            out.writeInt(savedProgressBackgroundColor)
+            out.writeInt(savedProgressDrawableColor)
+            out.writeInt(savedBackgroundDrawableColor)
             out.writeLong(savedAnimationLength)
             out.writeFloat(savedCornerRadiusTL)
             out.writeFloat(savedCornerRadiusTR)
