@@ -69,30 +69,44 @@ These are the methods which can be called on the RoundedProgressBar class:
 setProgressPercentage(progressPercentage: Double, shouldAnimate: Boolean = true)
 getProgressPercentage(): Double
 
-setProgressColor(colorRes: Int) // Sets the color of the 'progress' part of the progress bar
-setProgressBgColor(colorRes: Int) // Sets the color of the progress bar background
+setProgressDrawableColor(@ColorInt newColor: Int) // Sets the color of the 'progress' part of the progress bar
+setBackgroundDrawableColor(@ColorInt newColor: Int) // Sets the color of the progress bar background
+setProgressTextColor(@ColorInt newColor: Int) // Sets text color for when it is drawn over the progress part of progress bar
+setBackgroundTextColor(@ColorInt newColor: Int) // Sets text color for when it is drawn over the progress bar background
 
-setTextColor(colorRes: Int) // Sets text color for when it is drawn over the progress part of progress bar
-setBgTextColor(colorRes: Int) // Sets text color for when it is drawn over the progress bar background
-setTextSize(sizeInPixels: Float)
-showProgressText(shouldShowProgressText: Boolean) // Hide or show the progress text
+setCornerRadius(
+    topLeftRadius: Float,
+    topRightRadius: Float,
+    bottomRightRadius: Float,
+    bottomLeftRadius: Float
+)
 
+setTextSize(newTextSize: Float)
+setTextPadding(newTextPadding: Float)
 setAnimationLength(newAnimationLength: Long)
-setCornerRadius(radiusInDp: Float)
+
+showProgressText(shouldShowProgressText: Boolean) // Hide or show the progress text
+setRadiusRestricted(isRestricted: Boolean)
 ```
 
 Each setter is accessible via xml as well. Here I've mapped each setter to its corresponding xml attribute:
 | Method | Xml Attribute |
 |---|---|
 | `setProgressPercentage(...)`  | `rpbProgress`  |
-| `setProgressColor(...)`  | `rpbProgressColor`  |
-| `setProgressBgColor(...)`  | `rpbProgressBgColor`  |
+| `setProgressDrawableColor(...)`  | `rpbProgressColor`  |
+| `setBackgroundDrawableColor(...)`  | `rpbBackgroundColor`  |
+| `setProgressTextColor(...)`  | `rpbProgressTextColor`  |
+| `setBackgroundTextColor(...)`  | `rpbBackgroundTextColor`  |
+| `setCornerRadius(...)`  | `rpbCornerRadius`  |
+| `setCornerRadius(...)`  | `rpbCornerRadiusTopLeft`  |
+| `setCornerRadius(...)`  | `rpbCornerRadiusTopRight`  |
+| `setCornerRadius(...)`  | `rpbCornerRadiusBottomRight`  |
+| `setCornerRadius(...)`  | `rpbCornerRadiusBottomLeft`  |
 | `setTextSize(...)`  | `rpbTextSize`  |
-| `setTextColor(...)`  | `rpbTextColor`  |
-| `setBgTextColor(...)`  | `rpbBgTextColor`  |
-| `showProgressText(...)`  | `rpbShowProgressText`  |
+| `setTextPadding(...)`  | `rpbTextPadding`  |
 | `setAnimationLength(...)`  | `rpbAnimationLength`  |
-| `setCornerRadius(...)` | `rpbCornerRadius` |
+| `showProgressText(...)`  | `rpbShowProgressText`  |
+| `setRadiusRestricted(...)`  | `rpbIsRadiusRestricted`  |
 <p align="center">
     <br>
     <img src="/demoimgs/progressBarDiagram.png" width="600"/>
