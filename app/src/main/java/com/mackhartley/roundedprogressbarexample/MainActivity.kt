@@ -13,8 +13,9 @@ import it.sephiroth.android.library.numberpicker.doOnProgressChanged
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
- * Note: This app was quickly built and is intended for demo purposes only. It may not follow best
- * design practices in all areas. Please do not use it as a judge of good design/architecture.
+ * Disclaimer: This app was quickly built and is intended to demonstrate the functionality of
+ * the RoundedProgressBar library. It may not follow best design practices in all areas. Please do
+ * not use it as a judge of good design/architecture.
  */
 class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
 

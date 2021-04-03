@@ -374,6 +374,11 @@ class RoundedProgressBar @JvmOverloads constructor(
         progressTextOverlay.setBackgroundTextColor(newColor)
     }
 
+    /**
+     * Sets text size
+     *
+     * @param sizeInPixels should be in units of pixels, not dp
+     */
     fun setTextSize(sizeInPixels: Float) {
         textSize = sizeInPixels
         progressTextOverlay.setTextSize(sizeInPixels)
@@ -394,7 +399,8 @@ class RoundedProgressBar @JvmOverloads constructor(
     /**
      * Sets the corner radius for one corner of the progress bar (includes progress background and
      * progress drawable)
-     * @param radiusInDp must be in units of pixels, not dp
+     *
+     * @param radiusInDp should be in units of pixels, not dp
      */
     fun setCornerRadius(radiusInDp: Float, cornerToModify: CornerRadius) {
         when (cornerToModify) {
@@ -408,7 +414,8 @@ class RoundedProgressBar @JvmOverloads constructor(
     /**
      * Sets the corner radius for all corners the progress bar (includes progress background and
      * progress drawable)
-     * @param radiusInDp must be in units of pixels, not dp
+     *
+     * @param radiusInDp should be in units of pixels, not dp
      */
     fun setCornerRadius(radiusInDp: Float) {
         setCornerRadius(radiusInDp, radiusInDp, radiusInDp, radiusInDp)
@@ -422,7 +429,7 @@ class RoundedProgressBar @JvmOverloads constructor(
      *  progressBarHeight / 2. Alternatively you can just put a huge value (like 1000dp) and
      *  the bar will be rounded to the maximum amount, which is height / 2 (if radiusRestricted == true)
      *
-     * @param radiusInDp must be in units of pixels, not dp
+     * @param radiusInDp should be in units of pixels, not dp
      */
     fun setCornerRadius(
         topLeftRadius: Float,
@@ -465,6 +472,8 @@ class RoundedProgressBar @JvmOverloads constructor(
     /**
      * Sets the paddingStart (aka paddingLeft) and paddingEnd (aka paddingRight) of the progress
      * completion text.
+     *
+     * @param newTextPadding should be in units of pixels, not dp
      */
     fun setTextPadding(newTextPadding: Float) {
         textPadding = newTextPadding
