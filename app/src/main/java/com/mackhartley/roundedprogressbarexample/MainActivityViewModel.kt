@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel : ViewModel() {
 
-    private var changeAmounts = listOf(5, 10, 25, 50, 100)
+    private var changeAmounts = listOf(5, 10, 15, 25, 50, 100)
     private var changeAmountInd: Int = 2
 
     var progressColor = "#FF9B42"

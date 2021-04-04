@@ -8,4 +8,6 @@
 
     <dimen name="space_between_bars">12dp</dimen>
     <dimen name="space_between_settings">8dp</dimen>
+
+    <dimen name="demo6_radius">12dp</dimen>
 </resources>

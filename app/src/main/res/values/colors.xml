@@ -46,4 +46,9 @@
     <color name="text_color_a4">#FFFFFF</color>
     <color name="bg_text_color_a4">#000000</color>
 
+    <color name="demo6_prog">#360568</color>735CDD
+    <color name="demo6_back">#BA92DD</color>B3C2F2
+    <color name="demo6_prog_text">@color/demo6_back</color>
+    <color name="demo6_back_text">@color/demo6_prog</color>
+
 </resources>

@@ -41,6 +41,12 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         }
 
         allProgressBars = listOf(
+            demobar,
+            demobar2,
+            demo3,
+            demo4,
+            demo5,
+            demo6,
             custom_bar,
             simple_bar_1,
             simple_bar_2,

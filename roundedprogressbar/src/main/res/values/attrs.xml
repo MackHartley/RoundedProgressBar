@@ -2,19 +2,25 @@
 <resources>
     <declare-styleable name="RoundedProgressBar">
         <attr name="rpbProgress" format="integer" />
+
         <attr name="rpbProgressColor" format="reference|color" />
         <attr name="rpbBackgroundColor" format="reference|color" />
-        <attr name="rpbTextSize" format="dimension" />
         <attr name="rpbProgressTextColor" format="reference|color" />
         <attr name="rpbBackgroundTextColor" format="reference|color" />
-        <attr name="rpbShowProgressText" format="boolean" />
-        <attr name="rpbAnimationLength" format="integer" />
+
         <attr name="rpbCornerRadius" format="dimension" />
         <attr name="rpbCornerRadiusTopLeft" format="dimension" />
         <attr name="rpbCornerRadiusTopRight" format="dimension" />
         <attr name="rpbCornerRadiusBottomRight" format="dimension" />
         <attr name="rpbCornerRadiusBottomLeft" format="dimension" />
-        <attr name="rpbIsRadiusRestricted" format="boolean" />
+
+        <attr name="rpbTextSize" format="dimension" />
         <attr name="rpbTextPadding" format="dimension" />
+        <attr name="rpbAnimationLength" format="integer" />
+
+        <attr name="rpbShowProgressText" format="boolean" />
+        <attr name="rpbIsRadiusRestricted" format="boolean" />
+        <attr name="rpbOnlyShowTrue0" format="boolean" />
+        <attr name="rpbOnlyShowTrue100" format="boolean" />
     </declare-styleable>
 </resources>

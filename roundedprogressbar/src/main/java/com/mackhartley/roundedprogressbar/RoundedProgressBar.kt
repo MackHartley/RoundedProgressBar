@@ -19,6 +19,8 @@ import androidx.annotation.ColorInt
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_SHOW_TEXT
+import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_TRUE_0
+import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_TRUE_100
 import com.mackhartley.roundedprogressbar.ext.setColorFilterCompat
 import com.mackhartley.roundedprogressbar.utils.calculateAppropriateCornerRadius
 import kotlinx.android.synthetic.main.layout_rounded_progress_bar.view.*
@@ -55,6 +57,8 @@ class RoundedProgressBar @JvmOverloads constructor(
     @ColorInt private val defaultBackgroundTextColor: Int = ContextCompat.getColor(context, R.color.rpb_default_text_color)
     private val defaultShowProgressText: Boolean = DEFAULT_SHOW_TEXT
     private val defaultTextPadding: Float = context.resources.getDimension(R.dimen.rpb_default_text_padding)
+    private val defaultOnlyShowTrue0 = DEFAULT_TRUE_0
+    private val defaultOnlyShowTrue100 = DEFAULT_TRUE_100
 
     // Instance state (ProgressBar related)
     private var curProgress: Double = INITIAL_PROGRESS_VALUE.toDouble()
@@ -75,6 +79,8 @@ class RoundedProgressBar @JvmOverloads constructor(
     @ColorInt private var backgroundTextColor: Int = defaultBackgroundTextColor
     private var showProgressText: Boolean = defaultShowProgressText
     private var textPadding: Float = defaultTextPadding
+    private var onlyShowTrue0: Boolean = defaultOnlyShowTrue0
+    private var onlyShowTrue100: Boolean = defaultOnlyShowTrue100
 
     // Progress bar objects
     private val progressBar: ProgressBar
@@ -137,6 +143,14 @@ class RoundedProgressBar @JvmOverloads constructor(
         // Set the side padding for the progress indicator text
         val newTextPadding = rpbAttributes.getDimension(R.styleable.RoundedProgressBar_rpbTextPadding, defaultTextPadding)
         if (newTextPadding != defaultTextPadding) setTextPadding(newTextPadding)
+
+        // Set the onlyShowTrue0 value
+        val newTrue0 = rpbAttributes.getBoolean(R.styleable.RoundedProgressBar_rpbOnlyShowTrue0, defaultOnlyShowTrue0)
+        if (newTrue0 != defaultOnlyShowTrue0) setOnlyShowTrue0(newTrue0)
+
+        // Set the onlyShowTrue100 value
+        val newTrue100 = rpbAttributes.getBoolean(R.styleable.RoundedProgressBar_rpbOnlyShowTrue100, defaultOnlyShowTrue100)
+        if (newTrue100 != defaultOnlyShowTrue100) setOnlyShowTrue100(newTrue100)
 
         // Set corner radius via xml (If exists and isn't the default value)
         getCornerRadiusFromAttrs(rpbAttributes)
@@ -310,7 +324,7 @@ class RoundedProgressBar @JvmOverloads constructor(
      * @param[shouldAnimate] if set to false, the progress bar wont animate for this specific call
      */
     fun setProgressPercentage(progressPercentage: Double, shouldAnimate: Boolean = true) {
-        val normalizedProgress = getNormalizedValue(progressPercentage)
+        val normalizedProgress: Double = getNormalizedValue(progressPercentage)
 
         // Calculate new progress value for progress bar and the text overlay
         val scaledProgressValue = getScaledProgressValue(normalizedProgress)
@@ -381,13 +395,13 @@ class RoundedProgressBar @JvmOverloads constructor(
     }
 
     /**
-     * Sets text size
+     * Sets the text size
      *
-     * @param sizeInPixels should be in units of pixels, not dp
+     * @param newTextSize should be in units of pixels, not dp
      */
-    fun setTextSize(sizeInPixels: Float) {
-        textSize = sizeInPixels
-        progressTextOverlay.setTextSize(sizeInPixels)
+    fun setTextSize(newTextSize: Float) {
+        textSize = newTextSize
+        progressTextOverlay.setTextSize(newTextSize)
     }
 
     /**
@@ -406,14 +420,14 @@ class RoundedProgressBar @JvmOverloads constructor(
      * Sets the corner radius for one corner of the progress bar (includes progress background and
      * progress drawable)
      *
-     * @param radiusInDp should be in units of pixels, not dp
+     * @param newRadius should be in units of pixels, not dp
      */
-    fun setCornerRadius(radiusInDp: Float, cornerToModify: CornerRadius) {
+    fun setCornerRadius(newRadius: Float, cornerToModify: CornerRadius) {
         when (cornerToModify) {
-            CornerRadius.TOP_LEFT -> setCornerRadius(radiusInDp, cornerRadiusTR, cornerRadiusBR, cornerRadiusBL)
-            CornerRadius.TOP_RIGHT -> setCornerRadius(cornerRadiusTL, radiusInDp, cornerRadiusBR, cornerRadiusBL)
-            CornerRadius.BOTTOM_RIGHT -> setCornerRadius(cornerRadiusTL, cornerRadiusTR, radiusInDp, cornerRadiusBL)
-            CornerRadius.BOTTOM_LEFT -> setCornerRadius(cornerRadiusTL, cornerRadiusTR, cornerRadiusBR, radiusInDp)
+            CornerRadius.TOP_LEFT -> setCornerRadius(newRadius, cornerRadiusTR, cornerRadiusBR, cornerRadiusBL)
+            CornerRadius.TOP_RIGHT -> setCornerRadius(cornerRadiusTL, newRadius, cornerRadiusBR, cornerRadiusBL)
+            CornerRadius.BOTTOM_RIGHT -> setCornerRadius(cornerRadiusTL, cornerRadiusTR, newRadius, cornerRadiusBL)
+            CornerRadius.BOTTOM_LEFT -> setCornerRadius(cornerRadiusTL, cornerRadiusTR, cornerRadiusBR, newRadius)
         }
     }
 
@@ -421,10 +435,10 @@ class RoundedProgressBar @JvmOverloads constructor(
      * Sets the corner radius for all corners the progress bar (includes progress background and
      * progress drawable)
      *
-     * @param radiusInDp should be in units of pixels, not dp
+     * @param newRadius should be in units of pixels, not dp
      */
-    fun setCornerRadius(radiusInDp: Float) {
-        setCornerRadius(radiusInDp, radiusInDp, radiusInDp, radiusInDp)
+    fun setCornerRadius(newRadius: Float) {
+        setCornerRadius(newRadius, newRadius, newRadius, newRadius)
     }
 
     /**
@@ -432,8 +446,8 @@ class RoundedProgressBar @JvmOverloads constructor(
      * progress drawable)
      *
      * Note: If you want the progress bar to be FULLY rounded, then just set the corner radius to
-     *  progressBarHeight / 2. Alternatively you can just put a huge value (like 1000dp) and
-     *  the bar will be rounded to the maximum amount, which is height / 2 (if radiusRestricted == true)
+     * progressBarHeight / 2. Alternatively you can just put a huge value (like 1000dp) and
+     * the bar will be rounded to the maximum amount, which is height / 2 (if radiusRestricted == true)
      *
      * @param radiusInDp should be in units of pixels, not dp
      */
@@ -486,6 +500,36 @@ class RoundedProgressBar @JvmOverloads constructor(
         progressTextOverlay.setTextPadding(newTextPadding)
     }
 
+    /**
+     * If set to true then the progress bar will only ever show "0%" if @see[curProgress] is equal
+     * to 0.0 . In this case, values like 0.2 would be formatted to "1%".
+     *
+     * This is useful for cases where showing "0%" is an important indicator to the user. For
+     * example, if the progress bar is being used to show a fuel tank, you wouldn't want the
+     * progress bar to show 0% fuel left if there's really 0.4%.
+     *
+     * This can be used in conjunction with @see[setOnlyShowTrue100]
+     */
+    fun setOnlyShowTrue0(shouldOnlyShowTrue0: Boolean) {
+        onlyShowTrue0 = shouldOnlyShowTrue0
+        progressTextOverlay.setOnlyShowTrue0(shouldOnlyShowTrue0)
+    }
+
+    /**
+     * If set to true then the progress bar will only ever show "100%" if @see[curProgress] is equal
+     * to 100.0 . In this case, values like 99.8 would be formatted to "99%".
+     *
+     * This is useful for cases where showing "100%" is an important indicator to the user. For
+     * example, if the user has to complete X amount of steps to complete a goal and they have
+     * completed 99.5% of those steps, you wouldn't want to show they are "100%" done.
+     *
+     * This can be used in conjunction with @see[setOnlyShowTrue0]
+     */
+    fun setOnlyShowTrue100(shouldOnlyShowTrue100: Boolean) {
+        onlyShowTrue100 = shouldOnlyShowTrue100
+        progressTextOverlay.setOnlyShowTrue100(shouldOnlyShowTrue100)
+    }
+
 
     // ################################### //
     // ### SAVE STATE BOILERPLATE CODE ### //
@@ -509,6 +553,8 @@ class RoundedProgressBar @JvmOverloads constructor(
         savedState.savedBackgroundTextColor = backgroundTextColor
         savedState.savedShowProgressText = showProgressText
         savedState.savedTextPadding = textPadding
+        savedState.savedOnlyShowTrue0 = onlyShowTrue0
+        savedState.savedOnlyShowTrue100 = onlyShowTrue100
         return savedState
     }
 
@@ -530,17 +576,22 @@ class RoundedProgressBar @JvmOverloads constructor(
             setBackgroundDrawableColor(backgroundDrawableColor)
             setProgressDrawableColor(progressDrawableColor)
             setProgressPercentage(curProgress, false)
+
             // ProgressTextOverlay related
             textSize = state.savedTextSize
             progressTextColor = state.savedProgressTextColor
             backgroundTextColor = state.savedBackgroundTextColor
             showProgressText = state.savedShowProgressText
             textPadding = state.savedTextPadding
+            onlyShowTrue0 = state.savedOnlyShowTrue0
+            onlyShowTrue100 = state.savedOnlyShowTrue100
             setTextSize(textSize)
             setProgressTextColor(progressTextColor)
             setBackgroundTextColor(backgroundTextColor)
             showProgressText(showProgressText)
             setTextPadding(textPadding)
+            setOnlyShowTrue0(onlyShowTrue0)
+            setOnlyShowTrue100(onlyShowTrue100)
         } else {
             super.onRestoreInstanceState(state)
         }
@@ -575,6 +626,8 @@ class RoundedProgressBar @JvmOverloads constructor(
         @ColorInt var savedBackgroundTextColor: Int = 0
         var savedShowProgressText: Boolean = true
         var savedTextPadding: Float = 0f
+        var savedOnlyShowTrue0: Boolean = false
+        var savedOnlyShowTrue100: Boolean = false
 
         constructor(superState: Parcelable?) : super(superState)
 
@@ -595,6 +648,8 @@ class RoundedProgressBar @JvmOverloads constructor(
             savedBackgroundTextColor = source.readInt()
             savedShowProgressText = source.readByte() != 0.toByte()
             savedTextPadding = source.readFloat()
+            savedOnlyShowTrue0 = source.readByte() != 0.toByte()
+            savedOnlyShowTrue100 = source.readByte() != 0.toByte()
         }
 
         override fun writeToParcel(out: Parcel, flags: Int) {
@@ -615,6 +670,8 @@ class RoundedProgressBar @JvmOverloads constructor(
             out.writeInt(savedBackgroundTextColor)
             out.writeByte(if (savedShowProgressText) 1.toByte() else 0.toByte())
             out.writeFloat(savedTextPadding)
+            out.writeByte(if (savedOnlyShowTrue0) 1.toByte() else 0.toByte())
+            out.writeByte(if (savedOnlyShowTrue100) 1.toByte() else 0.toByte())
         }
 
         companion object {
