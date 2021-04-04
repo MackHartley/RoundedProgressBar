@@ -32,10 +32,10 @@
     <color name="text_color_a1">#FFFFFF</color>
     <color name="bg_text_color_a1">#000000</color>
 
-    <color name="progress_color_a2">#254441</color>
-    <color name="progress_background_color_a2">#43AA8B</color>
-    <color name="text_color_a2">#F4F3EE</color>
-    <color name="bg_text_color_a2">#F4F3EE</color>
+    <color name="progress_color_a2">#360568</color>
+    <color name="progress_background_color_a2">#CEB1E7</color>
+    <color name="text_color_a2">@color/progress_background_color_a2</color>
+    <color name="bg_text_color_a2">@color/progress_color_a2</color>
 
     <color name="progress_top_color_a3">#000000</color>
     <color name="progress_mid_color_a3">#ff0000</color>
