@@ -11,6 +11,7 @@ import com.mackhartley.roundedprogressbar.CornerRadius
 import com.mackhartley.roundedprogressbar.RoundedProgressBar
 import it.sephiroth.android.library.numberpicker.doOnProgressChanged
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.math.roundToInt
 
 /**
  * Disclaimer: This app was quickly built and is intended to demonstrate the functionality of
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         private const val ID_PROG_TEXT_COLOR = 2
         private const val ID_BACKGROUND_COLOR = 3
         private const val ID_BACKGROUND_TEXT_COLOR = 4
+        private const val ID_ACTIVITY_BG_COLOR = 5
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,9 +37,13 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         setContentView(R.layout.activity_main)
         button_decrease.setOnClickListener { decreaseProgress() }
         button_increase.setOnClickListener { increaseProgress() }
+        updateAmountButtonLabel()
+        custom_bar_layout.setBackgroundColor(Color.parseColor(viewModel.behindProgBarColor))
+        setNewProgressBarHeight(viewModel.progressBarHeight)
+
         button_change_amount.setOnClickListener {
             viewModel.nextAmount()
-            button_change_amount.text = "+${viewModel.getCurAmount()}"
+            updateAmountButtonLabel()
         }
 
         allProgressBars = listOf(
@@ -47,6 +53,7 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
             demo4,
             demo5,
             demo6,
+            demo6_2,
             custom_bar,
             simple_bar_1,
             simple_bar_2,
@@ -65,7 +72,16 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         initSettingsListeners()
     }
 
+    private fun updateAmountButtonLabel() {
+        button_change_amount.text = getNewAmountLabel(viewModel.getCurAmount())
+    }
+
+    private fun getNewAmountLabel(intVal: Int): String = "+$intVal"
+
     private fun populateSettings() {
+        behind_prog_bar_button.text = viewModel.behindProgBarColor
+        prog_bar_height_field.setProgress(viewModel.progressBarHeight)
+
         prog_color.text = viewModel.progressColor
         prog_text_color.text = viewModel.progressTextColor
         background_color.text = viewModel.backgroundColor
@@ -85,6 +101,17 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
     }
 
     private fun initSettingsListeners() {
+        // Not RPB specific
+        behind_prog_bar_button.setOnClickListener {
+            ColorPickerDialog.newBuilder()
+                .setColor(Color.parseColor(viewModel.progressColor))
+                .setDialogId(ID_ACTIVITY_BG_COLOR).show(this)
+        }
+        prog_bar_height_field.doOnProgressChanged { _, progress, _ ->
+            viewModel.progressBarHeight = progress
+            setNewProgressBarHeight(progress)
+        }
+
         // Colors
         prog_color.setOnClickListener {
             ColorPickerDialog.newBuilder()
@@ -156,6 +183,13 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         }
     }
 
+    private fun setNewProgressBarHeight(heightDp: Int) {
+        val heightInPix = convertDpToPix(heightDp.toFloat(), resources)
+        val newLayoutParams = custom_bar.layoutParams
+        newLayoutParams.height = heightInPix.roundToInt()
+        custom_bar.layoutParams = newLayoutParams
+    }
+
     /**
      * Example of how to set progress bar attributes programmatically
      */
@@ -204,11 +238,17 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
                 viewModel.backgroundColor = colorStr
                 custom_bar.setBackgroundDrawableColor(color)
             }
-            else -> {
+            ID_BACKGROUND_TEXT_COLOR -> {
                 val colorStr = colorIntToHexString(color)
                 background_text_color.text = colorStr
                 viewModel.backgroundTextColor = colorStr
                 custom_bar.setBackgroundTextColor(color)
+            }
+            ID_ACTIVITY_BG_COLOR -> {
+                val colorStr = colorIntToHexString(color)
+                behind_prog_bar_button.text = colorStr
+                custom_bar_layout.setBackgroundColor(color)
+                viewModel.behindProgBarColor = colorStr
             }
         }
     }

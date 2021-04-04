@@ -58,19 +58,73 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
+            <TextView
+                android:id="@+id/behind_prog_bar_tv"
+                style="@style/SettingLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Color Behind Progress Bar"
+                app:layout_constraintEnd_toStartOf="@id/progress_bar_height_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/progress_bar_height_tv"
+                style="@style/SettingLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Progress Bar Height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/behind_prog_bar_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/behind_prog_bar_button"
+                style="@style/ColorButton"
+                app:layout_constraintEnd_toEndOf="@id/behind_prog_bar_tv"
+                app:layout_constraintStart_toStartOf="@id/behind_prog_bar_tv"
+                app:layout_constraintTop_toBottomOf="@id/behind_prog_bar_tv" />
+
+
+            <it.sephiroth.android.library.numberpicker.NumberPicker
+                android:id="@+id/prog_bar_height_field"
+                style="@style/NumPicker.Radius"
+                app:layout_constraintEnd_toEndOf="@id/progress_bar_height_tv"
+                app:layout_constraintStart_toStartOf="@id/progress_bar_height_tv"
+                app:layout_constraintTop_toBottomOf="@id/progress_bar_height_tv" />
+
+            <TextView
+                android:id="@+id/rpb_settings_header"
+                style="@style/HeaderText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="RoundedProgressBar Specific Attributes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/behind_prog_bar_button" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/options"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toTopOf="parent">
+                android:background="@drawable/bg_rpb_settings"
+                android:paddingBottom="4dp"
+                app:layout_constraintTop_toBottomOf="@id/rpb_settings_header">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
 
                 <TextView
                     android:id="@+id/prog_color_label"
                     style="@style/SettingLabel"
                     android:text="Progress Color"
-                    app:layout_constraintEnd_toEndOf="@id/background_color_label"
-                    app:layout_constraintStart_toStartOf="@id/background_color_label"
+                    app:layout_constraintEnd_toEndOf="@id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
@@ -84,8 +138,8 @@
                     android:id="@+id/prog_text_color_label"
                     style="@style/SettingLabel"
                     android:text="Progress Text Color"
-                    app:layout_constraintEnd_toEndOf="@id/background_text_color_label"
-                    app:layout_constraintStart_toStartOf="@id/background_text_color_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
@@ -99,8 +153,8 @@
                     android:id="@+id/background_color_label"
                     style="@style/SettingLabel"
                     android:text="Background Color"
-                    app:layout_constraintEnd_toEndOf="@id/botleft_tv"
-                    app:layout_constraintStart_toStartOf="@id/botleft_tv"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/prog_color" />
 
                 <Button
@@ -114,8 +168,8 @@
                     android:id="@+id/background_text_color_label"
                     style="@style/SettingLabel"
                     android:text="Background Text Color"
-                    app:layout_constraintEnd_toEndOf="@id/topright_tv"
-                    app:layout_constraintStart_toStartOf="@id/topright_tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toBottomOf="@id/prog_text_color" />
 
                 <Button
@@ -128,24 +182,24 @@
                 <TextView
                     android:id="@+id/topleft_tv"
                     style="@style/SettingLabel"
-                    android:text="Top Left Corner Radius"
-                    app:layout_constraintEnd_toEndOf="@id/botleft_tv"
-                    app:layout_constraintStart_toStartOf="@id/botleft_tv"
-                    app:layout_constraintTop_toBottomOf="@id/background_color" />
+                    android:text="Top Left Corner Radius "
+                    app:layout_constraintBottom_toTopOf="@+id/tl_radius_field"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
                     android:id="@+id/tl_radius_field"
                     style="@style/NumPicker.Radius"
                     app:layout_constraintEnd_toEndOf="@id/topleft_tv"
                     app:layout_constraintStart_toStartOf="@id/topleft_tv"
-                    app:layout_constraintTop_toBottomOf="@id/topleft_tv" />
+                    app:layout_constraintTop_toBottomOf="@+id/topright_tv" />
 
                 <TextView
                     android:id="@+id/topright_tv"
                     style="@style/SettingLabel"
                     android:text="Top Right Corner Radius"
-                    app:layout_constraintEnd_toEndOf="@id/botright_tv"
-                    app:layout_constraintStart_toStartOf="@id/botright_tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toBottomOf="@id/background_text_color" />
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
@@ -159,21 +213,23 @@
                     android:id="@+id/botleft_tv"
                     style="@style/SettingLabel"
                     android:text="Bottom Left Corner Radius"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tl_radius_field" />
+                    app:layout_constraintBottom_toTopOf="@+id/bl_radius_field"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
                     android:id="@+id/bl_radius_field"
                     style="@style/NumPicker.Radius"
                     app:layout_constraintEnd_toEndOf="@id/botleft_tv"
                     app:layout_constraintStart_toStartOf="@id/botleft_tv"
-                    app:layout_constraintTop_toBottomOf="@id/botleft_tv" />
+                    app:layout_constraintTop_toBottomOf="@+id/botright_tv" />
 
                 <TextView
                     android:id="@+id/botright_tv"
                     style="@style/SettingLabel"
                     android:text="Bottom Right Corner Radius"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toBottomOf="@id/tr_radius_field" />
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
@@ -187,8 +243,8 @@
                     android:id="@+id/text_size_label"
                     style="@style/SettingLabel"
                     android:text="Text Size"
-                    app:layout_constraintEnd_toEndOf="@id/botleft_tv"
-                    app:layout_constraintStart_toStartOf="@id/botleft_tv"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/bl_radius_field" />
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
@@ -202,8 +258,8 @@
                     android:id="@+id/text_padding_label"
                     style="@style/SettingLabel"
                     android:text="Text Padding"
-                    app:layout_constraintEnd_toEndOf="@id/botright_tv"
-                    app:layout_constraintStart_toStartOf="@id/botright_tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toBottomOf="@id/br_radius_field" />
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
@@ -217,8 +273,8 @@
                     android:id="@+id/animation_length_label"
                     style="@style/SettingLabel"
                     android:text="Animation Length"
-                    app:layout_constraintEnd_toEndOf="@id/text_size_label"
-                    app:layout_constraintStart_toStartOf="@id/text_size_label"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_size_field" />
 
                 <it.sephiroth.android.library.numberpicker.NumberPicker
@@ -232,8 +288,8 @@
                     android:id="@+id/show_text_label"
                     style="@style/SettingLabel"
                     android:text="Show Progress Text"
-                    app:layout_constraintEnd_toEndOf="@id/text_padding_field"
-                    app:layout_constraintStart_toStartOf="@id/text_padding_field"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toBottomOf="@id/text_padding_field" />
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
@@ -248,8 +304,8 @@
                     android:id="@+id/restrict_radius_label"
                     style="@style/SettingLabel"
                     android:text="Restrict Corner Radius"
-                    app:layout_constraintEnd_toEndOf="@id/show_text_switch"
-                    app:layout_constraintStart_toStartOf="@id/show_text_switch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toBottomOf="@id/show_text_switch" />
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
@@ -265,27 +321,40 @@
             <TextView
                 android:id="@+id/header_created"
                 style="@style/HeaderText"
+                android:layout_marginTop="20dp"
                 android:text="Your Creation:"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/options" />
 
-            <com.mackhartley.roundedprogressbar.RoundedProgressBar
-                android:id="@+id/custom_bar"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/custom_bar_layout"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="@dimen/space_between_settings"
-                app:layout_constraintTop_toBottomOf="@id/header_created"
-                app:rpbAnimationLength="500"
-                app:rpbCornerRadius="8dp"
-                app:rpbTextPadding="8dp"
-                app:rpbTextSize="14sp" />
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:paddingStart="20dp"
+                android:paddingTop="28dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="28dp"
+                app:layout_constraintTop_toBottomOf="@id/header_created">
+
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/custom_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:rpbAnimationLength="500"
+                    app:rpbCornerRadius="8dp"
+                    app:rpbTextPadding="8dp"
+                    app:rpbTextSize="14sp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/header_simple_bars"
                 style="@style/HeaderText"
-                android:text="Examples - Can be created above! (Except height)"
+                android:text="Examples (Can be created above!)"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/custom_bar" />
+                app:layout_constraintTop_toBottomOf="@id/custom_bar_layout" />
 
             <com.mackhartley.roundedprogressbar.RoundedProgressBar
                 android:id="@+id/simple_bar_1"
@@ -570,20 +639,70 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/demo6_back" />
 
+                <ImageView
+                    android:id="@+id/demo6_add"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_baseline_add_24"
+                    app:layout_constraintBottom_toBottomOf="@id/demo6_img"
+                    app:layout_constraintStart_toEndOf="@id/demo6_img"
+                    app:layout_constraintTop_toTopOf="@id/demo6_img" />
+
                 <com.mackhartley.roundedprogressbar.RoundedProgressBar
                     android:id="@+id/demo6"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:layout_marginStart="8dp"
                     app:layout_constraintBottom_toBottomOf="@id/demo6_img"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/demo6_img"
+                    app:layout_constraintStart_toEndOf="@id/demo6_add"
                     app:layout_constraintTop_toTopOf="@id/demo6_img"
                     app:rpbBackgroundColor="@color/demo6_back"
                     app:rpbBackgroundTextColor="@color/demo6_back_text"
                     app:rpbCornerRadiusBottomRight="@dimen/demo6_radius"
                     app:rpbCornerRadiusTopRight="@dimen/demo6_radius"
                     app:rpbProgressColor="@color/demo6_prog"
-                    app:rpbProgressTextColor="@color/demo6_prog_text" />
+                    app:rpbProgressTextColor="@color/demo6_prog_text"
+                    app:rpbTextSize="18sp" />
+
+                <TextView
+                    android:id="@+id/demo6_equals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="0dp"
+                    android:text="="
+                    android:textSize="64sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/demo6" />
+
+                <ImageView
+                    android:id="@+id/demo6_img_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_demo6"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_baseline_cloud_upload_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/demo6_equals"
+                    app:tint="@color/demo6_back" />
+
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/demo6_2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@id/demo6_img_2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/demo6_img_2"
+                    app:layout_constraintTop_toTopOf="@id/demo6_img_2"
+                    app:rpbBackgroundColor="@color/demo6_back"
+                    app:rpbBackgroundTextColor="@color/demo6_back_text"
+                    app:rpbCornerRadiusBottomRight="@dimen/demo6_radius"
+                    app:rpbCornerRadiusTopRight="@dimen/demo6_radius"
+                    app:rpbProgressColor="@color/demo6_prog"
+                    app:rpbProgressTextColor="@color/demo6_prog_text"
+                    app:rpbTextSize="18sp" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -87,6 +87,8 @@ setAnimationLength(newAnimationLength: Long)
 
 showProgressText(shouldShowProgressText: Boolean) // Hide or show the progress text
 setRadiusRestricted(isRestricted: Boolean)
+setOnlyShowTrue0(shouldOnlyShowTrue0: Boolean) // Only show "0%" if progress == 0.0 (eg 0.2% -> "1%")
+setOnlyShowTrue100(shouldOnlyShowTrue100: Boolean) // Only show "100%" if progress == 100.0 (eg 99.8% -> "99%")
 ```
 
 Each setter is accessible via xml as well. Here I've mapped each setter to its corresponding xml attribute:
@@ -107,6 +109,8 @@ Each setter is accessible via xml as well. Here I've mapped each setter to its c
 | `setAnimationLength(...)`  | `rpbAnimationLength`  |
 | `showProgressText(...)`  | `rpbShowProgressText`  |
 | `setRadiusRestricted(...)`  | `rpbIsRadiusRestricted`  |
+| `setOnlyShowTrue0(...)`  | `rpbOnlyShowTrue0`  |
+| `setOnlyShowTrue100(...)`  | `rpbOnlyShowTrue100`  |
 <p align="center">
     <br>
     <img src="/demoimgs/progressBarDiagram.png" width="600"/>

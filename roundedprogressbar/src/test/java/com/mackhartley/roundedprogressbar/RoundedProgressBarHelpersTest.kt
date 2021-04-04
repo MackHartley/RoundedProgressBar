@@ -7,7 +7,7 @@ import org.junit.Test
 import org.junit.Assert.*
 
 /**
- * Tests the functionality of helper functions for the RoundedProgressBar
+ * Tests the functionality of helper functions for the [RoundedProgressBar] and [ProgressTextOverlay]
  * @see MiscUtils.kt
  */
 class RoundedProgressBarHelpersTest {

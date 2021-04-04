@@ -11,6 +11,10 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/space_between_settings</item>
+        <item name="layout_constrainedWidth">true</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
     </style>
 
     <style name="ColorButton" parent="Widget.MaterialComponents.Button.TextButton">
