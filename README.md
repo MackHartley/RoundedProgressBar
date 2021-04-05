@@ -58,7 +58,7 @@ dependencies {
     <img src="https://user-images.githubusercontent.com/10659285/113536397-a83d6f00-959b-11eb-9328-84dcab86ff04.gif" />
 </p>
 
-5) **Modular** - The `RoundedProgressBar` library can be seamlessly added to custom layouts due to it's customizability and the fact that each corner can have a different radius
+5) **Modular** - The `RoundedProgressBar` library can be seamlessly included in custom layouts due to it's customizability and the fact that each corner can have a different radius
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113536888-cb1c5300-959c-11eb-8da1-cb6ce36d1fdd.gif" />
 </p>
