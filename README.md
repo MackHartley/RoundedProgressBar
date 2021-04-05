@@ -2,13 +2,12 @@
     <img src="demoimgs/rpbShowcase.gif" alt="animated" />
 </p>
 <h1 align="center">RoundedProgressBar</h1>
-<p align="center">Easy, Beautiful, Customizeable</p>
+<p align="center">Easy, Beautiful, Customizable</p>
 
 <p align="center">
     <a href="https://developer.android.com/"><img src="https://img.shields.io/badge/Platform-Android-green.svg" height="20"/></a>
     <a href="https://android-arsenal.com/api?level=21"><img src="https://img.shields.io/badge/API-21%2B-blue.svg?style=flat" height="20"/></a>
     <a href="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml"><img src="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml/badge.svg" /></a>
-    <a href="https://github.com/MackHartley/RoundedProgressBar/issues"><img src="https://img.shields.io/github/issues/mackhartley/roundedprogressbar.svg" height="20"/></a>
     <a href="https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg" height="20"/></a>
 </p>
 
@@ -41,23 +40,30 @@ dependencies {
 }
 ```
 
-# Features 🌟
+# Notable Features 🌟
 
-1) **Completion Text** - Displays `00%` percentage completion of the progress bar
-2) **Animaition** - Both the progress bar and progress text animate
-3) **Foreground / Background** - Both the foreground (aka progress) and background colors can be set
-4) **Separate Text Colors** - You can specify the text color based on whether it's shown over the foreground or background
-5) **Low Value Support** - The progress bar looks nice even at low values! (This is a common issue when dealing with rounded progress bars)
+1) **Animation** - Both the progress bar and progress text animate
+2) **Full Color Customization** - You can even specify what color the text is depending on which background it draws over
 <p align="center">
-    <img src="demoimgs/differentTextColors.gif" width="600"/>
+    <img src="https://user-images.githubusercontent.com/10659285/113535487-2cdabe00-9599-11eb-823f-a5256432b575.gif" />
 </p>
 
-6) **Corner Radius** - Any corner radius value can be set (You can even remove it if you just wanted the animated progress bar)
+3) **Low Value Support** - The progress bar looks nice even at low values (This is a common issue when dealing with rounded progress bars)
 <p align="center">
-    <img src="demoimgs/anyCornerRadius.gif" width="600"/>
+    <img src="https://user-images.githubusercontent.com/10659285/113535772-f8b3cd00-9599-11eb-8b1a-ee6ec9e323c2.gif" />
 </p>
 
-**Additionally**, the `RoundedProgressBar` handles all state on config changes including situations where there are multiple progress bars:
+4) **Any Corner Radius Allowed** - Individual corners can even have different radius values
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/10659285/113536397-a83d6f00-959b-11eb-9328-84dcab86ff04.gif" />
+</p>
+
+5) **Modular** - The `RoundedProgressBar` library can be seamlessly added to custom layouts due to it's customizability and the fact that each corner can have a different radius
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/10659285/113536888-cb1c5300-959c-11eb-8da1-cb6ce36d1fdd.gif" />
+</p>
+    
+**Additionally**, the `RoundedProgressBar` handles all state on configuration changes including situations where there are multiple progress bars:
 <p align="center">
     <img src="demoimgs/savesStateOnConfigChange.gif" width="600"/>
 </p>
