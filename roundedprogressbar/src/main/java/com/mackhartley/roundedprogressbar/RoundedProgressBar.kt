@@ -481,8 +481,14 @@ class RoundedProgressBar @JvmOverloads constructor(
     /**
      * Allows corners to be curved past their "area/corner" of the progress bar.
      *
-     * By default corners can only be curved 90 degrees and won't curve into the "area" of
-     * a different corner.
+     * By default, a corner radius curve has a height of less than or equal to
+     * (progressBar.height / 2). This prevents a corner from rounding into the "area" of a
+     * different corner. [isRadiusRestricted] is true by default because it is easier to make a
+     * basic RoundedProgressBar when a corner can't interfere with the area of another corner.
+     *
+     * However, you might want to set this to false if you are trying to make a progress bar where
+     * some rounded corners are much larger than others. The demo app has a progress bar
+     * of id="simple_bar_4" that shows this behavior.
      */
     fun setRadiusRestricted(isRestricted: Boolean) {
         isRadiusRestricted = isRestricted

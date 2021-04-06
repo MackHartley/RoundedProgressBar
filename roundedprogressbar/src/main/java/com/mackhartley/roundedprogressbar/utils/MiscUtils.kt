@@ -3,11 +3,10 @@ package com.mackhartley.roundedprogressbar.utils
 import kotlin.math.roundToInt
 
 /**
- * Ensures corner radius is above 0 and doesn't exceed viewHeight/2. This prevents a rounded corner
- * from affecting the area of a different rounded corner (which might look weird)
+ * Ensures corner radius is an appropriate value: 0 <= radius <= (progressBar.height/2)
  *
- * Except - If "isMaxRadiusRestricted = false" then any corner radius above 0 can be set. This allows
- * for greater customization but can lead to weird looking progress bars.
+ * Except - If "isMaxRadiusRestricted == false" then the corner radius can be:
+ * 0 <= radius <= progressBar.height
  */
 fun calculateAppropriateCornerRadius(
     requestedRadius: Float,
