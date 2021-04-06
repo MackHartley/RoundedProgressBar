@@ -1,10 +1,8 @@
 package com.mackhartley.roundedprogressbarexample
 
-import android.animation.ObjectAnimator
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.jaredrummler.android.colorpicker.ColorPickerDialog
@@ -37,25 +35,20 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         button_decrease.setOnClickListener { decreaseProgress() }
         button_increase.setOnClickListener { increaseProgress() }
-        updateAmountButtonLabel()
-        custom_bar_layout.setBackgroundColor(Color.parseColor(viewModel.behindProgBarColor))
-        setNewProgressBarHeight(viewModel.progressBarHeight)
-
         button_change_amount.setOnClickListener {
             viewModel.nextAmount()
             updateAmountButtonLabel()
         }
 
+        // The state for these isn't held by RPB as they aren't RPB specific
+        updateAmountButtonLabel()
+        custom_bar_layout.setBackgroundColor(Color.parseColor(viewModel.behindProgBarColor))
+        setNewProgressBarHeight(viewModel.progressBarHeight)
+
         allProgressBars = listOf(
-            demobar,
-            demobar2,
-            demo3,
-            demo4,
-            demo5,
-            demo6,
-            demo6_2,
             custom_bar,
             simple_bar_1,
             simple_bar_2,
@@ -72,9 +65,6 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
 
         populateSettings()
         initSettingsListeners()
-
-
-        setUpAutoBars()
     }
 
     private fun updateAmountButtonLabel() {
@@ -109,7 +99,7 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         // Not RPB specific
         behind_prog_bar_button.setOnClickListener {
             ColorPickerDialog.newBuilder()
-                .setColor(Color.parseColor(viewModel.progressColor))
+                .setColor(Color.parseColor(viewModel.behindProgBarColor))
                 .setDialogId(ID_ACTIVITY_BG_COLOR).show(this)
         }
         prog_bar_height_field.doOnProgressChanged { _, progress, _ ->
@@ -186,17 +176,6 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
             viewModel.restrictRadius = isChecked
             custom_bar.setRadiusRestricted(isChecked)
         }
-
-
-
-
-        //todo delete this
-        demo6_add.setOnClickListener {
-            thingsToCancel.forEach {
-                it()
-            }
-            thingsToCancel.clear()
-        }
     }
 
     private fun setNewProgressBarHeight(heightDp: Int) {
@@ -216,7 +195,6 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         roundedProgressBar.setProgressTextColor(ContextCompat.getColor(this, R.color.text_color_s1))
         roundedProgressBar.setBackgroundTextColor(ContextCompat.getColor(this, R.color.bg_text_color_s1))
         roundedProgressBar.showProgressText(true)
-//        roundedProgressBar.setAnimationLength(900)
     }
 
     private fun increaseProgress() {
@@ -232,141 +210,6 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         var adjustment = viewModel.getCurAmount()
         if (!isAddition) adjustment *= -1
         roundedProgressBar.setProgressPercentage(curValue + adjustment)
-    }
-
-    private fun changeProgress2(roundedProgressBar: RoundedProgressBar, amount: Int, isAddition: Boolean = true) {
-        val curValue = roundedProgressBar.getProgressPercentage()
-        var adjustment = amount
-        if (!isAddition) adjustment *= -1
-        roundedProgressBar.setProgressPercentage(curValue + adjustment)
-    }
-
-    var shouldExpand1 = true
-    var shouldExpand2 = true
-    var shouldExpand3 = true
-    var shouldExpand4 = true
-    var thingsToCancel = mutableListOf<() -> Unit>()
-
-    private fun setUpAutoBars() {
-
-        custom_bar.setOnClickListener {
-            val handler = Handler()
-            val runnable = object : Runnable {
-                override fun run() {
-                    if (shouldExpand1) {
-                        ObjectAnimator.ofFloat(custom_bar, "cornerRadius",  60f, 24f).apply {
-                            duration = 1000
-                            start()
-                        }
-                    } else {
-                        ObjectAnimator.ofFloat(custom_bar, "cornerRadius", 24f, 60f).apply {
-                            duration = 1000
-                            start()
-                        }
-                    }
-
-                    if (shouldExpand1) {
-                        custom_bar.setProgressPercentage(55.0)
-                    } else {
-                        custom_bar.setProgressPercentage(30.0)
-
-                    }
-
-//                    Thread.sleep(3300)
-
-
-//                    Thread.sleep(1300)
-
-
-                    shouldExpand1 = !shouldExpand1
-                    handler.postDelayed(this, 3000)
-                }
-            }
-            handler.post(runnable)
-        }
-
-        demobar.setOnClickListener {
-            val handler = Handler()
-            val runnable = object : Runnable {
-                override fun run() {
-                    if (shouldExpand1) {
-                        demobar.setProgressPercentage(25.0)
-                    } else {
-                        demobar.setProgressPercentage(20.0)
-                    }
-                    shouldExpand1 = !shouldExpand1
-                    handler.postDelayed(this, 3000)
-                }
-            }
-            handler.post(runnable)
-            val cancelCallback: () -> Unit = { handler.removeCallbacks(runnable) }
-            thingsToCancel.add(cancelCallback)
-
-        }
-
-        demobar2.setOnClickListener {
-            val handler = Handler()
-            val runnable = object : Runnable {
-                override fun run() {
-                    if (shouldExpand2) {
-                        demobar2.setProgressPercentage(15.0)
-                    } else {
-                        demobar2.setProgressPercentage(0.0)
-                    }
-                    shouldExpand2 = !shouldExpand2
-                    handler.postDelayed(this, 3000)
-                }
-            }
-            handler.post(runnable)
-            val cancelCallback: () -> Unit = { handler.removeCallbacks(runnable) }
-            thingsToCancel.add(cancelCallback)
-
-        }
-
-        demo3.setOnClickListener {
-            val handler = Handler()
-            val runnable = object : Runnable {
-                override fun run() {
-                    if (shouldExpand3) {
-                        demo3.setProgressPercentage(60.0)
-                        demo4.setProgressPercentage(60.0)
-                        demo5.setProgressPercentage(60.0)
-                    } else {
-                        demo3.setProgressPercentage(10.0)
-                        demo4.setProgressPercentage(10.0)
-                        demo5.setProgressPercentage(10.0)
-                    }
-                    shouldExpand3 = !shouldExpand3
-                    handler.postDelayed(this, 3000)
-                }
-            }
-            handler.post(runnable)
-            val cancelCallback: () -> Unit = { handler.removeCallbacks(runnable) }
-            thingsToCancel.add(cancelCallback)
-        }
-
-
-        demo6.setOnClickListener {
-            val handler = Handler()
-            val runnable = object : Runnable {
-                override fun run() {
-                    if (shouldExpand4) {
-                        demo6.setProgressPercentage(60.0)
-                        demo6_2.setProgressPercentage(60.0)
-                    } else {
-                        demo6.setProgressPercentage(10.0)
-                        demo6_2.setProgressPercentage(10.0)
-                    }
-                    shouldExpand4 = !shouldExpand4
-                    handler.postDelayed(this, 3000)
-                }
-            }
-            handler.post(runnable)
-            val cancelCallback: () -> Unit = { handler.removeCallbacks(runnable) }
-            thingsToCancel.add(cancelCallback)
-
-        }
-
     }
 
     override fun onColorSelected(dialogId: Int, color: Int) {
