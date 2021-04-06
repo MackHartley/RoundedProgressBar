@@ -1,24 +1,31 @@
 <p align="center">
-    <img src="demoimgs/rpbShowcase.gif" alt="animated" />
+    <img src="https://user-images.githubusercontent.com/10659285/113659138-06835400-9667-11eb-8f8b-5d8da5eba1c8.gif" />
 </p>
 <h1 align="center">RoundedProgressBar</h1>
-<p align="center">Easy, Beautiful, Customizeable</p>
+<p align="center">Easy, Beautiful, Customizable</p>
 
 <p align="center">
     <a href="https://developer.android.com/"><img src="https://img.shields.io/badge/Platform-Android-green.svg" height="20"/></a>
     <a href="https://android-arsenal.com/api?level=21"><img src="https://img.shields.io/badge/API-21%2B-blue.svg?style=flat" height="20"/></a>
     <a href="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml"><img src="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml/badge.svg" /></a>
-    <a href="https://github.com/MackHartley/RoundedProgressBar/issues"><img src="https://img.shields.io/github/issues/mackhartley/roundedprogressbar.svg" height="20"/></a>
     <a href="https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg" height="20"/></a>
 </p>
 
-The `RoundedProgressBar` library gives you a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting a few examples of different looking progress bars created with this library:
-
+The `RoundedProgressBar` library gives you a highly customizable and easy to use progress bar. One of the defining features of this library is that you can create progress bars with rounded corners. Additionally, this library comes with many other useful features and customization options! Below are several examples of progress bars created with this library.
+<br>
 <p align="center">
-    <img src="/demoimgs/demoApp.gif" width="400"/>
-    <br>
-    <i>This demo app is included in this repository under the app directory</i>
+    <img src="https://user-images.githubusercontent.com/10659285/113661686-2cf7be00-966c-11eb-91b1-5fb9c9b7ba78.gif" width="300"/>
 </p>
+
+If you’d like to see if this library is right for your project then try downloading the demo app which is available on the Google Play Store. There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
+<br>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/10659285/113660889-a7274300-966a-11eb-8185-a992f485bd79.gif" width="300"/>
+    <br>
+    <i>The demo app is also included in this repository under the 'app' directory</i>
+</p>
+
+Do you use `RoundedProgressBar` in your app? Consider adding a picture or GIF of your usage to [`who_uses_rpb.md`](https://github.com/MackHartley/RoundedProgressBar/blob/master/who_uses_rpb.md). This provides examples to developers on how the library is used and gives your app a bit of **free publicity!**
 
 # Gradle Setup ⚙️
 [![](https://jitpack.io/v/MackHartley/RoundedProgressBar.svg)](https://jitpack.io/#MackHartley/RoundedProgressBar)
@@ -41,38 +48,45 @@ dependencies {
 }
 ```
 
-# Features 🌟
+# Notable Features 🌟
 
-1) **Completion Text** - Displays `00%` percentage completion of the progress bar
-2) **Animaition** - Both the progress bar and progress text animate
-3) **Foreground / Background** - Both the foreground (aka progress) and background colors can be set
-4) **Separate Text Colors** - You can specify the text color based on whether it's shown over the foreground or background
-5) **Low Value Support** - The progress bar looks nice even at low values! (This is a common issue when dealing with rounded progress bars)
+1) **Animation** - Both the progress bar and progress text animate
+2) **Full Color Customization** - You can even specify what color the text is depending on which background it draws over
 <p align="center">
-    <img src="demoimgs/differentTextColors.gif" width="600"/>
+    <img src="https://user-images.githubusercontent.com/10659285/113535487-2cdabe00-9599-11eb-823f-a5256432b575.gif" />
 </p>
 
-6) **Corner Radius** - Any corner radius value can be set (You can even remove it if you just wanted the animated progress bar)
+3) **Low Value Support** - The progress bar looks nice even at low values (This is a common issue when dealing with rounded progress bars)
 <p align="center">
-    <img src="demoimgs/anyCornerRadius.gif" width="600"/>
+    <img src="https://user-images.githubusercontent.com/10659285/113535772-f8b3cd00-9599-11eb-8b1a-ee6ec9e323c2.gif" />
 </p>
 
-**Additionally**, the `RoundedProgressBar` handles all state on config changes including situations where there are multiple progress bars:
+4) **Any Corner Radius Allowed** - Individual corners can even have different radius values
 <p align="center">
-    <img src="demoimgs/savesStateOnConfigChange.gif" width="600"/>
+    <img src="https://user-images.githubusercontent.com/10659285/113536397-a83d6f00-959b-11eb-9328-84dcab86ff04.gif" />
+</p>
+
+5) **Modular** - The `RoundedProgressBar` library can be seamlessly included in custom layouts due to it's customizability and the fact that each corner can have a different radius
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/10659285/113536888-cb1c5300-959c-11eb-8da1-cb6ce36d1fdd.gif" />
+</p>
+    
+**Additionally**, the `RoundedProgressBar` handles all internal state on configuration changes (as seen below)
+<p align="center">
+    <img src="demoimgs/savesStateOnConfigChange.gif" width="500"/>
 </p>
 
 # Public Methods and Xml Attributes ⌨️
-These are the methods which can be called on the RoundedProgressBar class:
+These are the methods which can be called on the `RoundedProgressBar` class:
 
 ```
 setProgressPercentage(progressPercentage: Double, shouldAnimate: Boolean = true)
 getProgressPercentage(): Double
 
 setProgressDrawableColor(@ColorInt newColor: Int) // Sets the color of the 'progress' part of the progress bar
-setBackgroundDrawableColor(@ColorInt newColor: Int) // Sets the color of the progress bar background
+setBackgroundDrawableColor(@ColorInt newColor: Int) // Sets the color of the 'background' part of the progress bar
 setProgressTextColor(@ColorInt newColor: Int) // Sets text color for when it is drawn over the progress part of progress bar
-setBackgroundTextColor(@ColorInt newColor: Int) // Sets text color for when it is drawn over the progress bar background
+setBackgroundTextColor(@ColorInt newColor: Int) // Sets text color for when it is drawn over the background part of progress bar
 
 setCornerRadius(
     topLeftRadius: Float,
@@ -82,59 +96,40 @@ setCornerRadius(
 )
 
 setTextSize(newTextSize: Float)
-setTextPadding(newTextPadding: Float)
+setTextPadding(newTextPadding: Float) // Sets the padding between the progress text and end (or start) of the progress bar
 setAnimationLength(newAnimationLength: Long)
 
-showProgressText(shouldShowProgressText: Boolean) // Hide or show the progress text
+showProgressText(shouldShowProgressText: Boolean)
 setRadiusRestricted(isRestricted: Boolean)
-setOnlyShowTrue0(shouldOnlyShowTrue0: Boolean) // Only show "0%" if progress == 0.0 (eg 0.2% -> "1%")
-setOnlyShowTrue100(shouldOnlyShowTrue100: Boolean) // Only show "100%" if progress == 100.0 (eg 99.8% -> "99%")
+setOnlyShowTrue0(shouldOnlyShowTrue0: Boolean) // If true the progress bar will not allow non zero values to round down to "0%"
+setOnlyShowTrue100(shouldOnlyShowTrue100: Boolean) // If true the progress bar will not allow non '100' values to round up to "100%"
 ```
 
-Each setter is accessible via xml as well. Here I've mapped each setter to its corresponding xml attribute:
-| Method | Xml Attribute |
+The `RoundedProgressBar` can also be configured via xml attributes. Below is the full list of attributes along with the methods they map to.
+| Xml Attribute | Method |
 |---|---|
-| `setProgressPercentage(...)`  | `rpbProgress`  |
-| `setProgressDrawableColor(...)`  | `rpbProgressColor`  |
-| `setBackgroundDrawableColor(...)`  | `rpbBackgroundColor`  |
-| `setProgressTextColor(...)`  | `rpbProgressTextColor`  |
-| `setBackgroundTextColor(...)`  | `rpbBackgroundTextColor`  |
-| `setCornerRadius(...)`  | `rpbCornerRadius`  |
-| `setCornerRadius(...)`  | `rpbCornerRadiusTopLeft`  |
-| `setCornerRadius(...)`  | `rpbCornerRadiusTopRight`  |
-| `setCornerRadius(...)`  | `rpbCornerRadiusBottomRight`  |
-| `setCornerRadius(...)`  | `rpbCornerRadiusBottomLeft`  |
-| `setTextSize(...)`  | `rpbTextSize`  |
-| `setTextPadding(...)`  | `rpbTextPadding`  |
-| `setAnimationLength(...)`  | `rpbAnimationLength`  |
-| `showProgressText(...)`  | `rpbShowProgressText`  |
-| `setRadiusRestricted(...)`  | `rpbIsRadiusRestricted`  |
-| `setOnlyShowTrue0(...)`  | `rpbOnlyShowTrue0`  |
-| `setOnlyShowTrue100(...)`  | `rpbOnlyShowTrue100`  |
-<p align="center">
-    <br>
-    <img src="/demoimgs/progressBarDiagram.png" width="600"/>
-    <br>
-    <i>This diagram shows which methods are responsible for setting the different colors of the progress bar</i>
-</p>
-
-# Why I Made This 💭
-
-A while back I was working on an Android app which relied heavily on having a few good looking progress bars. I found [this](https://github.com/akexorcist/RoundCornerProgressBar) library which was the best option in my opinion. However, as my project progressed I encountered the following issues with it:
-
-- No ability to set text color depending on where it's drawn
-- Occasional misplacement of text
-- Looks strange at low values (Common issue with rounded progress bars)
-- Doesn't have text animation
-
-Unfortunately, these issues weren't acceptable for my use case, and that library was the best option I could find online. So not one to settle I decided to make something better suited for what I needed.
-
-This is not to say that library is bad, it is quite good and has many more features than my library. However, my focus with this library was to make something simple that did a good job at just being a standard '0 - 100% style' progress bar.
+| `rpbProgress` | `setProgressPercentage(...)` |
+| `rpbProgressColor` | `setProgressDrawableColor(...)` |
+| `rpbBackgroundColor` | `setBackgroundDrawableColor(...)` |
+| `rpbProgressTextColor` | `setProgressTextColor(...)` |
+| `rpbBackgroundTextColor` | `setBackgroundTextColor(...)` |
+| `rpbCornerRadius` | `setCornerRadius(...)` |
+| `rpbCornerRadiusTopLeft` | `setCornerRadius(...)` |
+| `rpbCornerRadiusTopRight` | `setCornerRadius(...)` |
+| `rpbCornerRadiusBottomRight` | `setCornerRadius(...)` |
+| `rpbCornerRadiusBottomLeft` | `setCornerRadius(...)` |
+| `rpbTextSize` | `setTextSize(...)` |
+| `rpbTextPadding` | `setTextPadding(...)` |
+| `rpbAnimationLength` | `setAnimationLength(...)` |
+| `rpbShowProgressText` | `showProgressText(...)` |
+| `rpbIsRadiusRestricted` | `setRadiusRestricted(...)` |
+| `rpbOnlyShowTrue0` | `setOnlyShowTrue0(...)` |
+| `rpbOnlyShowTrue100` | `setOnlyShowTrue100(...)` |
 
 # Contributing 🤝
 Feel free to open up issues on this repo to report bugs or request features. 
 
-Additionally if you'd like to contribute to the library feel free to open up a pull request! Just give me a heads up first though (via issues or comments) so we don't overwrite each other.
+Additionally if you'd like to contribute to the library please feel free to open up a pull request! Just give me a heads up first though (via issues or comments) so we don't overwrite each other in the event I am updating the project.
 
 Special thanks to all those who have supported this repo thus far!
 <p align="center">
