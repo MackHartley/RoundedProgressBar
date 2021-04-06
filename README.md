@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="demoimgs/rpbShowcase.gif" alt="animated" />
+    <img src="https://user-images.githubusercontent.com/10659285/113659138-06835400-9667-11eb-8f8b-5d8da5eba1c8.gif" />
 </p>
 <h1 align="center">RoundedProgressBar</h1>
 <p align="center">Easy, Beautiful, Customizable</p>
