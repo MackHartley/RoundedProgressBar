@@ -14,13 +14,13 @@
 The `RoundedProgressBar` library gives you a highly customizable and easy to use progress bar. One of the defining features of this library is that you can create progress bars with rounded corners. However, this library comes with many other useful features and customization options! Below are several examples of progress bars created with this library.
 <br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/113658201-39c4e380-9665-11eb-93a4-a3bf7e4b5c4f.gif" />
+    <img src="https://user-images.githubusercontent.com/10659285/113661686-2cf7be00-966c-11eb-91b1-5fb9c9b7ba78.gif" width="300"/>
 </p>
 
 If you’d like to see if this library is right for your project then try downloading the demo app which is available on the Google Play Store. There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
 <br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/113657367-6b3caf80-9663-11eb-9391-1e6c043291d8.gif" />
+    <img src="https://user-images.githubusercontent.com/10659285/113660889-a7274300-966a-11eb-8185-a992f485bd79.gif" width="300"/>
     <br>
     <i>The demo app is also included in this repository under the 'app' directory</i>
 </p>
@@ -69,9 +69,9 @@ dependencies {
     <img src="https://user-images.githubusercontent.com/10659285/113536888-cb1c5300-959c-11eb-8da1-cb6ce36d1fdd.gif" />
 </p>
     
-**Additionally**, the `RoundedProgressBar` handles all state on configuration changes including situations where there are multiple progress bars:
+**Additionally**, the `RoundedProgressBar` handles all internal state on configuration changes (as seen below)
 <p align="center">
-    <img src="demoimgs/savesStateOnConfigChange.gif" width="600"/>
+    <img src="demoimgs/savesStateOnConfigChange.gif" width="500"/>
 </p>
 
 # Public Methods and Xml Attributes ⌨️
@@ -104,7 +104,7 @@ setOnlyShowTrue100(shouldOnlyShowTrue100: Boolean) // If true the progress bar w
 ```
 
 The `RoundedProgressBar` can also be configured via xml attributes. Below is the full list of attributes along with the methods they map to.
-| Method | Xml Attribute |
+| Xml Attribute | Method |
 |---|---|
 | `rpbProgress` | `setProgressPercentage(...)` |
 | `rpbProgressColor` | `setProgressDrawableColor(...)` |
