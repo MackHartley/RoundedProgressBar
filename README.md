@@ -13,14 +13,11 @@
 
 The `RoundedProgressBar` library gives you a highly customizable and easy to use progress bar. One of the defining features of this library is that you can create progress bars with rounded corners. However, this library comes with many other useful features and customization options! Below are several examples of progress bars created with this library.
 <br>
-<br>
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113658201-39c4e380-9665-11eb-93a4-a3bf7e4b5c4f.gif" />
-    <br>
 </p>
 
 If you’d like to see if this library is right for your project then try downloading the demo app which is available on the Google Play Store. There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
-<br>
 <br>
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113657367-6b3caf80-9663-11eb-9391-1e6c043291d8.gif" />
