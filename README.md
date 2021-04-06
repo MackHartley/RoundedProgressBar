@@ -71,7 +71,7 @@ dependencies {
     <img src="https://user-images.githubusercontent.com/10659285/113536888-cb1c5300-959c-11eb-8da1-cb6ce36d1fdd.gif" />
 </p>
     
-**Additionally**, the `RoundedProgressBar` handles all internal state on configuration changes (as seen below)
+**Additionally**, the `RoundedProgressBar` handles all internal state during configuration changes (as seen below)
 <p align="center">
     <img src="demoimgs/savesStateOnConfigChange.gif" width="500"/>
 </p>
