@@ -11,10 +11,30 @@
     <a href="https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg" height="20"/></a>
 </p>
 
-The `RoundedProgressBar` library gives you a wide range of customizable options for making progress bars that have rounded edges. Below I've made a gif highlighting a few examples of different looking progress bars created with this library:
+The `RoundedProgressBar` library gives you a highly customizable and easy to use progress bar. One of the defining features of this library is that you can create progress bars with rounded corners. However, this library comes with many other useful features and customization options! Below are several examples of progress bars created with this library.
+<br>
+<br>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/10659285/113653696-f2862500-965b-11eb-94e1-f44762911792.gif" />
+    <br>
+</p>
+
+If you’d like to see if this library is right for your project then try downloading the demo app which is available on the Google Play Store. There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
+<br>
+<br>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/10659285/113649661-70dec900-9654-11eb-9dea-2ce300927f98.gif" />
+    <br>
+    <i>The demo app is also included in this repository under the 'app' directory</i>
+</p>
+    
+
+
+
+
+
 
 <p align="center">
-    <img src="/demoimgs/demoApp.gif" width="400"/>
     <br>
     <i>This demo app is included in this repository under the app directory</i>
 </p>
@@ -69,7 +89,7 @@ dependencies {
 </p>
 
 # Public Methods and Xml Attributes ⌨️
-These are the methods which can be called on the RoundedProgressBar class:
+These are the methods which can be called on the `RoundedProgressBar` class:
 
 ```
 setProgressPercentage(progressPercentage: Double, shouldAnimate: Boolean = true)
@@ -113,30 +133,11 @@ Each setter is accessible via xml as well. Here I've mapped each setter to its c
 | `setAnimationLength(...)`  | `rpbAnimationLength`  |
 | `showProgressText(...)`  | `rpbShowProgressText`  |
 | `setRadiusRestricted(...)`  | `rpbIsRadiusRestricted`  |
-<p align="center">
-    <br>
-    <img src="/demoimgs/progressBarDiagram.png" width="600"/>
-    <br>
-    <i>This diagram shows which methods are responsible for setting the different colors of the progress bar</i>
-</p>
-
-# Why I Made This 💭
-
-A while back I was working on an Android app which relied heavily on having a few good looking progress bars. I found [this](https://github.com/akexorcist/RoundCornerProgressBar) library which was the best option in my opinion. However, as my project progressed I encountered the following issues with it:
-
-- No ability to set text color depending on where it's drawn
-- Occasional misplacement of text
-- Looks strange at low values (Common issue with rounded progress bars)
-- Doesn't have text animation
-
-Unfortunately, these issues weren't acceptable for my use case, and that library was the best option I could find online. So not one to settle I decided to make something better suited for what I needed.
-
-This is not to say that library is bad, it is quite good and has many more features than my library. However, my focus with this library was to make something simple that did a good job at just being a standard '0 - 100% style' progress bar.
 
 # Contributing 🤝
 Feel free to open up issues on this repo to report bugs or request features. 
 
-Additionally if you'd like to contribute to the library feel free to open up a pull request! Just give me a heads up first though (via issues or comments) so we don't overwrite each other.
+Additionally if you'd like to contribute to the library please feel free to open up a pull request! Just give me a heads up first though (via issues or comments) so we don't overwrite each other in the event I am updating the project.
 
 Special thanks to all those who have supported this repo thus far!
 <p align="center">
