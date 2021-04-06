@@ -15,7 +15,7 @@ The `RoundedProgressBar` library gives you a highly customizable and easy to use
 <br>
 <br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/113653696-f2862500-965b-11eb-94e1-f44762911792.gif" />
+    <img src="https://user-images.githubusercontent.com/10659285/113658201-39c4e380-9665-11eb-93a4-a3bf7e4b5c4f.gif" />
     <br>
 </p>
 
@@ -23,20 +23,9 @@ If you’d like to see if this library is right for your project then try downlo
 <br>
 <br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/113649661-70dec900-9654-11eb-9dea-2ce300927f98.gif" />
+    <img src="https://user-images.githubusercontent.com/10659285/113657367-6b3caf80-9663-11eb-9391-1e6c043291d8.gif" />
     <br>
     <i>The demo app is also included in this repository under the 'app' directory</i>
-</p>
-    
-
-
-
-
-
-
-<p align="center">
-    <br>
-    <i>This demo app is included in this repository under the app directory</i>
 </p>
 
 # Gradle Setup ⚙️
