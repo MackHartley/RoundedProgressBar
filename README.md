@@ -11,7 +11,7 @@
     <a href="https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg" height="20"/></a>
 </p>
 
-The `RoundedProgressBar` library gives you a highly customizable and easy to use progress bar. One of the defining features of this library is that you can create progress bars with rounded corners. However, this library comes with many other useful features and customization options! Below are several examples of progress bars created with this library.
+The `RoundedProgressBar` library gives you a highly customizable and easy to use progress bar. One of the defining features of this library is that you can create progress bars with rounded corners. Additionally, this library comes with many other useful features and customization options! Below are several examples of progress bars created with this library.
 <br>
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113661686-2cf7be00-966c-11eb-91b1-5fb9c9b7ba78.gif" width="300"/>
@@ -24,6 +24,8 @@ If you’d like to see if this library is right for your project then try downlo
     <br>
     <i>The demo app is also included in this repository under the 'app' directory</i>
 </p>
+
+Do you use `RoundedProgressBar` in your app? Consider adding a picture or GIF of your usage to [`who_uses_rpb.md`](https://github.com/MackHartley/RoundedProgressBar/blob/master/who_uses_rpb.md). This provides examples to developers on how the library is used and gives your app a bit of **free publicity!**
 
 # Gradle Setup ⚙️
 [![](https://jitpack.io/v/MackHartley/RoundedProgressBar.svg)](https://jitpack.io/#MackHartley/RoundedProgressBar)
