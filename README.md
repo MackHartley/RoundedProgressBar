@@ -73,7 +73,7 @@ dependencies {
     
 **Additionally**, the `RoundedProgressBar` handles all internal state during configuration changes (as seen below)
 <p align="center">
-    <img src="demoimgs/savesStateOnConfigChange.gif" width="500"/>
+    <img src="art/readme/savesStateOnConfigChange.gif" width="500"/>
 </p>
 
 # Public Methods and Xml Attributes ⌨️
