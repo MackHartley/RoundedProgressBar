@@ -17,12 +17,12 @@ The `RoundedProgressBar` library gives you a highly customizable and easy to use
     <img src="https://user-images.githubusercontent.com/10659285/113661686-2cf7be00-966c-11eb-91b1-5fb9c9b7ba78.gif" width="300"/>
 </p>
 
-If you’d like to see if this library is right for your project then try downloading the demo app which is available on the Google Play Store. There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
+If you’d like to see if this library is right for your project then try downloading the demo app which is available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.mackhartley.roundedprogressbarexample). There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
 <br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/113660889-a7274300-966a-11eb-8185-a992f485bd79.gif" width="300"/>
+    <a href='https://play.google.com/store/apps/details?id=com.mackhartley.roundedprogressbarexample&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="100"/></a>
     <br>
-    <i>The demo app is also included in this repository under the 'app' directory</i>
+    <img src="https://user-images.githubusercontent.com/10659285/113660889-a7274300-966a-11eb-8185-a992f485bd79.gif" width="300"/>
 </p>
 
 Do you use `RoundedProgressBar` in your app? Consider adding a picture or GIF of your usage to [`who_uses_rpb.md`](https://github.com/MackHartley/RoundedProgressBar/blob/master/who_uses_rpb.md). This provides examples to developers on how the library is used and gives your app a bit of **free publicity!**
