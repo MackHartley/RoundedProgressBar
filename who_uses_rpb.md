@@ -4,3 +4,4 @@ If you use `RoundedProgressBar` feel free to add your app here! Just copy one of
 
 | App Name (With PlayStore Link) | Github Link (If Applicable) | Picture or GIF of Usage |
 |---|---|---|
+|[MacroTracker](https://play.google.com/store/apps/details?id=com.snowballcorp.macrotracker)|NA|<img src="art/whoUsesRpb/Macrotracker.gif" width="50%"/>|
