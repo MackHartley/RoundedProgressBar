@@ -5,13 +5,13 @@
 <p align="center">Easy, Beautiful, Customizable</p>
 
 <p align="center">
-    <a href="https://developer.android.com/"><img src="https://img.shields.io/badge/Platform-Android-green.svg" height="20"/></a>
     <a href="https://android-arsenal.com/api?level=21"><img src="https://img.shields.io/badge/API-21%2B-blue.svg?style=flat" height="20"/></a>
+    <a href="https://jitpack.io/#MackHartley/RoundedProgressBar"><img src="https://jitpack.io/v/MackHartley/RoundedProgressBar.svg" height="20"/></a>
     <a href="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml"><img src="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml/badge.svg" /></a>
     <a href="https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg" height="20"/></a>
 </p>
 
-The `RoundedProgressBar` library gives you a highly customizable and easy to use progress bar. One of the defining features of this library is that you can create progress bars with rounded corners. Additionally, this library comes with many other useful features and customization options! Below are several examples of progress bars created with this library.
+Using the `RoundedProgressBar` library you can easily create beautiful progress bars with individually rounded corners, animating progress text and more! Below are several examples of progress bars created with this library.
 <br>
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113661686-2cf7be00-966c-11eb-91b1-5fb9c9b7ba78.gif" width="300"/>
@@ -66,7 +66,7 @@ dependencies {
     <img src="https://user-images.githubusercontent.com/10659285/113536397-a83d6f00-959b-11eb-9328-84dcab86ff04.gif" />
 </p>
 
-5) **Modular** - The `RoundedProgressBar` library can be seamlessly included in custom layouts due to it's customizability and the fact that each corner can have a different radius
+5) **Modular** - The `RoundedProgressBar` library can be seamlessly included in custom layouts due to the fact that each corner can have a different radius
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113536888-cb1c5300-959c-11eb-8da1-cb6ce36d1fdd.gif" />
 </p>
@@ -131,7 +131,7 @@ Feel free to open up issues on this repo to report bugs or request features.
 
 Additionally if you'd like to contribute to the library please feel free to open up a pull request! Just give me a heads up first though (via issues or comments) so we don't overwrite each other in the event I am updating the project.
 
-Special thanks to all those who have supported this repo thus far!
+**Special thanks to all those who have supported this repo thus far!**
 <p align="center">
     <br>
     <a href="https://github.com/MackHartley/RoundedProgressBar/stargazers"><img src="https://reporoster.com/stars/MackHartley/RoundedProgressBar"/></a>
