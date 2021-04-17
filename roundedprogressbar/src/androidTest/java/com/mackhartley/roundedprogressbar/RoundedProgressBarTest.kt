@@ -6,7 +6,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 
 /**
@@ -47,7 +47,6 @@ class RoundedProgressBarTest {
         val expected6 = 100.0
 
         val delta = 0.0
-
 
         val startingValue = progressBar.getProgressPercentage()
         assertEquals(expectedStart, startingValue, delta)

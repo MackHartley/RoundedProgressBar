@@ -4,8 +4,12 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.TypedArray
-import android.graphics.*
-import android.graphics.drawable.*
+import android.graphics.Path
+import android.graphics.Canvas
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.ScaleDrawable
+import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.shapes.RectShape
 import android.graphics.drawable.shapes.RoundRectShape
 import android.os.Parcel
@@ -23,8 +27,9 @@ import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_
 import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_TRUE_100
 import com.mackhartley.roundedprogressbar.ext.setColorFilterCompat
 import com.mackhartley.roundedprogressbar.utils.calculateAppropriateCornerRadius
-import kotlinx.android.synthetic.main.layout_rounded_progress_bar.view.*
 import kotlin.math.roundToInt
+import kotlinx.android.synthetic.main.layout_rounded_progress_bar.view.progress_text_overlay
+import kotlinx.android.synthetic.main.layout_rounded_progress_bar.view.rounded_progress_bar
 
 class RoundedProgressBar @JvmOverloads constructor(
     context: Context,
@@ -312,7 +317,6 @@ class RoundedProgressBar @JvmOverloads constructor(
         return (progressPercentage / PROGRESS_BAR_MAX).toFloat()
     }
 
-
     // ################################## //
     // ######### PUBLIC METHODS ######### //
     // ################################## //
@@ -381,7 +385,7 @@ class RoundedProgressBar @JvmOverloads constructor(
     /**
      * Sets the text color of text which appears on top of the progress bar (The completed portion)
      */
-    fun setProgressTextColor(@ColorInt  newColor: Int) {
+    fun setProgressTextColor(@ColorInt newColor: Int) {
         progressTextColor = newColor
         progressTextOverlay.setProgressTextColor(newColor)
     }
@@ -536,7 +540,6 @@ class RoundedProgressBar @JvmOverloads constructor(
         progressTextOverlay.setOnlyShowTrue100(shouldOnlyShowTrue100)
     }
 
-
     // ################################### //
     // ### SAVE STATE BOILERPLATE CODE ### //
     // ################################### //
@@ -669,7 +672,7 @@ class RoundedProgressBar @JvmOverloads constructor(
             out.writeFloat(savedCornerRadiusTR)
             out.writeFloat(savedCornerRadiusBR)
             out.writeFloat(savedCornerRadiusBL)
-            out.writeByte(if(savedIsRadiusRestricted) 1.toByte() else 0.toByte())
+            out.writeByte(if (savedIsRadiusRestricted) 1.toByte() else 0.toByte())
 
             out.writeFloat(savedTextSize)
             out.writeInt(savedProgressTextColor)

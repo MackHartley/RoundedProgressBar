@@ -4,7 +4,7 @@ import com.mackhartley.roundedprogressbar.utils.calculateAppropriateCornerRadius
 import com.mackhartley.roundedprogressbar.utils.getPercentageString
 import org.junit.Test
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 
 /**
  * Tests the functionality of helper functions for the [RoundedProgressBar] and [ProgressTextOverlay]

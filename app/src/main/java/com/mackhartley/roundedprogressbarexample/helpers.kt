@@ -4,7 +4,7 @@ import android.content.res.Resources
 import android.util.TypedValue
 import androidx.annotation.ColorInt
 
-fun colorIntToHexString(@ColorInt color: Int): String{
+fun colorIntToHexString(@ColorInt color: Int): String {
     return String.format("#%06X", 0xFFFFFF and color)
 }
 
