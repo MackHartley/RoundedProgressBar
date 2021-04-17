@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         }
 
         // Radius
-        tl_radius_field.doOnProgressChanged{ _, progress, _ ->
+        tl_radius_field.doOnProgressChanged { _, progress, _ ->
             viewModel.tlRadius = progress
             val radius = convertDpToPix(progress.toFloat(), resources)
             custom_bar.setCornerRadius(radius, CornerRadius.TOP_LEFT)
