@@ -385,7 +385,7 @@ class RoundedProgressBar @JvmOverloads constructor(
     /**
      * Sets the text color of text which appears on top of the progress bar (The completed portion)
      */
-    fun setProgressTextColor(@ColorInt newColor: Int) {
+    fun setProgressTextColor(@ColorInt  newColor: Int) {
         progressTextColor = newColor
         progressTextOverlay.setProgressTextColor(newColor)
     }

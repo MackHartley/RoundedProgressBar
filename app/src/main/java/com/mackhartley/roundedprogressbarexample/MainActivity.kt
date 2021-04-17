@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
                 .setColor(Color.parseColor(viewModel.progressColor))
                 .setDialogId(ID_PROG_COLOR).show(this)
         }
-        prog_text_color.setOnClickListener {
+        prog_text_color.setOnClickListener{
             ColorPickerDialog.newBuilder()
                 .setColor(Color.parseColor(viewModel.progressTextColor))
                 .setDialogId(ID_PROG_TEXT_COLOR).show(this)
