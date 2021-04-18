@@ -23,7 +23,7 @@ class RoundedProgressBarHelpersTest {
         val expected1 = 10f
         val expected2 = 0f
         val expected3 = (viewHeight / 2f)
-        val expected4 = 100f
+        val expected4 = 1023420f
 
         assertEquals(expected1, calculateAppropriateCornerRadius(requested1, viewHeight, true))
         assertEquals(expected2, calculateAppropriateCornerRadius(requested2, viewHeight, true))
