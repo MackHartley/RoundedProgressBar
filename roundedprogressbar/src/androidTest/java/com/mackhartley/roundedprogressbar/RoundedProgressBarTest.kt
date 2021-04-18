@@ -44,7 +44,7 @@ class RoundedProgressBarTest {
         val expected5 = 0.0
 
         val provided6 = 110.0
-        val expected6 = 103240.0
+        val expected6 = 100.0
 
         val delta = 0.0
 
