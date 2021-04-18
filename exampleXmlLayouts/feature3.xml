@@ -1,0 +1,7 @@
+<com.mackhartley.roundedprogressbar.RoundedProgressBar
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    app:rpbBackgroundColor="#43AA8B"
+    app:rpbCornerRadius="20dp"
+    app:rpbProgressColor="#254441"
+    app:rpbShowProgressText="false" />

@@ -1,0 +1,43 @@
+<!-- Progress Bar Layout -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/custom_bar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/icon_view"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/icon_view_bg"
+        android:padding="8dp"
+        android:src="@drawable/YOUR_ICON_HERE"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#CEB1E7" />
+
+    <com.mackhartley.roundedprogressbar.RoundedProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/icon_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon_view"
+        app:layout_constraintTop_toTopOf="@id/icon_view"
+        app:rpbBackgroundColor="#CEB1E7"
+        app:rpbBackgroundTextColor="#360568"
+        app:rpbCornerRadiusBottomRight="12dp"
+        app:rpbCornerRadiusTopRight="12dp"
+        app:rpbProgressColor="#360568"
+        app:rpbProgressTextColor="#CEB1E7"
+        app:rpbTextSize="18sp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!-- drawable/icon_view_bg.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#360568" />
+    <corners
+        android:topLeftRadius="12dp"
+        android:bottomLeftRadius="12dp" />
+</shape>
