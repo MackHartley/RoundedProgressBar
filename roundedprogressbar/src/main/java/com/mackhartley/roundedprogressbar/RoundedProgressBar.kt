@@ -373,7 +373,7 @@ class RoundedProgressBar @JvmOverloads constructor(
     }
 
     /**
-     * Sets the color of the background drawable for this progress bar.
+     * Sets the color of the background drawable for this progress bar.test
      */
     fun setBackgroundDrawableColor(@ColorInt newColor: Int) {
         backgroundDrawableColor = newColor
