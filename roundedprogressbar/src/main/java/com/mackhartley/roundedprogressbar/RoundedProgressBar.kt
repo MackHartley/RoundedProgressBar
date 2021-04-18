@@ -365,7 +365,7 @@ class RoundedProgressBar @JvmOverloads constructor(
     /**
      * Sets the color of the progress drawable for this progress bar.
      */
-    fun setProgressDrawableColor(@ColorInt newColor: Int) {
+    fun setProgrssDrawableColor(@ColorInt newColor: Int) {
         progressDrawableColor = newColor
         val layerToModify = (progressBar.progressDrawable as LayerDrawable)
             .getDrawable(PROG_DRAWABLE_LAYER_INDEX)
