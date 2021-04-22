@@ -446,13 +446,27 @@
 
                 <ImageView
                     android:id="@+id/icon_advanced_bar_2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="40dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_advanced_bar_2"
-                    android:padding="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="15dp"
                     android:src="@drawable/ic_baseline_cloud_upload_24"
                     app:layout_constraintStart_toStartOf="parent"
                     app:tint="@color/progress_background_color_a2" />
+
+                <com.mackhartley.roundedprogressbarexample.NumberTextView
+                    android:id="@+id/label_advanced_bar_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="0"
+                    android:textColor="@color/progress_background_color_a2"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_advanced_bar_2"
+                    app:layout_constraintEnd_toEndOf="@id/icon_advanced_bar_2"
+                    app:layout_constraintStart_toStartOf="@id/icon_advanced_bar_2" />
 
                 <com.mackhartley.roundedprogressbar.RoundedProgressBar
                     android:id="@+id/advanced_bar_2"
@@ -525,7 +539,7 @@
                 <com.mackhartley.roundedprogressbar.RoundedProgressBar
                     android:id="@+id/advanced_bar_4"
                     android:layout_width="match_parent"
-                    android:layout_height="18dp"
+                    android:layout_height="28dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:rpbBackgroundColor="@color/progress_background_color_a4"
                     app:rpbBackgroundTextColor="@color/bg_text_color_a4"
@@ -537,14 +551,13 @@
                     app:rpbProgressTextColor="@color/text_color_a4" />
 
                 <TextView
+                    android:id="@+id/label_advanced_bar_4"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="28dp"
                     android:background="@drawable/bg_advanced_bar_4"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="12dp"
-                    android:text="Overshield Strength"
+                    android:text="Shields Depleted"
                     android:textAlignment="center"
-                    android:textColor="#000"
+                    android:textColor="@color/progress_color_a4"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintTop_toBottomOf="@id/advanced_bar_4" />

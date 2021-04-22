@@ -1,5 +1,6 @@
 package com.mackhartley.roundedprogressbarexample
 
+import android.animation.ObjectAnimator
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -55,11 +56,9 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
             simple_bar_3,
             simple_bar_4,
             advanced_bar_1,
-            advanced_bar_2,
             advanced_bar_3_top,
             advanced_bar_3_mid,
-            advanced_bar_3_bot,
-            advanced_bar_4
+            advanced_bar_3_bot
         )
         setProgressBarAttributesProgrammatically(simple_bar_1)
 
@@ -199,10 +198,14 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
 
     private fun increaseProgress() {
         allProgressBars.forEach { changeProgress(it) }
+        changeProgressAdvBar2()
+        changeProgressAdvBar3()
     }
 
     private fun decreaseProgress() {
         allProgressBars.forEach { changeProgress(it, false) }
+        changeProgressAdvBar2(false)
+        changeProgressAdvBar3(false)
     }
 
     private fun changeProgress(roundedProgressBar: RoundedProgressBar, isAddition: Boolean = true) {
@@ -210,6 +213,48 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         var adjustment = viewModel.getCurAmount()
         if (!isAddition) adjustment *= -1
         roundedProgressBar.setProgressPercentage(curValue + adjustment)
+    }
+
+    private fun changeProgressAdvBar2(isAddition: Boolean = true) {
+        val curValue = advanced_bar_2.getProgressPercentage()
+        var adjustment = viewModel.getCurAmount()
+        if (!isAddition) adjustment *= -1
+        advanced_bar_2.setProgressPercentage(curValue + adjustment)
+        val newValue = advanced_bar_2.getProgressPercentage()
+        animateDownloadCount(curValue.roundToInt(), newValue.roundToInt())
+    }
+
+    private fun changeProgressAdvBar3(isAddition: Boolean = true) {
+        val curValue = advanced_bar_4.getProgressPercentage()
+        var adjustment = viewModel.getCurAmount()
+        if (!isAddition) adjustment *= -1
+        advanced_bar_4.setProgressPercentage(curValue + adjustment)
+        val newValue = advanced_bar_4.getProgressPercentage()
+        updateShieldLabel(newValue.roundToInt())
+    }
+
+    private fun animateDownloadCount(oldValue: Int, newValue: Int) {
+        val downloadCountMulti = 2.8 // This is just here to make the download number look a bit more realistic in the example
+        ObjectAnimator.ofInt(
+            label_advanced_bar_2,
+            "intVal",
+            (oldValue * downloadCountMulti).toInt(),
+            (newValue * downloadCountMulti).toInt()
+        ).apply {
+            duration = 200
+            start()
+        }
+    }
+
+    private fun updateShieldLabel(newValue: Int) {
+        val shieldStatusLabel = when {
+            newValue >= 75 -> "Shields Full"
+            newValue >= 50 -> "Shields Worn"
+            newValue >= 25 -> "Shields Damaged"
+            newValue > 0 -> "Shields Critical"
+            else -> "Shields Depleted"
+        }
+        label_advanced_bar_4.text = shieldStatusLabel
     }
 
     override fun onColorSelected(dialogId: Int, color: Int) {
