@@ -56,28 +56,28 @@ dependencies {
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113535487-2cdabe00-9599-11eb-823f-a5256432b575.gif" />
     <br>
-    <a href="exampleXmlLayouts/feature2.xml">Click here to see Xml</a>
+    <a href="exampleXmlLayouts/feature2.xml">Click here to see code</a>
 </p>
 
 3) **Low Value Support** - The progress bar looks nice even at low values (This is a common issue when dealing with rounded progress bars)
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113535772-f8b3cd00-9599-11eb-8b1a-ee6ec9e323c2.gif" />
     <br>
-    <a href="exampleXmlLayouts/feature3.xml">Click here to see Xml</a>
+    <a href="exampleXmlLayouts/feature3.xml">Click here to see code</a>
 </p>
 
 4) **Any Corner Radius Allowed** - Individual corners can even have different radius values
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113536397-a83d6f00-959b-11eb-9328-84dcab86ff04.gif" />
     <br>
-    <a href="exampleXmlLayouts/feature4.xml">Click here to see Xml</a>
+    <a href="exampleXmlLayouts/feature4.xml">Click here to see code</a>
 </p>
 
 5) **Modular** - The `RoundedProgressBar` library can be seamlessly included in custom layouts due to the fact that each corner can have a different radius
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/113536888-cb1c5300-959c-11eb-8da1-cb6ce36d1fdd.gif" />
+    <img src="https://user-images.githubusercontent.com/10659285/115661295-d7294400-a302-11eb-8739-b68907e2ecd4.gif" />
     <br>
-    <a href="exampleXmlLayouts/feature5.xml">Click here to see Xml</a>
+    <a href="exampleXmlLayouts/feature5.xml">Click here to see code</a>
 </p>
     
 **Additionally**, the `RoundedProgressBar` handles all internal state during configuration changes (as seen below)
