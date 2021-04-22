@@ -9,21 +9,22 @@
     <a href="https://jitpack.io/#MackHartley/RoundedProgressBar"><img src="https://jitpack.io/v/MackHartley/RoundedProgressBar.svg" height="20"/></a>
     <a href="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml"><img src="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml/badge.svg" /></a>
     <a href="https://ktlint.github.io/"><img src="https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg" alt="ktlint"></a>
-    <a href="https://github.com/MackHartley/RoundedProgressBar/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg" height="20"/></a>
+    <a href="https://github.com/MackHartley/RoundedProgressBar/commits/master"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg" height="20"/></a>
 </p>
 
 Using the `RoundedProgressBar` library you can easily create beautiful progress bars with individually rounded corners, animating progress text and more! Below are several examples of progress bars created with this library.
 <br>
+<br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/113661686-2cf7be00-966c-11eb-91b1-5fb9c9b7ba78.gif" width="300"/>
+    <img src="https://user-images.githubusercontent.com/10659285/115793573-f7541400-a391-11eb-9897-eeab72f21245.gif" width="400"/>
 </p>
 
-If you’d like to see if this library is right for your project then try downloading the demo app which is available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.mackhartley.roundedprogressbarexample). There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
+If you’d like to find out if this library is right for your project then try downloading the demo app which is available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.mackhartley.roundedprogressbarexample). There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
 <br>
 <p align="center">
     <a href='https://play.google.com/store/apps/details?id=com.mackhartley.roundedprogressbarexample&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="100"/></a>
     <br>
-    <img src="https://user-images.githubusercontent.com/10659285/113660889-a7274300-966a-11eb-8185-a992f485bd79.gif" width="300"/>
+    <img src="https://user-images.githubusercontent.com/10659285/113660889-a7274300-966a-11eb-8185-a992f485bd79.gif" width="400"/>
 </p>
 
 Do you use `RoundedProgressBar` in your app? Consider adding a picture or GIF of your usage to [`who_uses_rpb.md`](https://github.com/MackHartley/RoundedProgressBar/blob/master/who_uses_rpb.md). This provides examples to developers on how the library is used and gives your app a bit of **free publicity!**
@@ -55,21 +56,29 @@ dependencies {
 2) **Full Color Customization** - You can even specify what color the text is depending on which background it draws over
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113535487-2cdabe00-9599-11eb-823f-a5256432b575.gif" />
+    <br>
+    <a href="exampleXmlLayouts/feature2.xml">Click here to see code</a>
 </p>
 
 3) **Low Value Support** - The progress bar looks nice even at low values (This is a common issue when dealing with rounded progress bars)
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113535772-f8b3cd00-9599-11eb-8b1a-ee6ec9e323c2.gif" />
+    <br>
+    <a href="exampleXmlLayouts/feature3.xml">Click here to see code</a>
 </p>
 
 4) **Any Corner Radius Allowed** - Individual corners can even have different radius values
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113536397-a83d6f00-959b-11eb-9328-84dcab86ff04.gif" />
+    <br>
+    <a href="exampleXmlLayouts/feature4.xml">Click here to see code</a>
 </p>
 
 5) **Modular** - The `RoundedProgressBar` library can be seamlessly included in custom layouts due to the fact that each corner can have a different radius
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/113536888-cb1c5300-959c-11eb-8da1-cb6ce36d1fdd.gif" />
+    <img src="https://user-images.githubusercontent.com/10659285/115661295-d7294400-a302-11eb-8739-b68907e2ecd4.gif" />
+    <br>
+    Click <a href="https://github.com/MackHartley/RoundedProgressBar/blob/gif-creation-version/app/src/main/res/layout/activity_main.xml#L698-L738">here</a> or <a href="exampleXmlLayouts/feature5.xml">here</a> to see code
 </p>
     
 **Additionally**, the `RoundedProgressBar` handles all internal state during configuration changes (as seen below)
@@ -77,7 +86,7 @@ dependencies {
     <img src="art/readme/savesStateOnConfigChange.gif" width="500"/>
 </p>
 
-# Public Methods and Xml Attributes ⌨️
+# Public Methods and Xml Attributes 💻
 These are the methods which can be called on the `RoundedProgressBar` class:
 
 ```

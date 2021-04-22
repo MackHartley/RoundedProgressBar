@@ -1,0 +1,36 @@
+<com.mackhartley.roundedprogressbar.RoundedProgressBar
+    android:id="@+id/first_bar"
+    android:layout_width="match_parent"
+    android:layout_height="32dp"
+    app:rpbBackgroundColor="#F28969"
+    app:rpbBackgroundTextColor="#070600"
+    app:rpbCornerRadius="6dp"
+    app:rpbProgressColor="#070600"
+    app:rpbProgressTextColor="#F28969"
+    app:rpbTextPadding="12dp" />
+
+<com.mackhartley.roundedprogressbar.RoundedProgressBar
+    android:id="@+id/second_bar"
+    android:layout_width="match_parent"
+    android:layout_height="32dp"
+    app:rpbBackgroundColor="#F28969"
+    app:rpbBackgroundTextColor="#070600"
+    app:rpbCornerRadiusTopRight="16dp"
+    app:rpbProgressColor="#070600"
+    app:rpbProgressTextColor="#F28969"
+    app:rpbTextPadding="12dp" />
+
+<com.mackhartley.roundedprogressbar.RoundedProgressBar
+    android:id="@+id/third_bar"
+    android:layout_width="match_parent"
+    android:layout_height="32dp"
+    app:rpbBackgroundColor="#F28969"
+    app:rpbBackgroundTextColor="#070600"
+    app:rpbCornerRadiusBottomLeft="6dp"
+    app:rpbCornerRadiusBottomRight="20dp"
+    app:rpbCornerRadiusTopLeft="20dp"
+    app:rpbCornerRadiusTopRight="6dp"
+    app:rpbIsRadiusRestricted="false"
+    app:rpbProgressColor="#070600"
+    app:rpbProgressTextColor="#F28969"
+    app:rpbTextPadding="12dp" />
