@@ -15,7 +15,7 @@
 Using the `RoundedProgressBar` library you can easily create beautiful progress bars with individually rounded corners, animating progress text and more! Below are several examples of progress bars created with this library.
 <br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/113661686-2cf7be00-966c-11eb-91b1-5fb9c9b7ba78.gif" width="300"/>
+    <img src="https://user-images.githubusercontent.com/10659285/115793573-f7541400-a391-11eb-9897-eeab72f21245.gif"/>
 </p>
 
 If you’d like to see if this library is right for your project then try downloading the demo app which is available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.mackhartley.roundedprogressbarexample). There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
