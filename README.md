@@ -77,7 +77,7 @@ dependencies {
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/115661295-d7294400-a302-11eb-8739-b68907e2ecd4.gif" />
     <br>
-    <a href="exampleXmlLayouts/feature5.xml">Click here to see code</a>
+    Click <a href="https://github.com/MackHartley/RoundedProgressBar/blob/gif-creation-version/app/src/main/res/layout/activity_main.xml#L698-L738">here</a> or <a href="exampleXmlLayouts/feature5.xml">here</a> to see code
 </p>
     
 **Additionally**, the `RoundedProgressBar` handles all internal state during configuration changes (as seen below)
