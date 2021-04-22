@@ -556,7 +556,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="24dp"
-                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@id/advanced_bar_4_layout"
                 app:rpbAnimationLength="2000"
                 app:rpbBackgroundColor="#CCC"
@@ -572,7 +571,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="32dp"
-                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@id/demobar"
                 app:rpbAnimationLength="2000"
                 app:rpbBackgroundColor="#43AA8B"
@@ -638,11 +636,25 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_demo6"
-                    android:padding="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="15dp"
                     android:src="@drawable/ic_baseline_cloud_upload_24"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/demo6_back" />
+
+                <com.mackhartley.roundedprogressbarexample.NumberTextView
+                    android:id="@+id/demo6_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="0"
+                    android:textColor="@color/demo6_back"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/demo6_img"
+                    app:layout_constraintEnd_toEndOf="@id/demo6_img"
+                    app:layout_constraintStart_toStartOf="@id/demo6_img" />
 
                 <ImageView
                     android:id="@+id/demo6_add"
@@ -688,11 +700,25 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_demo6"
-                    android:padding="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="15dp"
                     android:src="@drawable/ic_baseline_cloud_upload_24"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/demo6_equals"
                     app:tint="@color/demo6_back" />
+
+                <com.mackhartley.roundedprogressbarexample.NumberTextView
+                    android:id="@+id/demo6_label_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="0"
+                    android:textColor="@color/demo6_back"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/demo6_img_2"
+                    app:layout_constraintEnd_toEndOf="@id/demo6_img_2"
+                    app:layout_constraintStart_toStartOf="@id/demo6_img_2" />
 
                 <com.mackhartley.roundedprogressbar.RoundedProgressBar
                     android:id="@+id/demo6_2"

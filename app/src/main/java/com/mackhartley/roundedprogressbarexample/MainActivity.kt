@@ -231,14 +231,33 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         val curValue = roundedProgressBar.getProgressPercentage()
         var adjustment = viewModel.getCurAmount()
         if (!isAddition) adjustment *= -1
-        roundedProgressBar.setProgressPercentage(curValue + adjustment)
+        val newValue = curValue + adjustment
+        roundedProgressBar.setProgressPercentage(newValue)
+
+        val newDownloadCount = roundedProgressBar.getProgressPercentage()
+        animateDownloadCount(curValue.roundToInt(), newDownloadCount.roundToInt())
     }
 
-    private fun changeProgress2(roundedProgressBar: RoundedProgressBar, amount: Int, isAddition: Boolean = true) {
-        val curValue = roundedProgressBar.getProgressPercentage()
-        var adjustment = amount
-        if (!isAddition) adjustment *= -1
-        roundedProgressBar.setProgressPercentage(curValue + adjustment)
+    private fun animateDownloadCount(oldValue: Int, newValue: Int) {
+        val downloadCountMulti = 2.8 // This is just here to make the download number look a bit more realistic in the example
+        ObjectAnimator.ofInt(
+            demo6_label,
+            "intVal",
+            (oldValue * downloadCountMulti).toInt(),
+            (newValue * downloadCountMulti).toInt()
+        ).apply {
+            duration = 2000
+            start()
+        }
+        ObjectAnimator.ofInt(
+            demo6_label_2,
+            "intVal",
+            (oldValue * downloadCountMulti).toInt(),
+            (newValue * downloadCountMulti).toInt()
+        ).apply {
+            duration = 2000
+            start()
+        }
     }
 
     var shouldExpand1 = true
@@ -271,12 +290,6 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
                         custom_bar.setProgressPercentage(30.0)
 
                     }
-
-//                    Thread.sleep(3300)
-
-
-//                    Thread.sleep(1300)
-
 
                     shouldExpand1 = !shouldExpand1
                     handler.postDelayed(this, 3000)
@@ -353,9 +366,11 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
                     if (shouldExpand4) {
                         demo6.setProgressPercentage(60.0)
                         demo6_2.setProgressPercentage(60.0)
+                        animateDownloadCount(10, 60)
                     } else {
                         demo6.setProgressPercentage(10.0)
                         demo6_2.setProgressPercentage(10.0)
+                        animateDownloadCount(60, 10)
                     }
                     shouldExpand4 = !shouldExpand4
                     handler.postDelayed(this, 3000)
