@@ -59,7 +59,7 @@ dependencies {
     <a href="exampleXmlLayouts/feature2.xml">Click here to see code</a>
 </p>
 
-2) **Custom Font Support** - You can supply your own font for use with the progress bar (.ttf and .otf formats supported)
+2) **Custom Font Support** - You can supply your own font for use with the progress bar (`.ttf` and `.otf` formats supported)
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/115816354-592a7300-a3be-11eb-88e4-c975bb4028e3.gif" />
     <br>
