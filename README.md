@@ -16,7 +16,7 @@ Using the `RoundedProgressBar` library you can easily create beautiful progress 
 <br>
 <br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/115793573-f7541400-a391-11eb-9897-eeab72f21245.gif" width="400"/>
+    <img src="https://user-images.githubusercontent.com/10659285/115813879-a7894300-a3b9-11eb-9563-fac5b39e8a6c.gif" width="400"/>
 </p>
 
 If you’d like to see if this library is right for your project then try downloading the demo app which is available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.mackhartley.roundedprogressbarexample). There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
