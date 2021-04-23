@@ -351,7 +351,7 @@
             <TextView
                 android:id="@+id/header_simple_bars"
                 style="@style/HeaderText"
-                android:text="Examples (Can be created above!)"
+                android:text="Simple Examples (Can be created above!)"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/custom_bar_layout" />
 
