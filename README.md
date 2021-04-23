@@ -16,7 +16,7 @@ Using the `RoundedProgressBar` library you can easily create beautiful progress 
 <br>
 <br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/115793573-f7541400-a391-11eb-9897-eeab72f21245.gif" width="400"/>
+    <img src="https://user-images.githubusercontent.com/10659285/115813879-a7894300-a3b9-11eb-9563-fac5b39e8a6c.gif" width="400"/>
 </p>
 
 If you’d like to see if this library is right for your project then try downloading the demo app which is available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.mackhartley.roundedprogressbarexample). There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
@@ -46,18 +46,24 @@ Then you can add the dependency to your **app** build.gradle file:
 ```
 dependencies {
     ...
-    implementation 'com.github.MackHartley:RoundedProgressBar:2.0.0'
+    implementation 'com.github.MackHartley:RoundedProgressBar:2.1.0'
 }
 ```
 
 # Notable Features 🌟
 
-1) **Animation** - Both the progress bar and progress text animate
-2) **Full Color Customization** - You can even specify what color the text is depending on which background it draws over
+1) **Full Color Customization** - You can even specify what color the text is depending on which background it draws over
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113535487-2cdabe00-9599-11eb-823f-a5256432b575.gif" />
     <br>
     <a href="exampleXmlLayouts/feature2.xml">Click here to see code</a>
+</p>
+
+2) **Custom Font Support** - You can supply your own font for use with the progress bar (`.ttf` and `.otf` formats supported)
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/10659285/115816354-592a7300-a3be-11eb-88e4-c975bb4028e3.gif" />
+    <br>
+    <a href="https://github.com/MackHartley/RoundedProgressBar/blob/master/app/src/main/res/layout/activity_main.xml#L426-L439">Click here to see code</a>
 </p>
 
 3) **Low Value Support** - The progress bar looks nice even at low values (This is a common issue when dealing with rounded progress bars)
