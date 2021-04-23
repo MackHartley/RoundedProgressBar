@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
+import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.ColorInt
@@ -27,6 +28,7 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
         const val DEFAULT_SHOW_TEXT = true
         const val DEFAULT_TRUE_0 = false
         const val DEFAULT_TRUE_100 = false
+        const val DEFAULT_FONT_PATH = ""
     }
 
     // Default values (Progress text related)
@@ -36,6 +38,7 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
     private val defaultShowProgressText = DEFAULT_SHOW_TEXT
     private val defaultOnlyShowTrue0 = DEFAULT_TRUE_0
     private val defaultOnlyShowTrue100 = DEFAULT_TRUE_100
+    private val defaultFontPath = DEFAULT_FONT_PATH
 
     // ProgressTextOverlay state
     private var progressValue: Float = START_PROGRESS_VALUE
@@ -46,6 +49,7 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
     private var textSidePadding: Float = context.resources.getDimension(R.dimen.rpb_default_text_padding)
     private var onlyShowTrue0: Boolean = defaultOnlyShowTrue0
     private var onlyShowTrue100: Boolean = defaultOnlyShowTrue100
+    private var customFontPath: String = defaultFontPath
 
     // Misc member vars
     private val progressTextOverlayPaint: Paint
@@ -63,6 +67,9 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
         newAltPaint.color = ContextCompat.getColor(context, defaultBgTextColor)
         backgroundTextOverlayPaint = newAltPaint
 
+        // init font
+        if (customFontPath.isNotBlank()) setCustomFontPath(customFontPath)
+
         reCalculateTextHeight() // Sets the initial text size (MUST BE LAST STEP IN INIT)
     }
 
@@ -72,10 +79,10 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
 
             val yPosition = (height) / 2 + (textContainerHeight / 2)
 
-            val progressBarWidth = width * progressValue
+            val progressDrawableWidth = width * progressValue
             val requiredTextContainerWidth = textContainerWidth + (2 * textSidePadding)
             val xPosition: Float
-            if (requiredTextContainerWidth < progressBarWidth) { // should use inside position
+            if (requiredTextContainerWidth < progressDrawableWidth) { // should use inside position
                 // Inside position = (Position to draw) - (Width of text) - (Padding of text)
                 xPosition = (width * progressValue) - textContainerWidth - textSidePadding
                 canvas?.drawText(getPercentageString(progressValue, onlyShowTrue0, onlyShowTrue100), xPosition, yPosition, progressTextOverlayPaint)
@@ -91,6 +98,7 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
      * Not used often, mainly when first initializing the view or changing text size
      */
     private fun reCalculateTextHeight() {
+        // Todo the setting of these values could be pulled out somewhere so they are called less
         progressTextOverlayPaint.textSize = textSize
         backgroundTextOverlayPaint.textSize = textSize
         val newProgressString = getPercentageString(progressValue, onlyShowTrue0, onlyShowTrue100)
@@ -106,6 +114,7 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
      * progress number
      */
     private fun reCalculateTextWidth() {
+        // Todo the setting of these values could be pulled out somewhere so they are called less
         progressTextOverlayPaint.textSize = textSize
         backgroundTextOverlayPaint.textSize = textSize
 
@@ -133,6 +142,19 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
         reCalculateTextHeight()
         reCalculateTextWidth()
         invalidate()
+    }
+
+    fun setCustomFontPath(newFontPath: String) {
+        if (newFontPath.isNotBlank()) {
+            this.customFontPath = newFontPath
+            val newTypeface = Typeface.createFromAsset(context.assets, customFontPath)
+            progressTextOverlayPaint.typeface = newTypeface
+            backgroundTextOverlayPaint.typeface = newTypeface
+
+            reCalculateTextHeight()
+            reCalculateTextWidth()
+            invalidate()
+        }
     }
 
     /**

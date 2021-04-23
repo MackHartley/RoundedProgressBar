@@ -379,25 +379,11 @@
                 tools:layout_editor_absoluteX="16dp" />
 
             <com.mackhartley.roundedprogressbar.RoundedProgressBar
-                android:id="@+id/simple_bar_3"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginTop="@dimen/space_between_bars"
-                app:layout_constraintTop_toBottomOf="@id/simple_bar_2"
-                app:rpbBackgroundColor="@color/progress_background_color_4"
-                app:rpbBackgroundTextColor="@color/bg_text_color_s3"
-                app:rpbCornerRadius="8dp"
-                app:rpbProgressColor="@color/progress_color_s3"
-                app:rpbProgressTextColor="@color/text_color_s3"
-                app:rpbTextPadding="24dp"
-                app:rpbTextSize="@dimen/medlarge_text_size" />
-
-            <com.mackhartley.roundedprogressbar.RoundedProgressBar
                 android:id="@+id/simple_bar_4"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_marginTop="@dimen/space_between_bars"
-                app:layout_constraintTop_toBottomOf="@id/simple_bar_3"
+                app:layout_constraintTop_toBottomOf="@id/simple_bar_2"
                 app:rpbAnimationLength="200"
                 app:rpbBackgroundColor="@color/progress_background_color_s4"
                 app:rpbCornerRadius="0dp"
@@ -437,12 +423,27 @@
 
             </FrameLayout>
 
+            <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                android:id="@+id/advanced_bar_5"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="@dimen/space_between_bars"
+                app:layout_constraintTop_toBottomOf="@id/advanced_bar_1_layout"
+                app:rpbBackgroundColor="@color/progress_background_color_4"
+                app:rpbBackgroundTextColor="@color/bg_text_color_s3"
+                app:rpbCornerRadius="4dp"
+                app:rpbCustomFontPath="KaushanScript-Regular.otf"
+                app:rpbProgressColor="@color/progress_color_s3"
+                app:rpbProgressTextColor="@color/text_color_s3"
+                app:rpbTextPadding="20dp"
+                app:rpbTextSize="@dimen/large_text_size" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/advanced_bar_2_layout"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="@dimen/space_between_bars"
-                app:layout_constraintTop_toBottomOf="@id/advanced_bar_1_layout">
+                app:layout_constraintTop_toBottomOf="@id/advanced_bar_5">
 
                 <ImageView
                     android:id="@+id/icon_advanced_bar_2"

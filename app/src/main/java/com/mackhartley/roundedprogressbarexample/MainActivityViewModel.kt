@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel : ViewModel() {
 
-    private var changeAmounts = listOf(5, 10, 15, 25, 50, 100)
-    private var changeAmountInd: Int = 2
+    private var changeAmounts = listOf(1, 10, 25, 50, 100)
+    private var changeAmountInd: Int = 1
 
     var behindProgBarColor = "#FFFFFF"
     var progressBarHeight = 40

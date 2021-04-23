@@ -16,10 +16,10 @@
     <color name="text_color_s2">#FFFFFF</color>
     <color name="bg_text_color_s2">#000000</color>
 
-    <color name="progress_color_s3">#E68992</color>
+    <color name="progress_color_s3">#EF5778</color>
     <color name="progress_background_color_4">#1C3144</color>
     <color name="text_color_s3">#1C3144</color>
-    <color name="bg_text_color_s3">#E68992</color>
+    <color name="bg_text_color_s3">#EF5778</color>
 
     <!--Colors for advanced bars-->
     <color name="progress_color_s4">#FF5E5B</color>

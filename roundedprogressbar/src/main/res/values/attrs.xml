@@ -16,6 +16,7 @@
 
         <attr name="rpbTextSize" format="dimension" />
         <attr name="rpbTextPadding" format="dimension" />
+        <attr name="rpbCustomFontPath" format="string" />
         <attr name="rpbAnimationLength" format="integer" />
 
         <attr name="rpbShowProgressText" format="boolean" />
