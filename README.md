@@ -52,7 +52,7 @@ dependencies {
 
 # Notable Features 🌟
 
-1) **Full Color Customization** - You can even specify what color the text is depending on which background it draws over
+1) **Full Color Customization** - You can even specify what color the text is depending on which background it draws over. Transparent colors are also supported
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/113535487-2cdabe00-9599-11eb-823f-a5256432b575.gif" />
     <br>
