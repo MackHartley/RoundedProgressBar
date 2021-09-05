@@ -46,7 +46,7 @@ Then you can add the dependency to your **app** build.gradle file:
 ```
 dependencies {
     ...
-    implementation 'com.github.MackHartley:RoundedProgressBar:2.1.0'
+    implementation 'com.github.MackHartley:RoundedProgressBar:2.1.1'
 }
 ```
 
