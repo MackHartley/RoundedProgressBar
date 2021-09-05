@@ -12,7 +12,7 @@
     <color name="bg_text_color_s1">#000000</color>
 
     <color name="progress_color_s2">#5BC8AF</color>
-    <color name="progress_background_color_s2">#DDDDDD</color>
+    <color name="progress_background_color_s2">#33000000</color>
     <color name="text_color_s2">#FFFFFF</color>
     <color name="bg_text_color_s2">#000000</color>
 
@@ -45,5 +45,10 @@
     <color name="progress_background_color_a4">#48CAE4</color>
     <color name="text_color_a4">#FFFFFF</color>
     <color name="bg_text_color_a4">#000000</color>
+
+    <color name="progress_color_a6">#B33026</color>
+    <color name="progress_background_color_a6">#55000000</color>
+    <color name="text_color_a6">#FFFFFF</color>
+    <color name="bg_text_color_a6">#000000</color>
 
 </resources>

@@ -26,7 +26,7 @@ import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_
 import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_SHOW_TEXT
 import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_TRUE_0
 import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_TRUE_100
-import com.mackhartley.roundedprogressbar.ext.setColorFilterCompat
+import com.mackhartley.roundedprogressbar.ext.setDrawableTint
 import com.mackhartley.roundedprogressbar.utils.calculateAppropriateCornerRadius
 import kotlin.math.roundToInt
 import kotlinx.android.synthetic.main.layout_rounded_progress_bar.view.progress_text_overlay
@@ -262,7 +262,7 @@ class RoundedProgressBar @JvmOverloads constructor(
      */
     private fun createRoundedBackgroundDrawable(): Drawable {
         val newBgDrawable = ShapeDrawable(RectShape())
-        newBgDrawable.setColorFilterCompat(backgroundDrawableColor)
+        newBgDrawable.setDrawableTint(backgroundDrawableColor)
         return newBgDrawable
     }
 
@@ -283,7 +283,7 @@ class RoundedProgressBar @JvmOverloads constructor(
         )
 
         val roundedDrawable = ShapeDrawable(RoundRectShape(cornerRadiusValues, null, null))
-        roundedDrawable.setColorFilterCompat(progressDrawableColor)
+        roundedDrawable.setDrawableTint(progressDrawableColor)
         return ScaleDrawable(roundedDrawable, Gravity.START, 1f, -1f)
     }
 
@@ -376,7 +376,7 @@ class RoundedProgressBar @JvmOverloads constructor(
         progressDrawableColor = newColor
         val layerToModify = (progressBar.progressDrawable as LayerDrawable)
             .getDrawable(PROG_DRAWABLE_LAYER_INDEX)
-        layerToModify.setColorFilterCompat(newColor)
+        layerToModify.setDrawableTint(newColor)
     }
 
     /**
@@ -386,7 +386,7 @@ class RoundedProgressBar @JvmOverloads constructor(
         backgroundDrawableColor = newColor
         val layerToModify = (progressBar.progressDrawable as LayerDrawable)
             .getDrawable(PROG_BACKGROUND_LAYER_INDEX)
-        layerToModify.setColorFilterCompat(newColor)
+        layerToModify.setDrawableTint(newColor)
     }
 
     /**
