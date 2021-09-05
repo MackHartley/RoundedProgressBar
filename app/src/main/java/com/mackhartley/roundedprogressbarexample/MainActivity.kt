@@ -58,7 +58,8 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
             advanced_bar_3_top,
             advanced_bar_3_mid,
             advanced_bar_3_bot,
-            advanced_bar_5
+            advanced_bar_5,
+            advanced_bar_6
         )
         setProgressBarAttributesProgrammatically(simple_bar_1)
 
