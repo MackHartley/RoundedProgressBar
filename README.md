@@ -6,10 +6,10 @@
 
 <p align="center">
     <a href="https://android-arsenal.com/api?level=21"><img src="https://img.shields.io/badge/API-21%2B-blue.svg?style=flat" height="20"/></a>
-    <a href="https://jitpack.io/#MackHartley/RoundedProgressBar"><img src="https://jitpack.io/v/MackHartley/RoundedProgressBar.svg" height="20"/></a>
     <a href="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml"><img src="https://github.com/MackHartley/RoundedProgressBar/actions/workflows/buildAndTest.yml/badge.svg" /></a>
     <a href="https://ktlint.github.io/"><img src="https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg" alt="ktlint"></a>
     <a href="https://androidweekly.net/issues/issue-467"><img alt="Android Weekly" src="https://img.shields.io/badge/Android%20Weekly-%23467-orange"/></a>
+    <a href="https://medium.com/@mmbialas/25-best-android-libraries-projects-and-tools-you-dont-want-to-miss-in-2021-681dafe58b1c"><img alt="Medium" src="https://badges.aleen42.com/src/medium.svg"/></a>
 </p>
 
 Using the `RoundedProgressBar` library you can easily create beautiful progress bars with individually rounded corners, animating progress text and more! Below are several examples of progress bars created with this library.
@@ -148,11 +148,14 @@ Feel free to open up issues on this repo to report bugs or request features.
 Additionally if you'd like to contribute to the library please feel free to open up a pull request! Just give me a heads up first though (via issues or comments) so we don't overwrite each other in the event I am updating the project.
 
 **Special thanks to all those who have supported this repo thus far!**
+
 <p align="center">
-    <br>
     <a href="https://github.com/MackHartley/RoundedProgressBar/stargazers"><img src="https://reporoster.com/stars/MackHartley/RoundedProgressBar"/></a>
     <br>
     <a href="https://github.com/MackHartley/RoundedProgressBar/network/members"><img src="https://reporoster.com/forks/MackHartley/RoundedProgressBar"/></a>
+    <br>
+    <br>
+    <i>Featured in <a href="https://androidweekly.net/issues/issue-467">Android Weekly</a> and <a href="https://medium.com/@mmbialas/25-best-android-libraries-projects-and-tools-you-dont-want-to-miss-in-2021-681dafe58b1c">Medium</a></i>.
 </p>
 
 # License 📄
