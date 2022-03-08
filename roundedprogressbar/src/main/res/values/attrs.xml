@@ -21,7 +21,5 @@
 
         <attr name="rpbShowProgressText" format="boolean" />
         <attr name="rpbIsRadiusRestricted" format="boolean" />
-        <attr name="rpbOnlyShowTrue0" format="boolean" />
-        <attr name="rpbOnlyShowTrue100" format="boolean" />
     </declare-styleable>
 </resources>

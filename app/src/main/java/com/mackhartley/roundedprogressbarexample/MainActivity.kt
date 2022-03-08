@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.jaredrummler.android.colorpicker.ColorPickerDialog
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
 import com.mackhartley.roundedprogressbar.CornerRadius
+import com.mackhartley.roundedprogressbar.ProgressTextFormatter
 import com.mackhartley.roundedprogressbar.RoundedProgressBar
 import it.sephiroth.android.library.numberpicker.doOnProgressChanged
 import kotlinx.android.synthetic.main.activity_main.*
@@ -59,12 +60,37 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
             advanced_bar_3_mid,
             advanced_bar_3_bot,
             advanced_bar_5,
-            advanced_bar_6
+            advanced_bar_6,
+            advanced_bar_7
         )
         setProgressBarAttributesProgrammatically(simple_bar_1)
+        setUpCustomProgressTextExample(advanced_bar_7)
 
         populateSettings()
         initSettingsListeners()
+    }
+
+    private fun setUpCustomProgressTextExample(advancedBar7: RoundedProgressBar) {
+
+        val exampleCustomFormatter = object : ProgressTextFormatter {
+            override fun getProgressText(progressValue: Float): String {
+                return when {
+                    progressValue == 0f -> "0/10, Lets start!"
+                    progressValue <= .1f -> "1/10"
+                    progressValue <= .2f -> "2/10"
+                    progressValue <= .3f -> "3/10"
+                    progressValue <= .4f -> "4/10"
+                    progressValue <= .5f -> "5/10 Almost!"
+                    progressValue <= .6f -> "6/10"
+                    progressValue <= .7f -> "7/10"
+                    progressValue <= .8f -> "8/10"
+                    progressValue <= .9f -> "9/10"
+                    else -> "10/10, Done!"
+                }
+            }
+        }
+
+        advancedBar7.setProgressTextFormatter(exampleCustomFormatter)
     }
 
     private fun updateAmountButtonLabel() {

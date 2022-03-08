@@ -9,7 +9,6 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
-import com.mackhartley.roundedprogressbar.utils.getPercentageString
 import kotlin.math.max
 
 internal class ProgressTextOverlay @JvmOverloads constructor(
@@ -19,15 +18,8 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr) {
 
     companion object {
-        // Used to calculate the min width of text view. This is done for UX reasons, to
-        //   minimize how often the display number swaps between the inside and external position.
-        //   Without this minimum, 8% could be outside the bar, 9% on inside (since the bar grew)
-        //   and 10% on outside. All that swapping looks less smooth to the user
-        const val MIN_WIDTH_STRING = "10%"
         const val START_PROGRESS_VALUE = 0f
         const val DEFAULT_SHOW_TEXT = true
-        const val DEFAULT_TRUE_0 = false
-        const val DEFAULT_TRUE_100 = false
         const val DEFAULT_FONT_PATH = ""
     }
 
@@ -36,8 +28,6 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
     private val defaultTextColor = R.color.rpb_default_text_color
     private val defaultBgTextColor = R.color.rpb_default_text_color
     private val defaultShowProgressText = DEFAULT_SHOW_TEXT
-    private val defaultOnlyShowTrue0 = DEFAULT_TRUE_0
-    private val defaultOnlyShowTrue100 = DEFAULT_TRUE_100
     private val defaultFontPath = DEFAULT_FONT_PATH
 
     // ProgressTextOverlay state
@@ -47,9 +37,8 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
     private var textContainerHeight: Float = 0f
     private var textContainerWidth: Float = 0f
     private var textSidePadding: Float = context.resources.getDimension(R.dimen.rpb_default_text_padding)
-    private var onlyShowTrue0: Boolean = defaultOnlyShowTrue0
-    private var onlyShowTrue100: Boolean = defaultOnlyShowTrue100
     private var customFontPath: String = defaultFontPath
+    private var progressTextFormatter: ProgressTextFormatter = DefaultProgressTextFormatter()
 
     // Misc member vars
     private val progressTextOverlayPaint: Paint
@@ -85,11 +74,11 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
             if (requiredTextContainerWidth < progressDrawableWidth) { // should use inside position
                 // Inside position = (Position to draw) - (Width of text) - (Padding of text)
                 xPosition = (width * progressValue) - textContainerWidth - textSidePadding
-                canvas?.drawText(getPercentageString(progressValue, onlyShowTrue0, onlyShowTrue100), xPosition, yPosition, progressTextOverlayPaint)
+                canvas?.drawText(progressTextFormatter.getProgressText(progressValue), xPosition, yPosition, progressTextOverlayPaint)
             } else { // should use outside position
                 // Outside position = (Position to draw) + (Padding of text)
                 xPosition = (width * progressValue) + textSidePadding
-                canvas?.drawText(getPercentageString(progressValue, onlyShowTrue0, onlyShowTrue100), xPosition, yPosition, backgroundTextOverlayPaint)
+                canvas?.drawText(progressTextFormatter.getProgressText(progressValue), xPosition, yPosition, backgroundTextOverlayPaint)
             }
         }
     }
@@ -101,7 +90,7 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
         // Todo the setting of these values could be pulled out somewhere so they are called less
         progressTextOverlayPaint.textSize = textSize
         backgroundTextOverlayPaint.textSize = textSize
-        val newProgressString = getPercentageString(progressValue, onlyShowTrue0, onlyShowTrue100)
+        val newProgressString = progressTextFormatter.getProgressText(progressValue)
 
         progressTextOverlayPaint.getTextBounds(newProgressString, 0, newProgressString.length, boundingRect)
         val measuredSize = boundingRect.height().toFloat()
@@ -118,11 +107,16 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
         progressTextOverlayPaint.textSize = textSize
         backgroundTextOverlayPaint.textSize = textSize
 
-        val newProgressString = getPercentageString(progressValue, onlyShowTrue0, onlyShowTrue100)
+        val newProgressString = progressTextFormatter.getProgressText(progressValue)
         progressTextOverlayPaint.getTextBounds(newProgressString, 0, newProgressString.length, boundingRect)
         val measuredSize = boundingRect.width().toFloat()
 
-        progressTextOverlayPaint.getTextBounds(MIN_WIDTH_STRING, 0, MIN_WIDTH_STRING.length, boundingRect)
+        progressTextOverlayPaint.getTextBounds(
+            progressTextFormatter.minWidthString,
+            0,
+            progressTextFormatter.minWidthString.length,
+            boundingRect
+        )
         val minSizeAllowed = boundingRect.width().toFloat()
 
         textContainerWidth = max(measuredSize, minSizeAllowed)
@@ -185,14 +179,9 @@ internal class ProgressTextOverlay @JvmOverloads constructor(
         invalidate()
     }
 
-    fun setOnlyShowTrue0(shouldOnlyShowTrue0: Boolean) {
-        this.onlyShowTrue0 = shouldOnlyShowTrue0
-        reCalculateTextWidth()
-        invalidate()
-    }
+    fun setProgressTextFormatter(newProgressTextFormatter: ProgressTextFormatter) {
+        this.progressTextFormatter = newProgressTextFormatter
 
-    fun setOnlyShowTrue100(shouldOnlyShowTrue100: Boolean) {
-        this.onlyShowTrue100 = shouldOnlyShowTrue100
         reCalculateTextWidth()
         invalidate()
     }
