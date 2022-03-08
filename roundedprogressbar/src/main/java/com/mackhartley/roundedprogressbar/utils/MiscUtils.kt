@@ -29,6 +29,8 @@ fun calculateAppropriateCornerRadius(
  * actually 0. This means values like 0.2 will be shown as 1%
  * @param onlyShowTrue100 If this is true then 100% will only ever be shown if the [completionRatio]
  * is actually 100. This means values like 99.8 will be shown as 99%
+ *
+ * For more documentation, see [DefaultProgressTextFormatter]
  */
 fun getPercentageString(
     completionRatio: Float,

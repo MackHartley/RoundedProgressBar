@@ -24,8 +24,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_FONT_PATH
 import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_SHOW_TEXT
-import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_TRUE_0
-import com.mackhartley.roundedprogressbar.ProgressTextOverlay.Companion.DEFAULT_TRUE_100
 import com.mackhartley.roundedprogressbar.ext.setDrawableTint
 import com.mackhartley.roundedprogressbar.utils.calculateAppropriateCornerRadius
 import kotlin.math.roundToInt
@@ -63,8 +61,6 @@ class RoundedProgressBar @JvmOverloads constructor(
     @ColorInt private val defaultBackgroundTextColor: Int = ContextCompat.getColor(context, R.color.rpb_default_text_color)
     private val defaultShowProgressText: Boolean = DEFAULT_SHOW_TEXT
     private val defaultTextPadding: Float = context.resources.getDimension(R.dimen.rpb_default_text_padding)
-    private val defaultOnlyShowTrue0 = DEFAULT_TRUE_0
-    private val defaultOnlyShowTrue100 = DEFAULT_TRUE_100
     private val defaultFontPath = DEFAULT_FONT_PATH
 
     // Instance state (ProgressBar related)
@@ -86,8 +82,6 @@ class RoundedProgressBar @JvmOverloads constructor(
     @ColorInt private var backgroundTextColor: Int = defaultBackgroundTextColor
     private var showProgressText: Boolean = defaultShowProgressText
     private var textPadding: Float = defaultTextPadding
-    private var onlyShowTrue0: Boolean = defaultOnlyShowTrue0
-    private var onlyShowTrue100: Boolean = defaultOnlyShowTrue100
     private var customFontPath: String = defaultFontPath
 
     // Progress bar objects
@@ -151,14 +145,6 @@ class RoundedProgressBar @JvmOverloads constructor(
         // Set the side padding for the progress indicator text
         val newTextPadding = rpbAttributes.getDimension(R.styleable.RoundedProgressBar_rpbTextPadding, defaultTextPadding)
         if (newTextPadding != defaultTextPadding) setTextPadding(newTextPadding)
-
-        // Set the onlyShowTrue0 value
-        val newTrue0 = rpbAttributes.getBoolean(R.styleable.RoundedProgressBar_rpbOnlyShowTrue0, defaultOnlyShowTrue0)
-        if (newTrue0 != defaultOnlyShowTrue0) setOnlyShowTrue0(newTrue0)
-
-        // Set the onlyShowTrue100 value
-        val newTrue100 = rpbAttributes.getBoolean(R.styleable.RoundedProgressBar_rpbOnlyShowTrue100, defaultOnlyShowTrue100)
-        if (newTrue100 != defaultOnlyShowTrue100) setOnlyShowTrue100(newTrue100)
 
         // Set a custom font via its path in the assets folder
         val newFontPath = rpbAttributes.getString(R.styleable.RoundedProgressBar_rpbCustomFontPath)
@@ -517,34 +503,8 @@ class RoundedProgressBar @JvmOverloads constructor(
         progressTextOverlay.setTextPadding(newTextPadding)
     }
 
-    /**
-     * If set to true then the progress bar will only ever show "0%" if @see[curProgress] is equal
-     * to 0.0 . In this case, values like 0.2 would be formatted to "1%".
-     *
-     * This is useful for cases where showing "0%" is an important indicator to the user. For
-     * example, if the progress bar is being used to show a fuel tank, you wouldn't want the
-     * progress bar to show 0% fuel left if there's really 0.4%.
-     *
-     * This can be used in conjunction with @see[setOnlyShowTrue100]
-     */
-    fun setOnlyShowTrue0(shouldOnlyShowTrue0: Boolean) {
-        onlyShowTrue0 = shouldOnlyShowTrue0
-        progressTextOverlay.setOnlyShowTrue0(shouldOnlyShowTrue0)
-    }
-
-    /**
-     * If set to true then the progress bar will only ever show "100%" if @see[curProgress] is equal
-     * to 100.0 . In this case, values like 99.8 would be formatted to "99%".
-     *
-     * This is useful for cases where showing "100%" is an important indicator to the user. For
-     * example, if the user has to complete X amount of steps to complete a goal and they have
-     * completed 99.5% of those steps, you wouldn't want to show they are "100%" done.
-     *
-     * This can be used in conjunction with @see[setOnlyShowTrue0]
-     */
-    fun setOnlyShowTrue100(shouldOnlyShowTrue100: Boolean) {
-        onlyShowTrue100 = shouldOnlyShowTrue100
-        progressTextOverlay.setOnlyShowTrue100(shouldOnlyShowTrue100)
+    fun setProgressTextFormatter(newProgressTextFormatter: ProgressTextFormatter) {
+        progressTextOverlay.setProgressTextFormatter(newProgressTextFormatter)
     }
 
     /**
@@ -581,8 +541,6 @@ class RoundedProgressBar @JvmOverloads constructor(
         savedState.savedBackgroundTextColor = backgroundTextColor
         savedState.savedShowProgressText = showProgressText
         savedState.savedTextPadding = textPadding
-        savedState.savedOnlyShowTrue0 = onlyShowTrue0
-        savedState.savedOnlyShowTrue100 = onlyShowTrue100
         savedState.savedCustomFontPath = customFontPath
         return savedState
     }
@@ -612,16 +570,12 @@ class RoundedProgressBar @JvmOverloads constructor(
             backgroundTextColor = state.savedBackgroundTextColor
             showProgressText = state.savedShowProgressText
             textPadding = state.savedTextPadding
-            onlyShowTrue0 = state.savedOnlyShowTrue0
-            onlyShowTrue100 = state.savedOnlyShowTrue100
             customFontPath = state.savedCustomFontPath
             setTextSize(textSize)
             setProgressTextColor(progressTextColor)
             setBackgroundTextColor(backgroundTextColor)
             showProgressText(showProgressText)
             setTextPadding(textPadding)
-            setOnlyShowTrue0(onlyShowTrue0)
-            setOnlyShowTrue100(onlyShowTrue100)
             setCustomFontPath(customFontPath)
         } else {
             super.onRestoreInstanceState(state)
@@ -657,8 +611,6 @@ class RoundedProgressBar @JvmOverloads constructor(
         @ColorInt var savedBackgroundTextColor: Int = 0
         var savedShowProgressText: Boolean = true
         var savedTextPadding: Float = 0f
-        var savedOnlyShowTrue0: Boolean = false
-        var savedOnlyShowTrue100: Boolean = false
         var savedCustomFontPath: String = ""
 
         constructor(superState: Parcelable?) : super(superState)
@@ -680,8 +632,6 @@ class RoundedProgressBar @JvmOverloads constructor(
             savedBackgroundTextColor = source.readInt()
             savedShowProgressText = source.readByte() != 0.toByte()
             savedTextPadding = source.readFloat()
-            savedOnlyShowTrue0 = source.readByte() != 0.toByte()
-            savedOnlyShowTrue100 = source.readByte() != 0.toByte()
             savedCustomFontPath = source.readString() ?: ""
         }
 
@@ -703,8 +653,6 @@ class RoundedProgressBar @JvmOverloads constructor(
             out.writeInt(savedBackgroundTextColor)
             out.writeByte(if (savedShowProgressText) 1.toByte() else 0.toByte())
             out.writeFloat(savedTextPadding)
-            out.writeByte(if (savedOnlyShowTrue0) 1.toByte() else 0.toByte())
-            out.writeByte(if (savedOnlyShowTrue100) 1.toByte() else 0.toByte())
             out.writeString(savedCustomFontPath)
         }
 

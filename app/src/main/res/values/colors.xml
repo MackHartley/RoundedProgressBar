@@ -51,4 +51,9 @@
     <color name="text_color_a6">#FFFFFF</color>
     <color name="bg_text_color_a6">#000000</color>
 
+    <color name="progress_color_a7">#0AFF91</color>
+    <color name="progress_background_color_a7">#BBBBBB</color>
+    <color name="text_color_a7">#000000</color>
+    <color name="bg_text_color_a7">#000000</color>
+
 </resources>
