@@ -16,7 +16,7 @@ Using the `RoundedProgressBar` library you can easily create beautiful progress 
 <br>
 <br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/10659285/115813879-a7894300-a3b9-11eb-9563-fac5b39e8a6c.gif" width="400"/>
+    <img src="https://user-images.githubusercontent.com/10659285/157208030-fe44f49d-1a86-4dec-bb07-a2eb28a60531.gif" width="400"/>
 </p>
 
 If you’d like to see if this library is right for your project then try downloading the demo app which is available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.mackhartley.roundedprogressbarexample). There you can fully customize a `RoundedProgressBar` to see if you’re able to achieve the desired look and feel for your project.
@@ -30,6 +30,7 @@ If you’d like to see if this library is right for your project then try downlo
 Do you use `RoundedProgressBar` in your app? Consider adding a picture or GIF of your usage to [`who_uses_rpb.md`](https://github.com/MackHartley/RoundedProgressBar/blob/master/who_uses_rpb.md). This provides examples to developers on how the library is used and gives your app a bit of **free publicity!**
 
 # Gradle Setup ⚙️
+[![](https://jitpack.io/v/MackHartley/RoundedProgressBar.svg)](https://jitpack.io/#MackHartley/RoundedProgressBar)
 [![](https://jitpack.io/v/MackHartley/RoundedProgressBar.svg)](https://jitpack.io/#MackHartley/RoundedProgressBar)
 
 If you don't have this already, add it to your **root** build.gradle file:
@@ -46,7 +47,7 @@ Then you can add the dependency to your **app** build.gradle file:
 ```
 dependencies {
     ...
-    implementation 'com.github.MackHartley:RoundedProgressBar:2.1.1'
+    implementation 'com.github.MackHartley:RoundedProgressBar:3.0.0'
 }
 ```
 
@@ -59,7 +60,7 @@ dependencies {
     <a href="exampleXmlLayouts/feature2.xml">Click here to see code</a>
 </p>
 
-2) **Custom Font Support** - You can supply your own font for use with the progress bar (`.ttf` and `.otf` formats supported)
+2) **Complete Text Customization** - The text displayed on the progress bar can be <a href="https://github.com/MackHartley/RoundedProgressBar/blob/master/roundedprogressbar/src/main/java/com/mackhartley/roundedprogressbar/ProgressTextFormatter.kt#L3">customized</a> to say whatever you want. Additionally you can add padding and even supply your own font for use with the progress bar (`.ttf` and `.otf` formats supported)
 <p align="center">
     <img src="https://user-images.githubusercontent.com/10659285/115816354-592a7300-a3be-11eb-88e4-c975bb4028e3.gif" />
     <br>
@@ -87,10 +88,7 @@ dependencies {
     Click <a href="https://github.com/MackHartley/RoundedProgressBar/blob/gif-creation-version/app/src/main/res/layout/activity_main.xml#L698-L738">here</a> or <a href="exampleXmlLayouts/feature5.xml">here</a> to see code
 </p>
     
-**Additionally**, the `RoundedProgressBar` handles all internal state during configuration changes (as seen below)
-<p align="center">
-    <img src="art/readme/savesStateOnConfigChange.gif" width="500"/>
-</p>
+**Additionally**, the `RoundedProgressBar` handles all internal state during configuration changes
 
 # Public Methods and Xml Attributes 💻
 These are the methods which can be called on the `RoundedProgressBar` class:
@@ -117,8 +115,6 @@ setAnimationLength(newAnimationLength: Long)
 
 showProgressText(shouldShowProgressText: Boolean)
 setRadiusRestricted(isRestricted: Boolean)
-setOnlyShowTrue0(shouldOnlyShowTrue0: Boolean) // If true the progress bar will not allow non zero values to round down to "0%"
-setOnlyShowTrue100(shouldOnlyShowTrue100: Boolean) // If true the progress bar will not allow non '100' values to round up to "100%"
 ```
 
 The `RoundedProgressBar` can also be configured via xml attributes. Below is the full list of attributes along with the methods they map to.
@@ -139,8 +135,6 @@ The `RoundedProgressBar` can also be configured via xml attributes. Below is the
 | `rpbAnimationLength` | `setAnimationLength(...)` |
 | `rpbShowProgressText` | `showProgressText(...)` |
 | `rpbIsRadiusRestricted` | `setRadiusRestricted(...)` |
-| `rpbOnlyShowTrue0` | `setOnlyShowTrue0(...)` |
-| `rpbOnlyShowTrue100` | `setOnlyShowTrue100(...)` |
 
 # Contributing 🤝
 Feel free to open up issues on this repo to report bugs or request features. 
