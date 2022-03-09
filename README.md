@@ -31,7 +31,6 @@ Do you use `RoundedProgressBar` in your app? Consider adding a picture or GIF of
 
 # Gradle Setup ⚙️
 [![](https://jitpack.io/v/MackHartley/RoundedProgressBar.svg)](https://jitpack.io/#MackHartley/RoundedProgressBar)
-[![](https://jitpack.io/v/MackHartley/RoundedProgressBar.svg)](https://jitpack.io/#MackHartley/RoundedProgressBar)
 
 If you don't have this already, add it to your **root** build.gradle file:
 ```
