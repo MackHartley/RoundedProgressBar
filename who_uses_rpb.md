@@ -7,3 +7,4 @@ An example PR to add to this file can be found here: https://github.com/MackHart
 | App Name (With PlayStore Link) | Github Link (If Applicable) | Picture or GIF of Usage |
 |---|---|---|
 |[MacroTracker](https://play.google.com/store/apps/details?id=com.snowballcorp.macrotracker)|NA|<img src="art/whoUsesRpb/Macrotracker.gif" width="50%"/>|
+|[Food Lookup](https://play.google.com/store/apps/details?id=com.shervinkoushan.foodlookup)|NA|<img src="art/whoUsesRpb/Food_Lookup.png" width="50%"/>|
