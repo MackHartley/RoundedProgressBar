@@ -143,9 +143,9 @@ Additionally if you'd like to contribute to the library please feel free to open
 **Special thanks to all those who have supported this repo thus far!**
 
 <p align="center">
-    <a href="https://github.com/MackHartley/RoundedProgressBar/stargazers"><img src="https://reporoster.com/stars/MackHartley/RoundedProgressBar"/></a>
+    <a href="https://github.com/MackHartley/RoundedProgressBar/stargazers"><img src="http://reporoster.com/stars/MackHartley/RoundedProgressBar"/></a>
     <br>
-    <a href="https://github.com/MackHartley/RoundedProgressBar/network/members"><img src="https://reporoster.com/forks/MackHartley/RoundedProgressBar"/></a>
+    <a href="https://github.com/MackHartley/RoundedProgressBar/network/members"><img src="http://reporoster.com/forks/MackHartley/RoundedProgressBar"/></a>
     <br>
     <br>
     <i>Featured in <a href="https://androidweekly.net/issues/issue-467">Android Weekly</a>, <a href="https://android-arsenal.com/details/1/8327">Android Arsenal</a> and <a href="https://medium.com/@mmbialas/25-best-android-libraries-projects-and-tools-you-dont-want-to-miss-in-2021-681dafe58b1c">Medium</a></i>.
